@@ -1,0 +1,60 @@
+#topBackground {
+	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/BiPlane.jpg?raw=true) 50% fixed;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: 0px 20px;
+	height: auto;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+	padding: 320px 0;
+}
+#bottomBackground {
+	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/COAS.jpg?raw=true) 100% fixed;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: 0px 20px;
+	height: auto;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+	padding: 300px 0;
+  text-color: #ffffff;
+}
+
+#home {
+	padding-top: 40px;
+  padding-bottom: 20px;
+	background-color: #1ba1e2;
+  color: white;
+}
+#headshot {
+  background-size: contains;
+	padding-top: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+}
+#experience {
+	padding-top: 40px;
+	padding-bottom: 20px;
+	background-color: #ffffff;
+  font-size: 16px
+}
+#contact {
+	padding-top: 20px;
+	padding-bottom: 5px;
+	background-color: #1ba1e2;
+}
+.well {
+  float: right;
+  text-align: center;
+	background-color: #eeeeee;
+  width: 25%;
+}
+.navbar {
+  background-color: #ffffff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-color: white;
+}

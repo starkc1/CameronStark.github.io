@@ -1,60 +1,75 @@
-#topBackground {
-	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/Space_2.jpg?raw=true) 50% fixed;
-	background-size: cover;
-	background-repeat:no-repeat;
-	background-position: 0px 0px;
-	height: auto;
-	margin: 0 auto;
-	width: 100%;
-	position: relative;
-	padding: 300px 0;
+.navbar {
+  background-color: white;
+  padding: 0px;
+  font-size: 15px;
+  font-color: #1ba1e2;
 }
-#bottomBackground {
-	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/Space_2.jpg?raw=true) 100% fixed;
-	background-size: cover;
-	background-repeat:no-repeat;
-	background-position: 0px 20px;
-	height: auto;
-	margin: 0 auto;
-	width: 100%;
-	position: relative;
-	padding: 300px 0;
-  text-color: #ffffff;
+
+.titleofsliders1 {
+  height: 50px;
+  margin-top: 50px;
+  background-color: #1ba1e2;
+  color: white;
+  text-align: center;
+  font-size: 35px;
 }
 
 #home {
-	padding-top: 40px;
+	padding-top: 20px;
   padding-bottom: 20px;
-	background-color: #1ba1e2;
+	background-color: #fffff;
+  background-size: cover;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.titleofslidersspace {
+  height: 50px;
+  margin-top: 30px;
+  background-color: #1ba1e2;
   color: white;
+  text-align: center;
+  font-size: 35px;
 }
-#headshot {
-  background-size: contains;
-	padding-top: 30px;
-	padding-right: 30px;
-	padding-bottom: 30px;
+
+.titleofsliders2 {
+  height: 50px;
+  margin-top: 0px;
+  background-color: #1ba1e2;
+  color: white;
+  text-align: center;
+  font-size: 35px;
 }
+
 #experience {
-	padding-top: 40px;
+	padding-top: 20px;
 	padding-bottom: 20px;
+  margin-top: 0px;
 	background-color: #ffffff;
   font-size: 16px
 }
-#contact {
-	padding-top: 20px;
-	padding-bottom: 5px;
-	background-color: #1ba1e2;
+
+#Tier0 {
+  background-size: contains;
+	padding-top: 0px;
+	padding-right: 0px;
+  height: 200px;
+	padding-bottom: 0px;
 }
-.well {
-  float: right;
-  text-align: center;
-	background-color: #eeeeee;
-  width: 25%;
-}
-.navbar {
-  background-color: #ffffff;
+
+.titleofsliders3 {
+  height: 50px;
+  margin-top: 0px;
+  background-color: #1ba1e2;
   color: white;
-  padding: 10px;
-  font-size: 16px;
-  font-color: white;
+  text-align: center;
+  font-size: 35px;
+}
+
+#projects {
+	padding-top: 20px;
+	padding-bottom: 20px;
+  margin-top: 0px;
+	background-color: #ffffff;
+  font-size: 16px
 }

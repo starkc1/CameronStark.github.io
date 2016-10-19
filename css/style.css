@@ -5,9 +5,16 @@
   font-color: #1ba1e2;
 }
 
-#myCarousel{
+#topBackground {
+	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/Space_2.jpg?raw=true) 50% fixed;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: 0px 0px;
+	height: auto;
+	margin: 0 auto;
 	width: 100%;
-	height: 50%;
+	position: relative;
+	padding: 300px 0;
 }
 
 .titleofsliders1 {

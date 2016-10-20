@@ -35,6 +35,13 @@
   color: black;
 }
 
+#headshot {
+  background-size: contains;
+	padding-top: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+}
+
 #Project1 {
 	padding-top: 20px;
   padding-bottom: 20px;

@@ -17,7 +17,7 @@
 	padding: 200px 0;
 }
 
-.titleofsliders1 {
+.titleofsliders {
   height: 50px;
   margin-top: 50px;
   background-color: #1ba1e2;
@@ -60,15 +60,6 @@
   font-size: 35px;
 }
 
-.titleofsliders2 {
-  height: 50px;
-  margin-top: 0px;
-  background-color: #1ba1e2;
-  color: white;
-  text-align: center;
-  font-size: 35px;
-}
-
 #experience {
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -83,15 +74,6 @@
 	padding-right: 0px;
   height: 200px;
 	padding-bottom: 0px;
-}
-
-.titleofsliders3 {
-  height: 50px;
-  margin-top: 0px;
-  background-color: #1ba1e2;
-  color: white;
-  text-align: center;
-  font-size: 35px;
 }
 
 #projects {

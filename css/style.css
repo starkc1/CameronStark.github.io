@@ -3,7 +3,6 @@
   border-color: transparent;
   padding: 0px;
   font-size: 15px;
-  font-color: #1ba1e2;
 }
 
 #topBackground {
@@ -30,7 +29,7 @@
 #home {
 	padding-top: 10px;
   padding-bottom: 20px;
-	background-color: #fffff;
+	background-color: #ffffff;
   background-size: cover;
   margin-bottom: 20px;
   color: black;
@@ -46,7 +45,7 @@
 #Project {
 	padding-top: 20px;
   padding-bottom: 20px;
-	background-color: #fffff;
+	background-color: #ffffff;
   background-size: cover;
   margin-bottom: 20px;
   color: black;

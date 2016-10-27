@@ -5,6 +5,16 @@
   font-size: 15px;
 }
 
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
 #topBackground {
 	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/Space_2.jpg?raw=true) 50% fixed;
 	background-size: cover;

@@ -106,7 +106,30 @@
   font-size: 16px
 }
 
-.thumbnail
-{
-  box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+div.img {
+            margin: 5px;
+            float: left;
+            width: 180px;
+            padding: 0px 0px 0px 0px;
+            box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
 }
+
+div.desc {
+            padding: 15px;
+            text-align: center;
+}
+
+div.Experience {
+            align-content: center;
+            margin: 50px;
+}
+
+div.img img {
+            width: 100%;
+            height: auto;
+}
+
+div.img:hover {
+            border: 1px solid #1ba1e2;
+}
+

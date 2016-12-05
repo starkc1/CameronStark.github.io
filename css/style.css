@@ -139,7 +139,7 @@ div.Projects {
 }
 
 div.projectimg {
-            margin: 15px;
+            margin: 7px;
             float: left;
             width: 226px;
             padding: 0px 0px 0px 0px;
@@ -147,5 +147,5 @@ div.projectimg {
 }
 
 div.projectimg:hover {
-            border: .5px solid #1ba1e2;
+            border: 0px solid #1ba1e2;
 }

@@ -133,3 +133,15 @@ div.img:hover {
             border: 1px solid #1ba1e2;
 }
 
+div.Projects {
+            align-content: center;
+            margin: 0px;
+}
+
+div.projectimg {
+            margin: 5px;
+            float: left;
+            width: 300px;
+            padding: 0px 0px 0px 0px;
+            box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+}

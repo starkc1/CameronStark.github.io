@@ -147,5 +147,5 @@ div.projectimg {
 }
 
 div.projectimg:hover {
-            border: 0px solid #1ba1e2;
+            border: .5px solid #1ba1e2;
 }

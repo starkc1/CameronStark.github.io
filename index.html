@@ -28,7 +28,7 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
-<body>
+<body ng-app="myApp" >
   <!-- Navigation Bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -178,10 +178,10 @@
               Lead Mobile and Desktop Developer
             </h4>
             <p>
-              Developed universal (UWP) apps for Windows 10
+              Developed Universal (UWP) apps for Windows 10
             </p>
             <p>
-              Developed Windows 8.1 Desktop applications and WIndows 8.1 Mobile applications
+              Developed Windows 8.1 Desktop applications and Windows 8.1 Mobile applications
             </p>
           </div>
         </div>
@@ -219,18 +219,18 @@
   <!-- Projects -->
   <section>
     <div class="container" >
-      <div class="Projects">
+      <div class="Projects" ng-controller="ProjectsController">
         <!-- Project_1 -->
-        <div class="projectimg" ng-app="myApp" ng-controller="ProjectsController">
+        <div class="projectimg" ng-repeat="x in projects">
           <a href="Projects.html">
-            <img ng-src="{{ projects.image }}" height="400">
+            <img ng-src="{{ x.image }}" height="400">
           </a>
           <div class="desc">
             <p>
-              {{ projects.desc1 }}
+              {{ x.desc1 }}
             </p>
             <p>
-              {{ projects.desc2 }}
+              {{ x.desc2 }}
             </p>
           </div>
         </div>

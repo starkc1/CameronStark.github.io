@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', function($scope)
+app.controller('ProjectsController', ['$scope', function($scope)
 {
     $scope.projects =
     [

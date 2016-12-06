@@ -108,6 +108,13 @@
   font-size: 16px
 }
 
+#skills
+{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
 div.img {
             margin: 5px;
             float: left;

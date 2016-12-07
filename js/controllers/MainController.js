@@ -37,18 +37,16 @@ app.controller('MainController', ['$scope', function($scope)
     $scope.experience = 
     [
         {
-            image: 'images/StarkNetwork_Logo1.jpg',
+            image: 'images/StarkNetwork_Logo2.jpg',
             company: 'Starknetwork',
             position: 'Mobile and Desktop Developer',
-            desc1: 'Developed webpages for various customers',
-            desc2: 'Developed mobile applications for various customers'
+            desc1: 'Developed webpages/apps for various customers',
         },
         {
             image: 'images/Tier-Zero_Logo-Small.png',
             company: 'Tier-Zero',
             position: 'Lead Mobile and Desktop Developer',
             desc1: 'Developed Universal (UWP) apps for windows 10',
-            desc2: 'Developed Windows 8.1 Desktop applications and Windows 8.1 Mobile applications'
         },
         {
             image: 'images/Fusion_Logo.png',

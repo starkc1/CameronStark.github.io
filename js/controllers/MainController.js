@@ -37,7 +37,7 @@ app.controller('MainController', ['$scope', function($scope)
     $scope.experience = 
     [
         {
-            image: 'images/StarkNetwork_Logo.png',
+            image: 'images/StarkNetwork_Logo1.jpg',
             company: 'Starknetwork',
             position: 'Mobile and Desktop Developer',
             desc1: 'Developed webpages for various customers',

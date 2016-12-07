@@ -101,12 +101,13 @@
 
   <!-- First BACKGROUND -->
   <section id="topBackground" data-speed="6" data-type="background">
-    <div class="container" id="skills" ng-controller="MainController">
+    <div class="container" id="skills">
       <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-7">
+          <div ng-repeat="z in languages" ng-controller="MainController"> 
           <h3><b>Programming Languages</b></h3>
-          <div class="chip" ng-repeat="z in languages">{{ z.lang1 }}</div>
-          <div class="chip" ng-repeat="z in languages">{{ z.lang2 }}</div>
+          <div class="chip">{{ z.lang1 }}</div>
+          <div class="chip">{{ z.lang2 }}</div>
           </br>
           </br>
         </div>

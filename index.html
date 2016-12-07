@@ -158,70 +158,27 @@
   <!-- Experience -->
   <section>
     <div class="container">
-      <div class="Experience">
+      <div class="Experience" ng-controller="ExperienceController">
         <!--StarkNetwork-->
-        <div class="img">
+        <div class="img" ng-repeat="y in experience">
           <a target="" href="">
-            <img src="images/StarkNetwork_Logo.png">
+            <img src="{{ y.image }}">
           </a>
           <div class="desc">
             <h3>
-              Starknetwork.com
+              {{ y.company }}
             </h3>
             <h4>
-              Mobile and Desktop Developer
+              {{ y.position }}
             </h4>
             <p>
-              Developed webpages for various customers
+              {{ y.desc1 }}
             </p>
             <p>
-              Developed mobile applications for various customers
+              {{ y.desc2 }}
             </p>
           </div>
         </div>
-        <!--StarkNetwork-->
-        <!--Tier-Zero-->
-        <div class="img">
-          <a target="" href="">
-            <img src="images/Tier-Zero_Logo-Small.png">
-          </a>
-          <div class="desc">
-            <h3>
-              Tier-Zero
-            </h3>
-            <h4>
-              Lead Mobile and Desktop Developer
-            </h4>
-            <p>
-              Developed Universal (UWP) apps for Windows 10
-            </p>
-            <p>
-              Developed Windows 8.1 Desktop applications and Windows 8.1 Mobile applications
-            </p>
-          </div>
-        </div>
-        <!--Tier-Zero-->
-        <!--Fusion Advertising-->
-        <div class="img">
-          <a target="" href="">
-            <img src="images/Fusion_Logo.png">
-          </a>
-          <div class="desc">
-            <h3>
-              Fusion Advertising
-            </h3>
-            <h4>
-              Lead Mobile Application Developer
-            </h4>
-            <p>
-              Developed The Frugal You coupon application
-            </p>
-            <p>
-              Using Xamarin Forms to create the Android and iOS application
-            </p>
-          </div>
-        </div>
-        <!--Fusion Advertising-->
       </div>
     </div>
   </section>
@@ -235,7 +192,6 @@
   <section>
     <div class="container">
       <div class="Projects" ng-controller="ProjectsController">
-        <!-- Project_1 -->
         <div class="projectimg" ng-repeat="x in projects">
           <a href="Projects.html">
             <img ng-src="{{ x.image }}" height="400">
@@ -263,6 +219,7 @@
 <script src="js/app.js"></script>
 
 <script src="js/controllers/ProjectsController.js"></script>
+<sctipt src="js/controllers/ExperienceController.js"></script>
 
 
 <!-- Bootstrap core JavaScript

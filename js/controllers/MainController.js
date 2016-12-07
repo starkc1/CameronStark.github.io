@@ -52,7 +52,6 @@ app.controller('MainController', ['$scope', function($scope)
             image: 'images/Fusion_Logo.png',
             company: 'Fusion Advertising',
             position: 'Lead Mobile Application Developer',
-            desc1: 'Developed The Frugal You coupon application',
             desc1: 'Using Xamarin.Forms to create the Android and iOS aplication'
         }
     ];

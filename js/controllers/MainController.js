@@ -55,4 +55,33 @@ app.controller('MainController', ['$scope', function($scope)
             desc1: 'Using Xamarin.Forms to create the Android and iOS aplication'
         }
     ];
+
+    $scope.languages = 
+    [
+        {
+            lang1: 'HTML',
+            lang2: 'C#'
+        },
+        {
+            lang1: 'Xamarin',
+            lang2: 'C++'
+        },
+        {
+            lang1: 'CSS',
+            lang2: 'Python'
+        },
+        {
+            lang1: 'XAML',
+            lang2: 'JavaScript'
+        },
+        {
+            lang1: 'Ruby',
+            lang2: 'SQL'
+        },
+        {
+            lang1: 'Bootstrap',
+            lang2: 'AngularJS'
+        },
+
+    ];
 }]);

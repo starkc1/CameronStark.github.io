@@ -101,35 +101,14 @@
 
   <!-- First BACKGROUND -->
   <section id="topBackground" data-speed="6" data-type="background">
-    <div class="container" id="skills">
+    <div class="container" id="skills" ng-controller="MainController">
       <div class="row">
-        <div class="col-lg-7 col-md-7 col-sm-7">
+        <div class="col-lg-7 col-md-7 col-sm-7" ng-repeat="z in languages">
           <h3><b>Programming Languages</b></h3>
-          <div class="chip">HTML</div>
-          <div class="chip">C#</div>
+          <div class="chip">{{ z.lang1 }}</div>
+          <div class="chip">{{ z.lang2 }}</div>
           </br>
           </br>
-          <div class="chip">Xamarin</div>
-          <div class="chip">C++</div>
-          </br>
-          </br>
-          <div class="chip">CSS</div>
-          <div class="chip">Python</div>
-          </br>
-          </br>
-          <div class="chip">XAML</div>
-          <div class="chip">JavaScript</div>
-          </br>
-          </br>
-          <div class="chip">Ruby</div>
-          <div class="chip">Java</div>
-          </br>
-          </br>
-          <div class="chip">SQL</div>
-          <div class="chip">Bootstrap</div>
-          </br>
-          </br>
-          <div class="chip">Angularjs</div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5">
           <h3><b>Software Skills</b></h3>

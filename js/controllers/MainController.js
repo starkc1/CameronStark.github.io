@@ -87,7 +87,20 @@ app.controller('MainController', ['$scope', function($scope)
     $scope.software =
     [
         {
-
+            software1: 'Visual Studio 2015',
+            software2: 'Matlab'
+        },
+        {
+            software1: 'Vegas Studio',
+            software2: 'Catia'
+        },
+        {
+            software1: 'Blender',
+            software2: 'AutoCad'
+        },
+        {
+            software1: 'Photoshop',
+            software2: 'GitHub'
         }
     ];
 }]);

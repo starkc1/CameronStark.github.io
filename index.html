@@ -102,11 +102,16 @@
   <!-- First BACKGROUND -->
   <section id="topBackground" data-speed="6" data-type="background">
     <div class="container" ng-controller="MainController">
+      <h2>Programming Languages</h2>
       <div class="languages" ng-repeat="z in languages">
         <div class="chip"> {{ z.lang1 }} </div>
         <div class="chip"> {{ z.lang2 }} </div>
         </br>
         </br>
+      </div>
+      <h2>Software Skills</h2>
+      <div class="software" ng-repeat="a in software">
+        <div class="chip"> {{ a.software }}
       </div>
     </div>
   </section>

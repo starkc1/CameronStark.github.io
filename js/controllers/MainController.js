@@ -83,4 +83,11 @@ app.controller('MainController', ['$scope', function($scope)
             lang2: 'AngularJS'
         },
     ];
+
+    $scope.software =
+    [
+        {
+
+        }
+    ];
 }]);

@@ -57,30 +57,28 @@
   </nav>
 
   <section>
-    <div ng-repeat="b in projectsdetailed" ng-controller="MainController">
-      <div class="titleofsliders">
-        <p id="Project1"> {{ b.title }}</p>
-      </div>
-      <div class="container">
-        <div class="projectdetails">
-          <div class="detailimg" ng-repeat="b in projectsdetailed">
-            <a>
-              <img src="{{ b.image }}" height="300">
-            </a>
-            <div class="desc">
-              <h1>
-                {{ b.created }}
-              </h1>
-              <p>
-                {{ b.p1 }}
-              </p>
-              <p>
-                {{ b.p2 }}
-              </p>
-              <p>
-                {{ b.p3 }}
-              </p>
-            </div>
+    <div class="titleofsliders" ng-repeat="b in projectsdetailed" ng-controller="MainController">
+      <p id="Project1"> {{ b.title }}</p>
+    </div>
+    <div class="container">
+      <div class="projectdetails">
+        <div class="detailimg" ng-repeat="b in projectsdetailed" ng-controller="MainController">
+          <a>
+            <img src="{{ b.image }}" height="300">
+          </a>
+          <div class="desc">
+            <h1>
+              {{ b.created }}
+            </h1>
+            <p>
+              {{ b.p1 }}
+            </p>
+            <p>
+              {{ b.p2 }}
+            </p>
+            <p>
+              {{ b.p3 }}
+            </p>
           </div>
         </div>
       </div>

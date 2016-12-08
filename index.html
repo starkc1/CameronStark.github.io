@@ -101,22 +101,20 @@
 
   <!-- First BACKGROUND -->
   <section id="topBackground" data-speed="6" data-type="background">
-    <div class="col-lg-6 col-md-4 col-sm-4">
-      <div class="container" ng-controller="MainController">
-        <h2>Programming Languages</h2>
-        <div class="languages" ng-repeat="z in languages">
-          <div class="chip"> {{ z.lang1 }} </div>
-          <div class="chip"> {{ z.lang2 }} </div>
-          </br>
-          </br>
-        </div>
-        <h2>Software Skills</h2>
-        <div class="software" ng-repeat="a in software">
-          <div class="chip"> {{ a.software1 }} </div>
-          <div class="chip"> {{ a.software2 }} </div>
-          </br>
-          </br>
-        </div>
+    <div class="container-fluid" ng-controller="MainController">
+      <h2>Programming Languages</h2>
+      <div class="languages" ng-repeat="z in languages">
+        <div class="chip"> {{ z.lang1 }} </div>
+        <div class="chip"> {{ z.lang2 }} </div>
+        </br>
+        </br>
+      </div>
+      <h2>Software Skills</h2>
+      <div class="software" ng-repeat="a in software">
+        <div class="chip"> {{ a.software1 }} </div>
+        <div class="chip"> {{ a.software2 }} </div>
+        </br>
+        </br>
       </div>
     </div>
   </section>

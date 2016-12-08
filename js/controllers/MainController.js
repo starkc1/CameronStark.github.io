@@ -82,6 +82,5 @@ app.controller('MainController', ['$scope', function($scope)
             lang1: 'Bootstrap',
             lang2: 'AngularJS'
         },
-
     ];
 }]);

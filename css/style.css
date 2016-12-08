@@ -118,6 +118,12 @@
   align-content: center;
 }
 
+.text
+{
+  text-align: center;
+  
+}
+
 
 div.img {
             margin: 5px;

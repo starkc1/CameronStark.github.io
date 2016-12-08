@@ -142,9 +142,6 @@ div.img img {
             height: 50px;
 }
 
-div.img:hover {
-            border: 1px solid #1ba1e2;
-}
 
 div.Projects {
             align-content: center;

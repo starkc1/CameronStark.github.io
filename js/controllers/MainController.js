@@ -103,4 +103,56 @@ app.controller('MainController', ['$scope', function($scope)
             software2: 'GitHub'
         }
     ];
+
+    $scope.projectsdetailed = 
+    [   
+        {
+            title: 'Basic Math Solver (Windows 10)',
+            image: 'images/Project_1.png',
+            created: 'Created By: Cameron Stark',
+            p1: 'Solve basic math problems such as Area, Volume and Trig',
+            p2: 'Made with Visual Studio 2015',
+            p3: 'C# and XAML'
+        },
+        {
+            title: 'Basic Math Solver (iOS)',
+            image: 'images/Project_2.png',
+            created: 'Created By: Cameron Stark',
+            p1: 'Solve basic math problems such as Area, Volume and Trig',
+            p2: 'Made with Visual Studio 2015 and Xamarin Studio',
+            p3: 'C#, XAML, and Xamarin.Forms'
+        },
+        {
+            title: 'Basic Math Solver (Android)',
+            image: 'images/Project_2-5.png',
+            created: 'Created By: Cameron Stark',
+            p1: 'Solve basic math problems such as Area, Volume and Trig',
+            p2: 'Made with Visual Studio 2015 and Xamarin Studio',
+            p3: 'C#, XAML, and Xamarin.Forms'
+        },
+        {
+            title: 'The Frugal You (iOS and Android)',
+            image: 'images/Project_3.png',
+            created: 'Created By: Cameron Stark',
+            p1: 'Collect and use coupons for various stores and products',
+            p2: 'Made with Visual Studio 2015 and Xamarin Studio',
+            p3: 'C#, XAML, and Xamarin.Forms'
+        },
+        {
+            title: 'EvenToConnect (Website)',
+            image: 'images/Project_4.jpg',
+            created: 'Created By: Cameron Stark, Pablo Garces, Brian Nunes De Souza, and Nicholas Van Bommel at HackRiddle 2016',
+            p1: 'Takes user uploaded pictures and parses them through the clairfai API to determine what category they belong in',
+            p2: 'Made with Visual Studio 2015',
+            p3: 'C#.NET, HTML, CSS, and Bootstrap'
+        },
+        {
+            title: 'HackRiddle App (Website)',
+            image: 'images/Project_5.jpg',
+            created: 'Created By: Embry-Riddle Mobile Application Development Club for HackRiddle 2016',
+            p1: 'Allows HackRiddle attendees to keep track of social media and events going on during hackriddle',
+            p2: 'HTML, CSS, and Materialize',
+            p3: 'Twitter API and Notification API'
+        }
+    ];
 }]);

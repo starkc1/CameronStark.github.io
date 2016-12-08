@@ -56,13 +56,13 @@
     </div>
   </nav>
 
-  <section ng-controller="MainController">
+  <section ng-controller="MainController" ng-repeat="b in projectsdetailed">
     <div class="titleofsliders">
       <p id="Project1"> {{ b.title }}</p>
     </div>
     <div class="container">
       <div class="projectdetails">
-        <div class="detailimg" ng-repeat="b in projectsdetailed" >
+        <div class="detailimg">
           <a>
             <img src="{{ b.image }}" height="300">
           </a>

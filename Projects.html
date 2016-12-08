@@ -27,7 +27,7 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
-<body>
+<body ng-app="myApp"> 
 
   <!-- Navigation Bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -57,7 +57,7 @@
   </nav>
 
   <section>
-    <div class="titleofsliders">
+    <div class="titleofsliders" ng-repeat="b in projectsdetailed" ng-controller="MainController">
       <p id="Project1"> {{ b.title }}</p>
     </div>
     <div class="container">

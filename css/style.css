@@ -183,3 +183,8 @@ div.detailimg {
             padding: 0px 0px 0px 0px;
             box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
 }
+
+div.detailimg img {
+            width: 100%;
+            height: 400px;
+}

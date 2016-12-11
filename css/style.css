@@ -177,7 +177,8 @@ div.projectimg img {
 
 
 div.detailimg {
-            margin: 5px;
+            margin-left: 22px;
+            margin-bottom: 20px;
             float: left;
             width: 260px;
             padding: 0px 0px 0px 0px;

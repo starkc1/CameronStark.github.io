@@ -31,7 +31,7 @@
 
 
   <style>
-    .container{
+    .container {
       padding-left: 120px;
     }
   </style>
@@ -64,11 +64,9 @@
     </div>
   </nav>
 
-  <section id="Project" ng-controller="MainController" >
-    <div class="titleofsliders" ng-repeat="c in projectsdetailed">
-      <p id="Project1">{{ c.title }}</p>
-    </div>
+  <section id="Project" ng-controller="MainController">
     <div class="container" ng-repeat="c in projectsdetailed">
+      <p class="titleofsliders">{{ c.title }}</p>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="detailimg">
           <a>
@@ -81,12 +79,12 @@
           <h1>
             {{ c.created }}
           </h1>
-            {{ c.p1 }}
+          {{ c.p1 }}
           </br>
           </br>
-            {{ c.p2 }}
+          {{ c.p2 }}
           </br>
-            {{ c.p3 }}
+          {{ c.p3 }}
         </p>
       </div>
     </div>

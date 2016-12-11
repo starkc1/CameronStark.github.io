@@ -64,11 +64,11 @@
     </div>
   </nav>
 
-  <section id="Project" ng-controller="MainController" ng-repeat="c in projectsdetailed">
-    <div class="titleofsliders">
+  <section id="Project" ng-controller="MainController" >
+    <div class="titleofsliders" ng-repeat="c in projectsdetailed">
       <p id="Project1">{{ c.title }}</p>
     </div>
-    <div class="container">
+    <div class="container" ng-repeat="c in projectsdetailed">
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="detailimg">
           <a>

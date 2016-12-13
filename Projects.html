@@ -69,24 +69,26 @@
   <section id="Project" ng-controller="MainController">
     <div class="container-fluid" ng-repeat="c in projectsdetailed">
       <p class="titleofsliders">{{ c.title }}</p>
-      <div class="col-lg-12 col-md-4 col-sm-4">
-        <div class="detailimg">
-          <a>
-            <img src="{{ c.image }}" height="300" class="img-responsive">
-          </a>
+      <div class="container">
+        <div class="col-lg-12 col-md-4 col-sm-4">
+          <div class="detailimg">
+            <a>
+              <img src="{{ c.image }}" height="300" class="img-responsive">
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-12 col-md-8 col-sm-8">
-        <div class="text">
-          <h3>
-            {{ c.created }}
-          </h3> 
-          {{ c.p1 }}
-          </br>
-          </br>
-          {{ c.p2 }}
-          </br>
-          {{ c.p3 }}
+        <div class="col-lg-12 col-md-8 col-sm-8">
+          <div class="text">
+            <h3>
+              {{ c.created }}
+            </h3>
+            {{ c.p1 }}
+            </br>
+            </br>
+            {{ c.p2 }}
+            </br>
+            {{ c.p3 }}
+          </div>
         </div>
       </div>
     </div>

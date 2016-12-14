@@ -33,7 +33,7 @@
 
 .titlebar {
   height: 50px;
-  margin-top: 50px;
+  margin-top: 0px;
   background-color: #1ba1e2;
   color: white;
   text-align: center;
@@ -43,7 +43,7 @@
 
 .hookbar{
   height: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
   background-color: transparent;
   color: transparent;
   text-align: center;

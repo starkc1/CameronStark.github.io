@@ -107,6 +107,7 @@ app.controller('MainController', ['$scope', function($scope)
     $scope.projectsdetailed = 
     [   
         {
+            project: 'Project1',
             title: 'Basic Math Solver (Windows 10)',
             image: 'images/Project_1.png',
             created: 'Created By: Cameron Stark',
@@ -115,6 +116,7 @@ app.controller('MainController', ['$scope', function($scope)
             p3: 'C# and XAML'
         },
         {
+            project: 'Project2',
             title: 'Basic Math Solver (iOS)',
             image: 'images/Project_2.png',
             created: 'Created By: Cameron Stark',
@@ -123,6 +125,7 @@ app.controller('MainController', ['$scope', function($scope)
             p3: 'C#, XAML, and Xamarin.Forms'
         },
         {
+            project: 'Project3',
             title: 'Basic Math Solver (Android)',
             image: 'images/Project_2-5.png',
             created: 'Created By: Cameron Stark',
@@ -131,6 +134,7 @@ app.controller('MainController', ['$scope', function($scope)
             p3: 'C#, XAML, and Xamarin.Forms'
         },
         {
+            project: 'Project4',
             title: 'The Frugal You (iOS and Android)',
             image: 'images/Project_3.png',
             created: 'Created By: Cameron Stark',
@@ -139,6 +143,7 @@ app.controller('MainController', ['$scope', function($scope)
             p3: 'C#, XAML, and Xamarin.Forms'
         },
         {
+            project: 'Project5',
             title: 'EvenToConnect (Website)',
             image: 'images/Project_4.jpg',
             created: 'Created By: Cameron Stark, Pablo Garces, Brian Nunes De Souza, and Nicholas Van Bommel at HackRiddle 2016',
@@ -147,6 +152,7 @@ app.controller('MainController', ['$scope', function($scope)
             p3: 'C#.NET, HTML, CSS, and Bootstrap'
         },
         {
+            project: 'Project6',
             title: 'HackRiddle App (Website)',
             image: 'images/Project_5.jpg',
             created: 'Created By: Embry-Riddle Mobile Application Development Club for HackRiddle 2016',

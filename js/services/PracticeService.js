@@ -3,7 +3,4 @@ app.factory('Domains', ['$http', function($http) {
         .success(function(data) {
             return data;
         })
-        .error(function(error) {
-            return error;
-        });
 }]);

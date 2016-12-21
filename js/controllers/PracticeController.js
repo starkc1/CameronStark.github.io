@@ -1,8 +1,5 @@
-app.controller('PracticeController', ['$scope', 'Domains', function($scope, Domains) {
-    Domains.success(function(data) {
-        $scope.info = 
-        {
-            name: 'State Machine'
-        };
+app.controller('PracticeController', function($scope, domains) {
+    domains.getDomains(function(data) {
+        $scope.info = data;
     });
-}]);
+});

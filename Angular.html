@@ -20,6 +20,14 @@
 
 </head>
 
+<style>
+    .panel.heading
+    {
+        text-align: center;
+    }
+
+</style>
+
 <body ng-app="Portfolio">
     <div class="container" ng-controller="PracticeController">
         <div class="row">
@@ -29,6 +37,19 @@
                 <div class="panel panel-default" >
                     <div class="panel-heading">
                         <h3> name </h3>
+                    </div>
+                    <div class="panel-body">
+                        <h4> description </h4>
+                        <p> version history </p>
+                        <p> Domain Type</p>
+                        <ul>
+                            <p> major </p>
+                            <p> minor </p>
+                            <p> revision </p>
+                            <p> build </p>
+                            <p> datestamp </p>
+                            <p> release notes</p>
+                        </ul>
                     </div>
                 </div>
             </div>

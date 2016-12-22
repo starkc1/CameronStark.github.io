@@ -1,5 +1,5 @@
-app.controller('PracticeController', function($scope, domains) {
-    domains.getDomains(function(data) {
-        $scope.domains = data;
+app.controller('PracticeController', ['$scope', 'PracticeService', function($scope, PracticeService) {
+    PracticeService.success(function(data) {
+        $scope.info = data;
     });
-});
+}]);

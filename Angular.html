@@ -21,13 +21,10 @@
 </head>
 
 <style>
-    .panel {
+    .card {
         margin-top: 40px;
     }
     
-    .panel-heading {
-        text-align: center;
-    }
 </style>
 
 <!--<body ng-app="Portfolio">
@@ -73,14 +70,12 @@
     <div class="container" ng-controller="ActualController">
         <div class="card" ng-repeat="Info in info">
             <div class="card-block">
-                <h4> {{ Info.name }} </h4>
-                <h6> {{ Info.description }} </h6>
+                <h4 class="card-title"> {{ Info.name }} </h4>
+                <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
             </div>
             <div class="card-block">
-                <p>
-                    <u>Version History:</u> {{ Info.versionHistory}} </p>
-                <p>
-                    <u>Domain Type:</u> {{ Info.domainType }}</p>
+                <p><u>Version History:</u> {{ Info.versionHistory}} </p>
+                <p><u>Domain Type:</u> {{ Info.domainType }}</p>
                 <u>Current Version:</u>
                 <ul>
                     <li>

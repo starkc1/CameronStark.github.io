@@ -45,8 +45,8 @@
                         <h4> {{ Info.description }} </h4>
                         <p> {{ Info.versionHistory}} </p>
                         <p> {{ Info.domainType }}</p>
-                        <ul>
-                            <p> {{ info.major }} </p>
+                        <ul ng-repeat="Info in currentVersion">
+                            <p> {{ Info.major }} </p>
                             <p> {{ Info.minor }} </p>
                             <p> {{ Info.revision }} </p>
                             <p> {{ Info.currentversion.build }}  </p>

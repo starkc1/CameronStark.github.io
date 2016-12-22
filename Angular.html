@@ -53,48 +53,10 @@
     }
 </style>
 
-<!--<body ng-app="Portfolio">
-    <div class="container" ng-controller="ActualController">
-        <div class="row">
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-5">
-                <div class="panel panel-default" ng-repeat="Info in info">
-                    <div class="panel-heading">
-                        <h3>{{ Info.name }} </h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>
-                            <u>Description:</u> {{ Info.description }} </h4>
-                        <p>
-                            <u>Version History:</u> {{ Info.versionHistory}} </p>
-                        <p>
-                            <u>Domain Type:</u> {{ Info.domainType }}</p>
-                        <u>Current Version:</u>
-                        <ul>
-                            <li>
-                                <u>Major:</u> {{ Info.currentVersion.major }} </li>
-                            <li>
-                                <u>Minor:</u> {{ Info.currentVersion.minor }} </li>
-                            <li>
-                                <u>Revision:</u> {{ Info.currentVersion.revision }} </li>
-                            <li>
-                                <u>Build:</u> {{ Info.currentVersion.build }} </li>
-                            <li>
-                                <u>Date Stamp:</u> {{ Info.currentVersion.dateStamp }} </li>
-                            <li>
-                                <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>-->
-
 <body ng-app="Portfolio">
-    <div class="container" ng-controller="ActualController">
-        <div class="card" ng-repeat="Info in info">
+    <div class="row" ng-controller="ActualController">
+        <div class="col-sm-6">
+            <div class="card" ng-repeat="Info in info">
             <div class="card-header">
                 <h4 class="card-title"> {{ Info.name }} </h4>
                 <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
@@ -118,6 +80,7 @@
                         <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
                 </ul>
             </div>
+        </div>
         </div>
     </div>
 </body>

@@ -67,8 +67,19 @@
                 <p><u>Domain Type:</u> {{ Info.domainType }}</p>
                 <u>Current Version:</u>
                 <ul>
-                    <Actual-Directive></Actual-Directive>
-                </ul>ß
+                    <li>
+    <u>Major:</u> {{ Info.currentVersion.major }} </li>
+<li>
+    <u>Minor:</u> {{ Info.currentVersion.minor }} </li>
+<li>
+    <u>Revision:</u> {{ Info.currentVersion.revision }} </li>
+<li>
+    <u>Build:</u> {{ Info.currentVersion.build }} </li>
+<li>
+    <u>Date Stamp:</u> {{ Info.currentVersion.dateStamp }} </li>
+<li>
+    <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
+                </ul>
             </div>
         </div>
         </div>

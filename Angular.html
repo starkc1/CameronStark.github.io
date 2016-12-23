@@ -55,11 +55,13 @@
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
         <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card" ng-repeat="Info in info">
-                    <div class="card-header">
-                        <h4 class="card-title"> {{ Info.name }} </h4>
-                        <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
-                        <detailed></detailed>
-                    </div>
+                <div class="card-header">
+                    <h4 class="card-title"> {{ Info.name }} </h4>
+                    <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
+                    <detailed></detailed>
+                    <input type="button" value="Show More" ng-click="ShowHide()"></button>
+                </div>
+                <div ng-show="IsVisible" id="{{ Info.key }}">
                     <div class="card-block">
                         <p>
                             <u>Version History:</u> {{ Info.versionHistory}} </p>
@@ -67,9 +69,7 @@
                             <u>Domain Type:</u> {{ Info.domainType }}</p>
                         <u>Current Version:</u>
                         </br>
-                        <input type="button" value="Show More" ng-click="ShowHide()"></button>
-                        <div ng-show = "IsVisible" id="{{ Info.key }}">
-                            <li>
+                        <li>
                             <u>Major:</u> {{ Info.currentVersion.major }} </li>
                         <li>
                             <u>Minor:</u> {{ Info.currentVersion.minor }} </li>
@@ -81,8 +81,8 @@
                             <u>Date Stamp:</u> {{ Info.currentVersion.dateStamp }} </li>
                         <li>
                             <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
-                        </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -92,8 +92,7 @@
 <script src="js/app.js"></script>
 
 <!-- services -->
-<script src="js/services/PracticeService.js"></script>
-s
+<script src="js/services/PracticeService.js"></script> s
 <!-- Controller -->
 <script src="js/controllers/ActualController.js"></script>
 

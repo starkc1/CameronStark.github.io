@@ -4,9 +4,9 @@ app.directive('Detailed', function() {
         scope: {},
         templateUrl: 'js/directives/Detailed.html',
 
-        link: function(scope, element, attrs) {
-            scope.detailed = function() {
-                
+        link: function($scope, element, attrs) {
+            $scope.detailed = function() {
+
             }
         }
     }

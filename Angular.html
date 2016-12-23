@@ -68,7 +68,7 @@
                         <u>Current Version:</u>
                         </br>
                         <input type="button" value="Show More" ng-click="ShowHide()"></button>
-                        <div ng-show = "IsVisible">
+                        <div ng-show = "IsVisible" id="{{ Info.key }}">
                             <li>
                             <u>Major:</u> {{ Info.currentVersion.major }} </li>
                         <li>

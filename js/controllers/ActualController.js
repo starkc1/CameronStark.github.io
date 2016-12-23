@@ -4,6 +4,13 @@ app.controller('ActualController', function ($scope, $http) {
     }),
     $scope.IsVisible = false;
     $scope.ShowHide = function () {
-        $scope.IsVisible = $scope.IsVisible ? false : true;
+        element.toggleClass('btn-active')
+        if($scope.IsVisible) {
+            $scope.buttonText = 'Show More';
+            $scope.IsVisible =false;
+        } else {
+            $scope.buttonText = 'Show Less';
+            $scope.IsVisible = true;
+        }
     }
 });

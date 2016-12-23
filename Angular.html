@@ -65,7 +65,8 @@
                         <p>
                             <u>Domain Type:</u> {{ Info.domainType }}</p>
                         <u>Current Version:</u>
-                        <button value="Show Hide DIV" ng-click="ShowHide()"></button>
+                        </br>
+                        <input type="button" value="Show More" ng-click="ShowHide()"></button>
                         <div ng-show = "IsVisible">
                             <li>
                             <u>Major:</u> {{ Info.currentVersion.major }} </li>

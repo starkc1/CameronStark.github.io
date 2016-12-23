@@ -60,11 +60,10 @@
                 <div class="card-header">
                     <h4 class="card-title"> {{ Info.name }} </h4>
                     <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
-                    <detailed></detailed>
-                    <!-- <input type="button" value="More/Less" ng-click="ShowHide()" id="{{ Info.key }}"></input> -->
-                    <button ng-click="ShowHide()" style=" background-color: #003777; "> More/Less </button>
+                    <!--<button ng-click="ShowHide()" style=" background-color: #003777; "> More/Less </button>-->
+                    <p><a ng-click="showDetails = ! showDetails">More/Less</a></p>
                 </div>
-                <div ng-show="IsVisible">
+                <div ng-show="showDetails">
                     <div class="card-block">
                         <p>
                             <u>Version History:</u> {{ Info.versionHistory}} </p>

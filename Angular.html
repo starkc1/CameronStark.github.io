@@ -49,9 +49,7 @@
         background-color: #f8f8ff;
     }
     
-    #button {
-        background-color: #003777;
-    }
+    
 </style>
 
 <body ng-app="Portfolio">
@@ -64,7 +62,7 @@
                     <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
                     <detailed></detailed>
                     <!-- <input type="button" value="More/Less" ng-click="ShowHide()" id="{{ Info.key }}"></input> -->
-                    <button ng-click="ShowHide()"> More/Less </button>
+                    <button ng-click="ShowHide()" style=" background-color: #003777; "> More/Less </button>
                 </div>
                 <div ng-show="IsVisible">
                     <div class="card-block">

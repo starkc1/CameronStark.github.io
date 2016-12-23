@@ -65,7 +65,7 @@
                     <detailed></detailed>
                     <input type="button" value="Show More" ng-click="ShowHide()" id="{{ Info.key }}"></button>
                 </div>
-                <div ng-show="IsVisible == id">
+                <div ng-show="IsVisible == {{ Info.key }}">
                     <div class="card-block">
                         <p>
                             <u>Version History:</u> {{ Info.versionHistory}} </p>

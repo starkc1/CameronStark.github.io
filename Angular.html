@@ -65,7 +65,9 @@
                         <p>
                             <u>Domain Type:</u> {{ Info.domainType }}</p>
                         <u>Current Version:</u>
-                        <li>
+                        <button value="Show Hide DIV" ng-click="ShowHide()"></button>
+                        <div ng-show = "IsVisible">
+                            <li>
                             <u>Major:</u> {{ Info.currentVersion.major }} </li>
                         <li>
                             <u>Minor:</u> {{ Info.currentVersion.minor }} </li>
@@ -77,6 +79,7 @@
                             <u>Date Stamp:</u> {{ Info.currentVersion.dateStamp }} </li>
                         <li>
                             <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
+                        </div>
                     </div>
             </div>
         </div>

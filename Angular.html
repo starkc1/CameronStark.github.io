@@ -59,14 +59,12 @@
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
         <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card" ng-repeat="Info in info">
-                <a>
-                    <div class="card-header">
-                        <h4 class="card-title"> {{ Info.name }} </h4>
-                        <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
-                        <detailed></detailed>
-                        <input type="button" value="Show More" ng-click="ShowHide()" id="{{ Info.key }}"></button>
-                    </div>
-                </a>
+                <div class="card-header">
+                    <h4 class="card-title"> {{ Info.name }} </h4>
+                    <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
+                    <detailed></detailed>
+                    <input type="button" value="Show More" ng-click="ShowHide()" id="{{ Info.key }}"></button>
+                </div>
                 <div ng-show="IsVisible">
                     <div class="card-block">
                         <p>

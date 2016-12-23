@@ -59,13 +59,14 @@
 </style>
 
 <body ng-app="Portfolio">
-    <div class="row" ng-controller="ActualController">
+    <div class="row" ng-controller="DomainController">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
         <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card" ng-repeat="Info in info">
                 <div class="card-header">
                     <h3 class="card-title"> {{ Info.name }} </h3>
                     <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
+                    <p style="font-size: 20px;"><a style="color: white;" ><i class="fa fa-chevron-right text-right" aria-hidden="true"></i></a></p>
                     <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
                 </div>
                 <div ng-show="showDetails">
@@ -102,6 +103,7 @@
 <script src="js/services/PracticeService.js"></script> 
 <!-- Controller -->
 <script src="js/controllers/DomainController.js"></script>
+<script src="js/controllers/ModelController.js"></script>
 
 <!-- Directive -->
 <script src="js/directives/Detailed.js"></script>

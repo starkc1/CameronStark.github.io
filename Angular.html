@@ -59,9 +59,9 @@
                     <h4 class="card-title"> {{ Info.name }} </h4>
                     <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
                     <detailed></detailed>
-                    <input type="button" value="Show More" ng-click="ShowHide()"></button>
+                    <input type="button" value="Show More" ng-click="ShowHide()" id="{{ Info.key }}"></button>
                 </div>
-                <div ng-show="IsVisible" id="{{ Info.key }}">
+                <div ng-show="IsVisible == id">
                     <div class="card-block">
                         <p>
                             <u>Version History:</u> {{ Info.versionHistory}} </p>

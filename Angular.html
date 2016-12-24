@@ -96,7 +96,7 @@
         </div>
         <!-- MODELS -->
         <div class="col-lg-3 col-md-3 col-sm-6">
-            <div ng-show="showModels">
+            <div ng-hide="showModels">
                 <div class="card" ng-repeat="Models in models">
                     <div class="card-header">
                         <h3 class="card-title"> Models </h3>
@@ -112,9 +112,9 @@
 
 <!-- services -->
 <script src="js/services/PracticeService.js"></script>
+
 <!-- Controller -->
 <script src="js/controllers/DomainController.js"></script>
-
 
 <!-- Directive -->
 <script src="js/directives/Detailed.js"></script>

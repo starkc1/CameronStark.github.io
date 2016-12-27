@@ -69,53 +69,6 @@
 }
 </style>
 
-<!--<body ng-app="Portfolio">
-    <div class="row">
-        <div class="col-lg-1 col-md-1 col-sm-1"></div>
-        <div class="col-lg-3 col-md-3 col-sm-6" ng-controller="DomainController">
-            <div class="card-columns">
-                <div class="card" ng-repeat="Info in info">
-                    <div class="card-header">
-                        <h3 class="card-title"> {{ Info.name }} </h3>
-                        <h6 class="card-subtitle text-muted"> {{ Info.description }} </h6>
-                        <p style="font-size: 20px;"><a style="color: white;" ng-click="showModels = ! showModels" href="/domains.html/{{ Info.key }}" ><i class="fa fa-chevron-right" aria-hidden="true" ng-attr-id="{{ Model = Info.key }}" ></i></a></p>
-                        <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
-                    </div>
-                    <div ng-show="showDetails">
-                        <div class="card-block">
-                            <p>
-                                <u>Version History:</u> {{ Info.versionHistory}} </p>
-                            <p>
-                                <u>Domain Type:</u> {{ Info.domainType }}</p>
-                            <u>Current Version:</u>
-                            </br>
-                            <li>
-                                <u>Major:</u> {{ Info.currentVersion.major }} </li>
-                            <li>
-                                <u>Minor:</u> {{ Info.currentVersion.minor }} </li>
-                            <li>
-                                <u>Revision:</u> {{ Info.currentVersion.revision }} </li>
-                            <li>
-                                <u>Build:</u> {{ Info.currentVersion.build }} </li>
-                            <li>
-                                <u>Date Stamp:</u> {{ Info.currentVersion.dateStamp }} </li>
-                            <li>
-                                <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
-                        </div>
-                    </div>
-                    <div ng-show="showModels">
-                        <div class="card-models" ng-repeat="Model in model">
-                            <div class="card-header-models">
-                                <h3 class="card-title"> {{ Model.name }} </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>-->
-
 <body ng-app="Portfolio">
     <div class="jumbotron">
         <h1 class="h1-responsive">NuvIoT Angular Testing</h1>
@@ -129,7 +82,6 @@
                     <h4 class="card-title"> {{ Info.name }} </h4>
                     <hr class="my-2">
                     <h6 class="card-subtitle"> {{ Info.description }} </h6>
-                    <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
                     <a class="btn btn-default" ng-click="showDetails = ! showDetails">More Info</a>
                 </div>
                 <div ng-show="showDetails">

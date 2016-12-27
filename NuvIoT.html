@@ -116,20 +116,20 @@
                 <h6 class="card-subtitle"> {{ Info.description }} </h6>
                 <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
                 <div ng-show="ShowDetails">
-                <div class="card card-footer">
-                    <p><u>Version History: </u> {{ Info.versionHistory }} </p>
-                    <p><u>Domain Type: </u> {{ Info.domainType }} </p>
-                    <hr class="my-2">
-                    <u>Current Version:</u>
-                    </br>
-                    <li><u>Major: </u> {{ Info.currentVersion.major }} </li>
-                    <li><u>Minor: </u> {{ Info.currentVersion.minor }} </li>
-                    <li><u>Revision: </u> {{ Info.currentVersion.revision }} </li>
-                    <li><u>Build: </u> {{ Info.currentVersion.build }} </li>
-                    <li><u>Date Stamp: </u> {{ Info.currentVersion.dateStamp }} </li>
-                    <li><u>Release Notes: </u> {{ Info.currentVersion.releaseNotes }} </li>
+                    <div class="card card-footer">
+                        <p><u>Version History: </u> {{ Info.versionHistory }} </p>
+                        <p><u>Domain Type: </u> {{ Info.domainType }} </p>
+                        <hr class="my-2">
+                        <u>Current Version:</u>
+                        </br>
+                        <li><u>Major: </u> {{ Info.currentVersion.major }} </li>
+                        <li><u>Minor: </u> {{ Info.currentVersion.minor }} </li>
+                        <li><u>Revision: </u> {{ Info.currentVersion.revision }} </li>
+                        <li><u>Build: </u> {{ Info.currentVersion.build }} </li>
+                        <li><u>Date Stamp: </u> {{ Info.currentVersion.dateStamp }} </li>
+                        <li><u>Release Notes: </u> {{ Info.currentVersion.releaseNotes }} </li>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>

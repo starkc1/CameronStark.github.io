@@ -109,9 +109,9 @@
                     </div>
                     <!-- MODELS -->
                     <div ng-show="showModels">
-                        <div class="card-models">
+                        <div class="card-models" ng-repeat="Model in model">
                             <div class="card-header-models">
-                                <h3 class="card-title"> Models </h3>
+                                <h3 class="card-title"> {{ Model.name }} </h3>
                             </div>
                         </div>
                     </div>

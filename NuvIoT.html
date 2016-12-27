@@ -35,16 +35,16 @@
     margin-top: 40px;
     margin-bottom: -22px;
     box-shadow: -6px 7px 15px 3px gray;
+        width: 300px;
 }
 
-.card-block {
+.card-header {
     padding: 12px 15px;
     background-color: #003777;
     color: white;
-    width: 300px;
 }
 
-.card-footer {
+.card-block {
     padding: 12px 15px;
     background-color: #e8e8e8;
     color: black
@@ -110,13 +110,15 @@
     </div>
     <div class="container-fluid">
         <div class="col-lg-4 col-md-4 col-sm-6" ng-controller="DomainController">
-            <div class="card card-block" ng-repeat="Info in info">
-                <h4 class="card-title"> {{ Info.name }} </h4>
-                <hr class="my-2">
-                <h6 class="card-subtitle"> {{ Info.description }} </h6>
-                <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
+            <div class="card" ng-repeat="Info in info">
+                <div class="card-header">
+                    <h4 class="card-title"> {{ Info.name }} </h4>
+                    <hr class="my-2">
+                    <h6 class="card-subtitle"> {{ Info.description }} </h6>
+                    <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
+                </div>
                 <div ng-show="ShowDetails">
-                    <div class="card card-footer">
+                    <div class="card-block">
                         <p><u>Version History: </u> {{ Info.versionHistory }} </p>
                         <p><u>Domain Type: </u> {{ Info.domainType }} </p>
                         <hr class="my-2">

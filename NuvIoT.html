@@ -77,10 +77,17 @@
     </div>
 </body>-->
 <body ng-app="Portfolio">
-    <div class="jumbotron">
+    <div class="jumbotron-fixed-top">
         <h1 class="h1-responsive">NuvIoT Angular Testing</h1>
         <hr class="my-2">
         <p>Select from the domains, for specific Models/entities</p>
+    </div>
+    <div class="container-fluid">
+        <div class="col-lg-4 col-md-4 col-sm-6" ng-controller="DomainController">
+            <div class="card card-block" ng-repeat="Info in info">
+                <h4 class="card-title"> {{ Info.name }} </h4>
+            </div>
+        </div>
     </div>
 </body>
 

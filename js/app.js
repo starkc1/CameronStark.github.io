@@ -2,10 +2,10 @@ var app = angular.module('Portfolio',[]);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProivder.
-    when('/domains', {
+    when('/domains.html', {
         controller: 'DomainController'
     }).
-    when('/domains/:domainKey', {
+    when('/domains.html/:domainKey', {
         controller: 'ModelController'
     }).
     otherwise({

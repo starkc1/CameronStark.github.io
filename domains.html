@@ -72,10 +72,9 @@
     }
 </style>
 
-<body ng-app="Portfolio">
+<!--<body ng-app="Portfolio">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
-        <!-- DOMAINS -->
         <div class="col-lg-3 col-md-3 col-sm-6" ng-controller="DomainController">
             <div class="card-columns">
                 <div class="card" ng-repeat="Info in info">
@@ -107,7 +106,6 @@
                                 <u>Release Notes:</u> {{ Info.currentVersion.releaseNotes }} </li>
                         </div>
                     </div>
-                    <!-- MODELS -->
                     <div ng-show="showModels">
                         <div class="card-models" ng-repeat="Model in model">
                             <div class="card-header-models">
@@ -118,6 +116,13 @@
                 </div>
             </div>
         </div>
+    </div>
+</body>-->
+<body ng-app="Portfolio">
+    <div class="jumbotron">
+        <h1 class="h1-responsive">NuvIoT Angular Testing</h1>
+        <hr class="my-2">
+        <p>Select from the domains, for specific Models/entities</p>
     </div>
 </body>
 

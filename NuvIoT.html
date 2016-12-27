@@ -19,6 +19,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
     <script type="text/javascript"></script>
 
+    <div class="jumbotron">
+        <h1 class="h1-responsive">NuvIoT Angular Testing</h1>
+        <hr class="my-2">
+        <p>Select from the domains, for specific Models/entities</p>
+    </div>
+
 </head>
 
 <style>
@@ -91,11 +97,6 @@
 </body>-->
 
 <body ng-app="Portfolio">
-    <div class="jumbotron">
-        <h1 class="h1-responsive">NuvIoT Angular Testing</h1>
-        <hr class="my-2">
-        <p>Select from the domains, for specific Models/entities</p>
-    </div>
     <div class="container-fluid">
         <div class="col-lg-4 col-md-4 col-sm-6" ng-controller="DomainController">
             <div class="card card-block" ng-repeat="Info in info">

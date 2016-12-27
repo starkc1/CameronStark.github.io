@@ -44,6 +44,12 @@
     width: 300px;
 }
 
+.card-footer {
+    padding: 12px 15px;
+    background-color: #e8e8e8;
+    color: black
+}
+
 .body {
     background-color: #f8f8ff;
 }
@@ -109,8 +115,7 @@
                 <hr class="my-2">
                 <h6 class="card-subtitle"> {{ Info.description }} </h6>
                 <p style="font-size: 15px;"><a style="color: white;" ng-click="showDetails = ! showDetails"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a></p>
-            </div>
-            <div ng-show="ShowDetails">
+                <div ng-show="ShowDetails">
                 <div class="card card-footer">
                     <p><u>Version History: </u> {{ Info.versionHistory }} </p>
                     <p><u>Domain Type: </u> {{ Info.domainType }} </p>
@@ -124,6 +129,7 @@
                     <li><u>Date Stamp: </u> {{ Info.currentVersion.dateStamp }} </li>
                     <li><u>Release Notes: </u> {{ Info.currentVersion.releaseNotes }} </li>
                 </div>
+            </div>
             </div>
         </div>
     </div>

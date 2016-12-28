@@ -1,6 +1,6 @@
 var app = angular.module('Portfolio',['ngRoute']);
 
-Portfolio.config(['$routeProvider','$locationProvider' , function($routeProvider, $locationProvider) {
+config(['$routeProvider','$locationProvider' , function($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/NuvIoT', {
@@ -8,7 +8,7 @@ Portfolio.config(['$routeProvider','$locationProvider' , function($routeProvider
             controller: 'DomainController'
         })
         .when('/NuvIoT/Models', {
-            templateUrl: 'index.html'
+            templateUrl: 'partials/models.html'
         })
         .otherwise({
             redirectTo: '/NuvIoT'

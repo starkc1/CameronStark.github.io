@@ -4,7 +4,8 @@ app.config(['$routeProvider','$locationProvider' , function($routeProvider, $loc
 
     $routeProvider
         .when('/NuvIoT', {
-            templateUrl: 'NuvIoT.html'
+            templateUrl: 'NuvIoT.html',
+            controller: 'DomainController'
         })
         .when('/NuvIoT/Models', {
             templateUrl: 'partials/models.html'

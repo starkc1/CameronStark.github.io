@@ -8,7 +8,7 @@ config(['$routeProvider','$locationProvider' , function($routeProvider, $locatio
             controller: 'DomainController'
         })
         .when('/NuvIoT/Models', {
-            templateUrl: 'partials/models.html'
+            templateUrl: 'NuvIoT.html'
         })
         .otherwise({
             redirectTo: '/NuvIoT'

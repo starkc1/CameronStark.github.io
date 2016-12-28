@@ -1,6 +1,6 @@
 var app = angular.module('Portfolio',['ngRoute']);
 
-app.config(['$routeProvider','$locationProvider' , function($routeProvider, $locationProvider) {
+app.config(['$routeProvider', function($routeProvider) {
 
     $routeProvider
         .when('/NuvIoT', {
@@ -14,5 +14,4 @@ app.config(['$routeProvider','$locationProvider' , function($routeProvider, $loc
             redirectTo: '/NuvIoT'
         });
 
-    $locationProvider.html5Mode(true);
 }]);

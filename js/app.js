@@ -1,6 +1,6 @@
 var app = angular.module('Portfolio',['ngRoute']);
 
-app.config(['$routeProvider','$locationProvider' , function($routeProvider, $locationProvider) {
+Portfolio.config(['$routeProvider','$locationProvider' , function($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/NuvIoT', {

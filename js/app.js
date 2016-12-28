@@ -8,7 +8,7 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'DomainController'
         })
         .when('starkc1.github.io/NuvIoT/Models', {
-            templateUrl: 'NuvIoT.html'
+            templateUrl: 'partials/models.html'
         })
         .otherwise({
             redirectTo: 'starkc1.github.io/NuvIoT'

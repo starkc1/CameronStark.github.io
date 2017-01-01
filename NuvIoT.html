@@ -1,0 +1,142 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Angular Practice</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Smooth crolling CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script type="text/javascript"></script>
+
+</head>
+
+<style>
+.jumbotron {
+    background-color: #003777;
+    color: white;
+    text-align: center;
+    box-shadow: 0px 9px 21px 2px gray;
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
+.card {
+    margin-top: 40px;
+    margin-bottom: -22px;
+    box-shadow: -6px 7px 15px 3px gray;
+        width: 300px;
+}
+
+.card-header {
+    padding: 12px 15px;
+    background-color: #003777;
+    color: white;
+    text-align: center;
+}
+
+.card-block {
+    padding: 12px 15px;
+    background-color: #e8e8e8;
+    color: black
+}
+
+.body {
+    background-color: #f8f8ff;
+}
+
+.btn-default {
+    background: #f8f8ff;
+}
+
+.btn {
+    font-size: 12px;
+    padding: 9px 24px;
+    border: 0;
+    color: #003777!important;
+    margin: 6px;
+    border-radius: 0px;
+    white-space: normal!important;
+}
+</style>
+
+<body ng-app="Portfolio">
+    <div class="jumbotron">
+        <h1 class="h1-responsive">NuvIoT Angular Testing</h1>
+        <hr class="my-2">
+        <p>Select from the domains, for specific Models/entities</p>
+    </div>
+    <div class="container-fluid">
+        <div class="col-lg-4 col-md-4 col-sm-6" ng-controller="DomainController">
+            <div class="card" ng-repeat="Info in info">
+                <div class="card-header">
+                    <h4 class="card-title"> {{ Info.name }} </h4>
+                    <hr class="my-2">
+                    <h6 class="card-subtitle"> {{ Info.description }} </h6>
+                    <a class="btn btn-default" ng-click="showDetails = ! showDetails">More Info</a>
+                    <a class="btn btn-default" href="/NuvIoT/Models" >Show More</a>
+                </div>
+                <div ng-show="showDetails">
+                    <div class="card-block">
+                        <p><u>Version History</u>: {{ Info.versionHistory }} </p>
+                        <p><u>Domain Type</u>: {{ Info.domainType }} </p>
+                        <u>Current Version</u>
+                        </br>
+                        <li><u>Major</u>: {{ Info.currentVersion.major }} </li>
+                        <li><u>Minor</u>: {{ Info.currentVersion.minor }} </li>
+                        <li><u>Revision</u>: {{ Info.currentVersion.revision }} </li>
+                        <li><u>Build</u>: {{ Info.currentVersion.build }} </li>
+                        <li><u>Date Stamp</u>: {{ Info.currentVersion.dateStamp }} </li>
+                        <li><u>Release Notes</u>: {{ Info.currentVersion.releaseNotes }} </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> {{ Model.className }} </h4>
+                    <hr class="my-2">
+                    <h6 class="card-subtitle"> {{ Model.name }} </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- angularjs -->
+<script src="js/app.js"></script>
+<script src="js/angular-route/angular-route.js"></script>
+<script src="js/angular-route/angular-route.min.js"></script>
+
+<!-- services -->
+
+<!-- Controller -->
+<script src="js/controllers/DomainController.js"></script>
+<script src="js/controllers/ModelController.js"></script>
+
+<!-- Directive -->
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
+<!-- Scrolling Nav JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/scrolling-nav.js"></script>

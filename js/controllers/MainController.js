@@ -1,4 +1,4 @@
-app.controller(['$scope', function($scope) {
+app.controller('MainController', function($scope) {
     $scope.languages [ 
         {
             lang: 'Python'
@@ -31,4 +31,4 @@ app.controller(['$scope', function($scope) {
             lang: 'Xamarin'
         }
     ];
-}]);
+});

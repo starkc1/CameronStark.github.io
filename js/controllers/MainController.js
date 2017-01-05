@@ -31,4 +31,25 @@ app.controller('MainController', ['$scope', function($scope) {
             lang: 'Xamarin'
         }
     ];
+
+    $scope.programs = [
+        {
+            prog: 'Visual Studio'
+        },
+        {
+            prog: 'MatLab'
+        },
+        {
+            prog: 'Photoshop'
+        },
+        {
+            prog: 'Catia'
+        },
+        {
+            prog: 'Blender'
+        },
+        {
+            prog: 'AutoCad'
+        }
+    ];
 }]);

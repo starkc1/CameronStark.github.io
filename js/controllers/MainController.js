@@ -75,5 +75,5 @@ app.controller('MainController', ['$scope', function($scope) {
             info1: 'Developed The Frugal You coupon application',
             info2: 'Developed the database for coupon storage'
         },
-    ]
+    ];
 }]);

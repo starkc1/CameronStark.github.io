@@ -63,7 +63,7 @@ app.controller('MainController', ['$scope', function($scope) {
         },
         {
             company: 'Tier-Zero',
-            img: 'images/tier-zero.png',
+            img: 'images/tier-zero-nobg.png',
             position: 'Lead Web and App Developer',
             info1: 'Developed UWP apps for Windows 10',
             info2: 'Developed Windows 8.1 apps'

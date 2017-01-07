@@ -31,18 +31,25 @@
     padding: 10px;
 }
 
+.container-fluid {
+    margin-top: 325px;
+    margin-left: -16px;
+    margin-right: -16px;
+    text-align: center;
+}
+
 </style>
 
 <body ng-app="Portfolio">
     <div class="container-fluid" ng-controller="MainController">
-        <div class="jumbotron-report">
-            <h5 class="timePeriod"> Week of December 25th - December 31st </h5>
-            <p class="Hours"> Time Spent: 15.28 hrs </p>
+        <div class="jumbotron-report" ng-repeat="property in report">
+            <h5 class="timePeriod"> {{ property.period }} </h5>
+            <p class="Hours"> {{ property.hours }} </p>
             <hr class="my-2">
-            <p class="Task"> A.) Accomplished setting up controllers for the three JSON urls and formatted them in a single page website </p>
-            <p class="Task"> B.) Learned routing and how they can be used with various controllers to create a website </p>
-            <p class="Task"> C.) I found that getting the routing and the ng-view to get working was difficult and passing a value from view to a controller </p>
-            <p class="Task"> D.) I enjoyed setting up the whole thing because the final effect of it is rather cool and interesting </p>
+            <p class="Task"> {{ property.task1 }} </p>
+            <p class="Task"> {{ property.task2 }} </p>
+            <p class="Task"> {{ property.task3 }} </p>
+            <p class="Task"> {{ property.task4 }} </p>
         </div>
     </div>
 </body>

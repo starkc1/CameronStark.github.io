@@ -77,6 +77,51 @@ app.controller('MainController', ['$scope', function($scope) {
         },
     ];
 
+    $scope.projects = [
+        {
+            img: 'images/Project_1.png',
+            name: 'Basic Math Solver (Windows 10)',
+            created: 'Created By: Cameron Stark',
+            comment1: 'Developed using C# and XAML',
+            comment2: 'Visual Studio 2015'
+        },
+        {
+            img: 'images/Project_2.png',
+            name: 'Basic Math Solver (iOS)',
+            created: 'Created By: Cameron Stark',
+            comment1: 'Devloped using Xamarin.Forms, C#, and XAML',
+            comment2: 'Visual Studio 2015 and Xamarin Studio'
+        },
+        {
+            img: 'images/Project_2-5.png',
+            name: 'Basic Math Solver (Android)', 
+            created: 'Created By: Cameron Stark',
+            comment1: 'Developed using Xamarin.Forms, C# and XAML',
+            comment2: 'Visual Studio 2015 and Xamarin Studio'
+        },
+        {
+            img: 'images/Project_3.png',
+            name: 'The Frugal You (iOS and Android)',
+            created: 'Created By: Cameron Stark',
+            comment1: 'Developed using Xamarin.Forms, C#, C#.NET, and XAML',
+            comment2: 'Visual Studio 2015 and Xamarin Studio'
+        },
+        {
+            img: 'images/Project_4.jpg',
+            name: 'EvenToConnect',
+            created: 'Created By: Cameron Stark, Brian Nunes De Souza, Nicholas Van Bommel and Pablo Garces',
+            comment1: 'Developed using C#.NET, HTML, Bootstrap, and CSS',
+            comment2: 'Visual Studio 2015 and Clarifai API'
+        },
+        {
+            img: 'images/Project_5.jpg',
+            name: 'HackRiddle App',
+            created: 'Created By: Embry-Riddle Mobile Application Development Club',
+            comment1: 'Developed using HTML, CSS and Materialize',
+            comment2: 'Twitter API and GitHub'
+        }
+    ];
+
     $scope.report = [
         {
             period: 'Week of January 1st - January 7th',

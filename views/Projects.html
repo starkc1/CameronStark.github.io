@@ -1,10 +1,10 @@
 <div ng-controller="MainController">
-    <div class="jumbotron-projects">
-        <img class="img-fluid" src="images/Project_1.png" height="500">
-        <h2 class="h2-responsive"> Basic Math Solver (Windows 10) </h2>
-        <p class="lead"> Created By: Cameron Stark </p>
+    <div class="jumbotron-projects" ng-repeat="d in projects">
+        <img class="img-fluid" src="{{ d.img }}" height="500">
+        <h2 class="h2-responsive"> {{ d.name }} </h2>
+        <p class="lead"> {{ d.created }} </p>
         <hr class="my-2">
-        <p class="minor"> Developed using C# and XAML </p>
-        <p class="minor"> Visual Studio 2015 </p>
+        <p class="minor"> {{ d.comment1 }} </p>
+        <p class="minor"> {{ d.comment2 }} </p>
     </div>
 </div>

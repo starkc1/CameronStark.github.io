@@ -89,18 +89,18 @@ app.controller('MainController', ['$scope', function($scope) {
         {
             period: 'Week of December 25th - December 31st',
             hours: 'Time Spent: 15.28 hrs',
-            task1: 'A.) Accomplished setting up controllers for the three JSON urls and formatted them in a single page website',
-            task2: 'B.) Learned routing and how it can be used with multiple controllers to create a website',
-            task3: 'C.) I found that getting the routing and the ng-view to get working was difficult and passing a value from the view to a controller',
-            task4: 'D.) I enjoyed setting up the whole thing because final effect of the siingle wab page layout is very interesting'
+            task1: 'Accomplishments: Accomplished setting up controllers for the three JSON urls and formatted them in a single page website',
+            task2: 'What I Learned: Learned routing and how it can be used with multiple controllers to create a website',
+            task3: 'Difficulty: I found that getting the routing and the ng-view to get working was difficult and passing a value from the view to a controller',
+            task4: 'Enjoyed: I enjoyed setting up the whole thing because final effect of the siingle wab page layout is very interesting'
         },
         {
             period: 'Week of December 17th - December 23rd',
             hours: 'Time Spent: 15.29 hrs',
-            task1: 'A.) Accomplished setting up the first controller and began work on routing',
-            task2: 'B.) Learned the basics of Angular and how it works with HTML',
-            task3: 'C.) I found that getting the routing to be setup correctly and getting the angular components to work properly within the webpage to be difficult becuase there can be very little feed back from the webpage',
-            task4: 'D.) I enjoyed learning a new language and seeing what it is capable of is very interesting'
+            task1: 'Accomplishments: Accomplished setting up the first controller and began work on routing',
+            task2: 'What I Learned: Learned the basics of Angular and how it works with HTML',
+            task3: 'Difficulty: I found that getting the routing to be setup correctly and getting the angular components to work properly within the webpage to be difficult becuase there can be very little feed back from the webpage',
+            task4: 'Enjoyed: I enjoyed learning a new language and seeing what it is capable of is very interesting'
         },
     ];
 }]);

@@ -81,10 +81,10 @@ app.controller('MainController', ['$scope', function($scope) {
         {
             period: 'Week of January 1st - January 7th',
             hours: 'Time Spent: 13.58 hrs',
-            task1: 'A.) Accomplished setting up controllers and with assitance completed the passing of parameters for the user to move through the website and JSON URLs',
-            task2: 'B.) Learned how services work with the html and controllers to allow for the passing of parameters between various controllers',
-            task3: 'C.) I found that getting the controller to receive the parameter once passed by the first controller and the service because the way angular can be used varies from each person therefore learning can be a challenge at times',
-            task4: 'D.) I enjoyed trying to figure it out and also seeing the effect of passing parameter by use of the console.log which was cool to see it working'
+            task1: 'Accomplishments: Accomplished setting up controllers and with assitance completed the passing of parameters for the user to move through the website and JSON URLs',
+            task2: 'What I Learned: Learned how services work with the html and controllers to allow for the passing of parameters between various controllers',
+            task3: 'Difficulty: I found that getting the controller to receive the parameter once passed by the first controller and the service because the way angular can be used varies from each person therefore learning can be a challenge at times',
+            task4: 'Enjoyed: I enjoyed trying to figure it out and also seeing the effect of passing parameter by use of the console.log which was cool to see it working'
         },
         {
             period: 'Week of December 25th - December 31st',

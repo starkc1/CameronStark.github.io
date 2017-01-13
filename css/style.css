@@ -1,201 +1,78 @@
-.navbar {
-  background-color: white;
-  border-color: transparent;
-  padding: 0px;
-  font-size: 15px;
+.about {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  padding: 0 15px;
+  color: #083791;
 }
 
-.chip {
-    display: inline-block;
-    padding: 0 25px;
-    height: 50px;
-    width: 185px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 50px;
-    border-radius: 0px;
-    color: white;
-    background-color: #1ba1e2;
-    box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+.btn {
+  font-size: 17px;
+  padding: 9px 24px;
+  border: 0;
+  color: #083791!important;
+  margin: 6px;
+  border-radius: 0px;
+  white-space: normal!important;
 }
 
-#topBackground {
-	background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/Space_2.jpg?raw=true) 50% fixed;
-	background-size: cover;
-	background-repeat:no-repeat;
-	background-position: 0px 0px;
-	height: auto;
-	margin: 0 auto;
-	width: 100%;
-	position: relative;
-	padding: 20px 0;
+.btn-header {
+  background-color: #f8f8ff;
+  width: 150px;
 }
 
-.titlebar {
-  height: 50px;
-  margin-top: 0px;
-  background-color: #1ba1e2;
+.container-fluid {
+  margin-top: 325px;
+  margin-left: -16px;
+  margin-right: -16px;
+  text-align: center;
+}
+
+.jumbotron {
+  background-color: #083791;
   color: white;
   text-align: center;
-  font-size: 35px;
-  margin-left: 0px;
-}
-
-.hookbar{
-  height: 50px;
-  margin-top: 0px;
-  background-color: transparent;
-  color: transparent;
-  text-align: center;
-  font-size: 35px;
-  margin-left: 0px;
-}
-
-.titlebar1 {
-  height: 50px;
-  margin-top: 0px;
-  background-color: #1ba1e2;
-  color: white;
-  text-align: center;
-  font-size: 35px;
-}
-
-#home {
-	padding-top: 10px;
-  padding-bottom: 20px;
-	background-color: #ffffff;
-  background-size: cover;
-  margin-bottom: 20px;
-  color: black;
-  text-align: center;
-}
-
-#headshot {
-  background-size: contains;
-	padding-top: 30px;
-	padding-right: 30px;
-	padding-bottom: 30px;
-}
-
-.Project {
-	padding-top: 10px;
-  padding-bottom: 20px;
-	background-color: #ffffff;
-  background-size: cover;
-  margin-bottom: 20px;
-  color: black;
-  border-color: transparent;
-}
-
-.titlespace {
-  height: 50px;
-  margin-top: 30px;
-  background-color: #1ba1e2;
-  color: white;
-  text-align: center;
-  font-size: 35px;
-}
-
-#experience {
-	padding-top: 20px;
-	padding-bottom: 20px;
-  margin-top: 0px;
-	background-color: #ffffff;
-  font-size: 16px
-}
-
-#Tier0 {
-  background-size: contains;
-	padding-top: 0px;
-	padding-right: 0px;
-  height: 200px;
-	padding-bottom: 0px;
-}
-
-#projects {
-	padding-top: 20px;
-	padding-bottom: 20px;
-  margin-top: 0px;
-	background-color: #ffffff;
-  font-size: 16px
-}
-
-#skills
-{
-  margin-top: 0px;
   margin-bottom: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  align-content: center;
+  padding: 10px;
 }
 
-.projectdetails
-{
-  padding-left: 50px;
-  padding-right: 30px;
-}
-
-.text
-{
+.jumbotron-experience {
+  background-color: white;
+  color: #083791;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   text-align: center;
-  
+  padding: 24px;
+  margin-top: 30px;
 }
 
-
-div.img {
-            margin: 5px;
-            float: left;
-            width: 230px;
-            padding: 0px 0px 0px 0px;
-            box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+.jumbotron-home {
+  background-color: white;
+  color: #083791;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  text-align: center;
+  padding: 24px;
+  margin-top: 20px;
 }
 
-div.desc {
-            padding: 12px;
-            text-align: center;
+.jumbotron-projets {
+  background-color: white;
+  color: #083791;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  text-align: center;
+  padding: 24px;
+  margin-top: 30px;
 }
 
-div.Experience {
-            align-content: center;
-            margin: 0px;
-            text-align: center;
+.lead {
+  font-size: 22px;
 }
 
-div.img img {
-            width: 100%;
-            height: 50px;
+.minor {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
-
-div.Projects {
-            align-content: center;
-            margin: 0px;
-}
-
-div.projectimg {
-            margin: 7px;
-            float: left;
-            width: 235px;
-            padding: 0px 0px 0px 0px;
-            box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
-}
-
-div.projectimg img {
-            width: 100%;
-            height: 400px;
-}
-
-
-div.detailimg {
-            margin-left: 95px;
-            margin-bottom: 20px;
-            float: left;
-            width: 285px;
-            padding: 0px 0px 0px 0px;
-            box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
-}
-
-div.detailimg img {
-            width: 100%;
-            height: 462px;
+.navbar {
+  background-color: #083791;
 }

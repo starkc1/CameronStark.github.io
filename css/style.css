@@ -6,6 +6,10 @@
   color: #083791;
 }
 
+body {
+  background-color: #e2e1e0;
+}
+
 .btn {
   font-size: 17px;
   padding: 9px 24px;

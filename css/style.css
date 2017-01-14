@@ -65,6 +65,10 @@ body {
   margin-top: 20px;
 }
 
+.jumbotron p {
+  font-size: 17px;
+}
+
 .jumbotron-projects {
   background-color: white;
   color: #083791;

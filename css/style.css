@@ -1,11 +1,3 @@
-.about {
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  padding: 0 15px;
-  color: #083791;
-}
-
 body {
   background-color: #e2e1e0;
 }
@@ -31,6 +23,24 @@ body {
   margin-left: -16px;
   margin-right: -16px;
   text-align: center;
+}
+
+.experience {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  padding: 0 15px;
+  color: #083791;
+  margin-top: -27px;
+}
+
+.home {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  padding: 0 15px;
+  color: #083791;
+  margin-top: -27px;
 }
 
 .img-fluid {
@@ -100,4 +110,13 @@ body {
 .navbar {
   background-color: transparent;
   border-color: transparent;
+}
+
+.projects {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  padding: 0 15px;
+  color: #083791;
+  margin-top: -27px;
 }

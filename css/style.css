@@ -3,8 +3,8 @@ body {
 }
 
 .btn {
-  font-size: 17px;
-  padding: 9px 24px;
+  font-size: 14px;
+  padding: 8px 16px;
   border: 0;
   color: #083791!important;
   margin: 6px;
@@ -15,7 +15,7 @@ body {
 
 .btn-header {
   background-color: #f8f8ff;
-  width: 150px;
+  width: 100px;
 }
 
 .container-fluid {
@@ -31,7 +31,7 @@ body {
   left: 0px;
   padding: 0 15px;
   color: #083791;
-  margin-top: -27px;
+  margin-top: -71px;
 }
 
 .home {
@@ -40,7 +40,7 @@ body {
   left: 0px;
   padding: 0 15px;
   color: #083791;
-  margin-top: -27px;
+  margin-top: -71px;
 }
 
 .img-fluid {
@@ -118,5 +118,5 @@ body {
   left: 0px;
   padding: 0 15px;
   color: #083791;
-  margin-top: -27px;
+  margin-top: -71px;
 }

@@ -55,6 +55,13 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.experience = [
         {
+            company: 'Fusion Advertising Inc.',
+            img: 'images/Fusion_Logo.png',
+            position: 'Lead Mobile Application Developer',
+            info1: 'Developed The Frugal You coupon application',
+            info2: 'Developed the database for coupon storage'
+        },
+        {
             company: 'StarkNetwork',
             img: 'images/StarkNetwork_Logo2.jpg',
             position: 'Web and App Developer',
@@ -67,14 +74,7 @@ app.controller('MainController', ['$scope', function($scope) {
             position: 'Lead Web and App Developer',
             info1: 'Developed UWP apps for Windows 10',
             info2: 'Developed Windows 8.1 apps'
-        },
-        {
-            company: 'Fusion Advertising Inc.',
-            img: 'images/Fusion_Logo.png',
-            position: 'Lead Mobile Application Developer',
-            info1: 'Developed The Frugal You coupon application',
-            info2: 'Developed the database for coupon storage'
-        },
+        }
     ];
 
     $scope.projects = [

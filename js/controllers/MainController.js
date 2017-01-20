@@ -55,6 +55,13 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.experience = [
         {
+            company: 'Software Logistics, LLC',
+            img: '',
+            position: 'Web Developer Intern',
+            info1: 'Developed portions of NuvIoT',
+            info2: 'HTML, CSS, AngularJS, ASP.NET'
+        },
+        {
             company: 'Fusion Advertising Inc.',
             img: 'images/Fusion_Logo.png',
             position: 'Lead Mobile Application Developer',

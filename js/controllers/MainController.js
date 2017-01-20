@@ -64,23 +64,23 @@ app.controller('MainController', ['$scope', function($scope) {
         {
             company: 'Fusion Advertising Inc.',
             img: 'images/Fusion_Logo.png',
-            position: 'Lead Mobile Application Developer',
+            position: 'Lead Mobile Application Developer Intern',
             info1: 'Developed The Frugal You coupon application',
-            info2: 'Developed the database for coupon storage'
+            info2: 'C#, XAML, Xamarin.Forms, .NET'
         },
         {
             company: 'StarkNetwork',
             img: 'images/StarkNetwork_Logo2.jpg',
             position: 'Web and App Developer',
             info1: 'Developed webpages for various customers',
-            info2: 'Developed mobile apps for various customers'
+            info2: 'C#, XAML, HTML, CSS'
         },
         {
             company: 'Tier-Zero',
             img: 'images/tier-zero-nobg.png',
             position: 'Lead Web and App Developer',
             info1: 'Developed UWP apps for Windows 10',
-            info2: 'Developed Windows 8.1 apps'
+            info2: 'C#, XAML, Xamarin.Forms, HTML, CSS, Bootstrap'
         }
     ];
 

@@ -25,6 +25,13 @@ body {
   text-align: center;
 }
 
+.container-fluid-report {
+  margin-top: 325px;
+  margin-left: -16px;
+  margin-right: -16px;
+  text-align: center;
+}
+
 .experience {
   position: absolute;
   width: 100%;

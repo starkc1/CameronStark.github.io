@@ -131,6 +131,14 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.report = [
         {
+            period: 'Week of January 8 - January 14th',
+            hours: 'Time Spent: 4.11',
+            task1: 'ACCOMPLISHMENTS: Accomplished settign up layout of the detail section to display all necessary fields and to hid those with null values',
+            task2: 'WHAT I LEARNED: Learned HTML, CSS and Bootstrap formatting aswell as the show/hide compnents to display information',
+            task3: 'DIFFICULTY: I found that setting up the show/hide was a little complicated because of the changing formatting based on what is shown and hidden',
+            task4: 'ENJOYED: I enjoyed playing around with the formatting and seeing what is possible with the components of bootstap and how it can work with angularjs'
+        },
+        {
             period: 'Week of January 1st - January 7th',
             hours: 'Time Spent: 13.58 hrs',
             task1: 'ACCOMPLISHMENTS: Accomplished setting up controllers and with assitance completed the passing of parameters for the user to move through the website and JSON URLs',

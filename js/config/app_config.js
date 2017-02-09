@@ -1,8 +1,8 @@
  app.config(['$routeProvider', function($routeProvider) {
 
      $routeProvider
-        .when('/Details', {
-            templateUrl: 'views/Details.html'
+        .when('/Home', {
+            templateUrl: 'views/Home.html'
         })
         .when('/Experience', {
             templateUrl: 'views/Experience.html'
@@ -14,6 +14,6 @@
             templateUrl: 'views/Resume.html'
         })
         .otherwise({
-            redirectTo: '/Details'
+            redirectTo: '/Home'
         })
  }]);

@@ -55,26 +55,33 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.experience = [
         {
+            company: 'Software Logistics, LLC',
+            img: '',
+            position: 'Web Developer Intern',
+            info1: 'Developed portions of NuvIoT',
+            info2: 'HTML, CSS, AngularJS, ASP.NET'
+        },
+        {
+            company: 'Fusion Advertising Inc.',
+            img: 'images/Fusion_Logo.png',
+            position: 'Lead Mobile Application Developer Intern',
+            info1: 'Developed The Frugal You coupon application',
+            info2: 'C#, XAML, Xamarin.Forms, .NET'
+        },
+        {
             company: 'StarkNetwork',
             img: 'images/StarkNetwork_Logo2.jpg',
             position: 'Web and App Developer',
             info1: 'Developed webpages for various customers',
-            info2: 'Developed mobile apps for various customers'
+            info2: 'C#, XAML, HTML, CSS'
         },
         {
             company: 'Tier-Zero',
             img: 'images/tier-zero-nobg.png',
             position: 'Lead Web and App Developer',
             info1: 'Developed UWP apps for Windows 10',
-            info2: 'Developed Windows 8.1 apps'
-        },
-        {
-            company: 'Fusion Advertising Inc.',
-            img: 'images/Fusion_Logo.png',
-            position: 'Lead Mobile Application Developer',
-            info1: 'Developed The Frugal You coupon application',
-            info2: 'Developed the database for coupon storage'
-        },
+            info2: 'C#, XAML, Xamarin.Forms, HTML, CSS, Bootstrap'
+        }
     ];
 
     $scope.projects = [
@@ -123,6 +130,14 @@ app.controller('MainController', ['$scope', function($scope) {
     ];
 
     $scope.report = [
+        {
+            period: 'Week of January 8 - January 14th',
+            hours: 'Time Spent: 4.11',
+            task1: 'ACCOMPLISHMENTS: Accomplished settign up layout of the detail section to display all necessary fields and to hid those with null values',
+            task2: 'WHAT I LEARNED: Learned HTML, CSS and Bootstrap formatting aswell as the show/hide compnents to display information',
+            task3: 'DIFFICULTY: I found that setting up the show/hide was a little complicated because of the changing formatting based on what is shown and hidden',
+            task4: 'ENJOYED: I enjoyed playing around with the formatting and seeing what is possible with the components of bootstap and how it can work with angularjs'
+        },
         {
             period: 'Week of January 1st - January 7th',
             hours: 'Time Spent: 13.58 hrs',

@@ -29,6 +29,9 @@ app.controller('MainController', ['$scope', function($scope) {
         },
         {
             lang: 'Xamarin'
+        },
+        {
+            lang: 'Java'
         }
     ];
 

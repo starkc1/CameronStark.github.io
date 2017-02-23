@@ -1,6 +1,6 @@
 #MainImage
 {
-    background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/TestImage.png?raw=true) 50% fixed;
+    background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/images/TestImage.png?raw=true) 100% fixed;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,9 +11,62 @@
 {
   position: absolute;
   width: 100%;
+  top: 20%;
+  left: 0px;
+  text-align: center;
+  transform: translate(0%,-50%);
+  background-color: #50c878;
+  background-opacity: .5;
+  box-shadow: 0 3px 19px rgba(0,0,0,0.25), 0 0px 3px rgba(0,0,0,0.22);
+}
+
+.opening
+{
+  color: black;
+  font-size: 100px;
+}
+
+.detail
+{
+  position: absolute;
+  width: 100%;
   top: 40%;
   left: 0px;
   text-align: center;
   transform: translate(0%,-50%);
-  padding: 0 15px;
+  background-color: #50c878;
+  background-opacity: .5;
+  box-shadow: 0 3px 19px rgba(0,0,0,0.25), 0 0px 3px rgba(0,0,0,0.22);
+}
+
+.detail2
+{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0px;
+  text-align: center;
+  transform: translate(0%,-50%);
+  background-color: #50c878;
+  background-opacity: .5;
+  box-shadow: 0 3px 19px rgba(0,0,0,0.25), 0 0px 3px rgba(0,0,0,0.22);
+}
+
+.detail3
+{
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  left: 0px;
+  text-align: center;
+  transform: translate(0%,-50%);
+  background-color: #50c878;
+  background-opacity: .5;
+  box-shadow: 0 3px 19px rgba(0,0,0,0.25), 0 0px 3px rgba(0,0,0,0.22);
+}
+
+.statement
+{
+  color: black;
+  font-size: 50px;
 }

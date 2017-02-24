@@ -58,8 +58,15 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.experience = [
         {
+            company: 'NetSynergy Virtual Solutions',
+            img: 'images/netsvs_logo.png',
+            position: 'Web developer intern',
+            info1: 'Developed website for client',
+            info2: 'HTML, CSS, Bootstrap'
+        },
+        {
             company: 'Software Logistics, LLC',
-            img: '',
+            img: '', 
             position: 'Web Developer Intern',
             info1: 'Developed portions of NuvIoT',
             info2: 'HTML, CSS, AngularJS, ASP.NET'

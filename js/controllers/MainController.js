@@ -37,7 +37,7 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.programs = [
         {
-            prog: 'Visual Studio'
+            prog: 'Visual Studio 2015'
         },
         {
             prog: 'MatLab'
@@ -53,6 +53,12 @@ app.controller('MainController', ['$scope', function($scope) {
         },
         {
             prog: 'AutoCad'
+        },
+        {
+            prog: 'Visual Studio Code'
+        },
+        {
+            prog: 'Eclipse'
         }
     ];
 

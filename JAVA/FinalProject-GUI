@@ -3,6 +3,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,19 +13,32 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class FPRA_gui extends Application {
 
 	private BorderPane root;
+	
 	public String dAirport;
+	public String dTime;
+	public String dWind;
+	public String dVis;
+	public String dTemp;
+	public String dAltimeter;
+	public String dDew;
+	
 	public String aAirport;
 	
 	public static void main(String[] args) {
@@ -128,6 +142,7 @@ public class FPRA_gui extends Application {
 		
 		
 		TextField dAirportFld = new TextField();
+		dAirportFld.setPromptText(dAirport);
 		vbox.getChildren().addAll(new Label("Departure Airport:"), dAirportFld);
 		
 		TextField dTimeFld = new TextField();
@@ -153,6 +168,10 @@ public class FPRA_gui extends Application {
 		
 		dSaveBtn.setOnAction(e -> {
 			dAirport = dAirportFld.getText();
+			dTime = dTimeFld.getText();
+			dWind = dWindFld.getText();
+			dVis = dVisibilityFld.getText();
+			
 		});
 		
 		ScrollPane scroll = new ScrollPane(vbox);
@@ -305,15 +324,42 @@ public class FPRA_gui extends Application {
 		
 		BorderPane borderPane = new BorderPane();
 		
-		Text titleText = new Text("Simulation for the flight from " + dAirport + " to " + aAirport);
-		
-		
+		Text titleText = new Text(10, 50, "Simulation for the flight from " + dAirport + " to " + aAirport);
+		titleText.setFont(new Font(20));
 		borderPane.setTop(titleText);
+		borderPane.setAlignment(titleText, Pos.CENTER);
+		
+		
+		
+		Button departureMapBtn = new Button(dAirport);
+		departureMapBtn.setStyle("-fx-background-image: url('/images/KDAB.jpg'); -fx-background-size: 400px 400px; -fx-background-position: center");
+		departureMapBtn.setMinHeight(100);
+		departureMapBtn.setMinWidth(100);
+		departureMapBtn.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+		departureMapBtn.setTextFill(Color.BLUE);
+		departureMapBtn.setOnAction(e -> {
+			Stage stage = new Stage();
+			
+			Image image = new Image("images/KDAB.jpg");
+			ImageView imageView = new ImageView(image);
+			imageView.setFitHeight(1000);
+			imageView.setFitWidth(800);
+			StackPane Image = new StackPane();
+			
+			Scene scene2 = new Scene(Image, 800, 1000);
+			Image.getChildren().add(imageView);
+			
+			stage.setScene(scene2);
+			stage.setTitle(dAirport);
+			stage.show();
+			
+		});
+		borderPane.setLeft(departureMapBtn);
+		
 		
 		return borderPane;
 	}
-		
-	
+
 
 	
 }

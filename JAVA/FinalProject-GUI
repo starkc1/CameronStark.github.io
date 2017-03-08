@@ -324,19 +324,22 @@ public class FPRA_gui extends Application {
 		
 		BorderPane borderPane = new BorderPane();
 		
+		VBox vBoxInfo = new VBox(10);
+		
 		Text titleText = new Text(10, 50, "Simulation for the flight from " + dAirport + " to " + aAirport);
 		titleText.setFont(new Font(20));
 		borderPane.setTop(titleText);
 		borderPane.setAlignment(titleText, Pos.CENTER);
 		
-		
+		//Departure Map
+		Text departAirportText = new Text(dAirport);
+		departAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		departAirportText.setTextAlignment(TextAlignment.CENTER);
 		
 		Button departureMapBtn = new Button(dAirport);
 		departureMapBtn.setStyle("-fx-background-image: url('/images/KDAB.jpg'); -fx-background-size: 400px 400px; -fx-background-position: center");
 		departureMapBtn.setMinHeight(100);
 		departureMapBtn.setMinWidth(100);
-		departureMapBtn.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-		departureMapBtn.setTextFill(Color.BLUE);
 		departureMapBtn.setOnAction(e -> {
 			Stage stage = new Stage();
 			
@@ -354,7 +357,15 @@ public class FPRA_gui extends Application {
 			stage.show();
 			
 		});
-		borderPane.setLeft(departureMapBtn);
+		vBoxInfo.getChildren().addAll(departAirportText, departureMapBtn);
+		//Departure Map
+		
+		//Arrival Map
+		Text arrivalAirportText = new Text(aAirport);
+		arrivalAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		
+		
+		borderPane.setLeft(vBoxInfo);
 		
 		
 		return borderPane;

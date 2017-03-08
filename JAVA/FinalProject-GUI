@@ -1,0 +1,319 @@
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class FPRA_gui extends Application {
+
+	private BorderPane root;
+	public String dAirport;
+	public String aAirport;
+	
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+	
+	@Override
+	public void start(Stage primaryStage) {
+		
+		root = new BorderPane();
+		root.setTop(getMenu());
+		
+		
+		Scene scene = new Scene(root, 1000, 650);
+		primaryStage.setTitle("Flight Project and Risk Assessment Simulation");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	
+	public MenuBar getMenu() {
+		
+		MenuBar menuBar = new MenuBar();
+		
+		//Departure Begin
+		Menu menuDeparture = new Menu("Departure Information");
+		MenuItem editDeparture = new MenuItem("Edit Information");
+		menuDeparture.getItems().add(editDeparture);
+		
+		editDeparture.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent t) {
+				root.setLeft(getInputsDeparture());
+			}
+		});
+		//Departure End
+		
+		//Arrival Begin
+		Menu menuArrival = new Menu("Arrival Information");
+		MenuItem editArrival = new MenuItem("Edit Information");
+		menuArrival.getItems().add(editArrival);
+		
+		editArrival.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent t) {
+				root.setLeft(getInputsArrival());
+			}
+		});
+		//Arrival End
+		
+		//Flight Begin
+		Menu menuFlight = new Menu("Flight Information");
+		MenuItem editFlight = new MenuItem("Edit Information");
+		menuFlight.getItems().add(editFlight);
+		
+		editFlight.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent t) {
+				root.setLeft(getInputsFlight());
+			}
+		});
+		//Flight End
+		
+		//Pilot Begin
+		Menu menuPilot = new Menu("Pilot Information");
+		MenuItem editPilot = new MenuItem("Edit Information");
+		menuPilot.getItems().add(editPilot);
+		
+		editPilot.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent t) {
+				root.setLeft(getInputsPilot());
+			}
+		});
+		//Pilot End
+		
+		//Display Begin
+		Menu menuDisplayInfo = new Menu("Simulation");
+		MenuItem runSim = new MenuItem("Run Simulation");
+		menuDisplayInfo.getItems().add(runSim);
+		
+		runSim.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent t) {
+				root.setCenter(getSimInfo());
+			}
+		});
+		//Display End
+		
+		
+		menuBar.getMenus().addAll(menuDeparture, menuArrival, menuFlight, menuPilot, menuDisplayInfo);
+		
+		return menuBar;
+	}
+	
+	public HBox getInputsDeparture() {
+		
+		HBox hbox = new HBox();
+		
+		VBox vbox = new VBox(10);
+		vbox.setPadding(new Insets(10));
+		
+		Text text = new Text("Departure Information");
+		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		vbox.getChildren().add(text);
+		
+		
+		TextField dAirportFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Airport:"), dAirportFld);
+		
+		TextField dTimeFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Time:"), dTimeFld);
+		
+		TextField dWindFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Wind:"), dWindFld);
+		
+		TextField dVisibilityFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Visibility:"), dVisibilityFld);
+		
+		TextField dTempFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Temperature:"), dTempFld);
+		
+		TextField dAltimeterFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Time:"), dAltimeterFld);
+		
+		TextField dDewFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Dew Point:"), dDewFld);
+		
+		Button dSaveBtn = new Button("Save Information");
+		vbox.getChildren().add(dSaveBtn);
+		
+		dSaveBtn.setOnAction(e -> {
+			dAirport = dAirportFld.getText();
+		});
+		
+		ScrollPane scroll = new ScrollPane(vbox);
+		
+		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
+		
+		return hbox;
+	}
+	
+	public HBox getInputsArrival() {
+		
+		HBox hbox = new HBox();
+		
+		VBox vbox = new VBox(10);
+		vbox.setPadding(new Insets(10));
+		
+		Text text = new Text("Arrival Information");
+		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		vbox.getChildren().add(text);
+		
+		
+		TextField aAirportFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);
+		
+		TextField aTimeFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Time:"), aTimeFld);
+		
+		TextField aWindFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Wind:"), aWindFld);
+		
+		TextField aVisibilityFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Visibility:"), aVisibilityFld);
+		
+		TextField aTempFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Temperature:"), aTempFld);
+		
+		TextField aAltimeterFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Time:"), aAltimeterFld);
+		
+		TextField aDewFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Dew Point:"), aDewFld);
+		
+		Button aSaveBtn = new Button("Save Information");
+		vbox.getChildren().add(aSaveBtn);
+		
+		aSaveBtn.setOnAction(e -> {
+			aAirport = aAirportFld.getText();
+		});
+		
+		ScrollPane scroll = new ScrollPane(vbox);
+		
+		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
+		
+		return hbox;
+	}
+	
+	public HBox getInputsFlight() {
+		
+		HBox hbox = new HBox();
+		
+		VBox vbox = new VBox(10);
+		vbox.setPadding(new Insets(10));
+		
+		Text text = new Text("Flight Information");
+		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		vbox.getChildren().add(text);
+		
+		
+		TextField planeFld = new TextField();
+		vbox.getChildren().addAll(new Label("Plane Used:"), planeFld);
+		
+		TextField trueSpeedFld = new TextField();
+		vbox.getChildren().addAll(new Label("True Airspeed:"), trueSpeedFld);
+		
+		TextField typeFld = new TextField();
+		vbox.getChildren().addAll(new Label("Type Of Flight:"), typeFld);
+		
+		TextField cruiseAltFld = new TextField();
+		vbox.getChildren().addAll(new Label("Cruising Altitude:"), cruiseAltFld);
+		
+		TextField timeFld = new TextField();
+		vbox.getChildren().addAll(new Label("Flight Time:"), timeFld);
+		
+		TextField fuelFld = new TextField();
+		vbox.getChildren().addAll(new Label("Fuel On Board:"), fuelFld);
+		
+		TextField passengerWeightFld = new TextField();
+		vbox.getChildren().addAll(new Label("Passenger Weight:"), passengerWeightFld);
+		
+		TextField passengerNumberFld = new TextField();
+		vbox.getChildren().addAll(new Label("Passenger Number:"), passengerNumberFld);
+		
+		Button fSaveBtn = new Button("Save Information");
+		vbox.getChildren().add(fSaveBtn);
+		
+		ScrollPane scroll = new ScrollPane(vbox);
+		
+		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
+		
+		return hbox;
+	}
+	
+	public HBox getInputsPilot() {
+		
+		HBox hbox = new HBox();
+		
+		VBox vbox = new VBox(10);
+		vbox.setPadding(new Insets(10));
+		
+		Text text = new Text("Pilot Information");
+		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		vbox.getChildren().add(text);
+		
+		
+		TextField dualsoloFld = new TextField();
+		vbox.getChildren().addAll(new Label("Dual or Solo:"), dualsoloFld);
+		
+		TextField daynightFld = new TextField();
+		vbox.getChildren().addAll(new Label("Day or Night"), daynightFld);
+		
+		TextField ratingFld = new TextField();
+		vbox.getChildren().addAll(new Label("Rating held"), ratingFld);
+		
+		TextField restFld = new TextField();
+		vbox.getChildren().addAll(new Label("Rest in the last 24hr"), restFld);
+		
+		TextField ceilingFld = new TextField();
+		vbox.getChildren().addAll(new Label("Allowed Cieling"), ceilingFld);
+		
+		TextField hrsTypeFld = new TextField();
+		vbox.getChildren().addAll(new Label("Hours aircraft type"), hrsTypeFld);
+		
+		TextField hrsDaysFld = new TextField();
+		vbox.getChildren().addAll(new Label("Hours in the last 90 days"), hrsDaysFld);
+		
+		TextField totalHrsFld = new TextField();
+		vbox.getChildren().addAll(new Label("Total flight hours"), totalHrsFld);
+		
+		Button pSaveBtn = new Button("Save Information");
+		vbox.getChildren().add(pSaveBtn);
+		
+		ScrollPane scroll = new ScrollPane(vbox);
+		
+		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
+		
+		return hbox;
+	}
+
+	public BorderPane getSimInfo() {
+		
+		BorderPane borderPane = new BorderPane();
+		
+		Text titleText = new Text("Simulation for the flight from " + dAirport + " to " + aAirport);
+		
+		
+		borderPane.setTop(titleText);
+		
+		return borderPane;
+	}
+		
+	
+
+	
+}

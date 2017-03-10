@@ -1,15 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,11 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -44,6 +30,7 @@ public class FPRA_gui extends Application {
 
 	private BorderPane root;
 	
+	
 	public String dAirport;
 	public String dTime;
 	public String dWind;
@@ -52,6 +39,11 @@ public class FPRA_gui extends Application {
 	public String dAltimeter;
 	public String dDew;
 	public String dTower;
+	public String dAirportMap;
+	public String dAirportTower;
+	public String dAirportARTCC;
+	public String dAirportElevation;
+	public String dTowerString;
 	
 	public String aAirport;
 	
@@ -349,19 +341,33 @@ public class FPRA_gui extends Application {
 		borderPane.setAlignment(titleText, Pos.CENTER);
 		
 		//DEPARTURE INFORMATION
+		Button departureMapBtn = new Button();
+		departureMapBtn.setMinHeight(100);
+		departureMapBtn.setMinWidth(100);
+		switch (dAirport) {
+		
+			case "KDAB" :
+				String[] KDAB = AirportInfo.kdabArray;
+				dAirportMap = KDAB[0];
+				dAirportTower = KDAB[1];
+				dAirportARTCC = KDAB[2];
+				dAirportElevation = KDAB[3];
+				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+				
+			
+				
+			
+		}
 		//Departure Map
 		Text departAirportText = new Text(dAirport);
 		departAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		departAirportText.setTextAlignment(TextAlignment.CENTER);
 		
-		Button departureMapBtn = new Button();
-		departureMapBtn.setStyle("-fx-background-image: url('/images/KDAB.jpg'); -fx-background-size: 400px 400px; -fx-background-position: center");
-		departureMapBtn.setMinHeight(100);
-		departureMapBtn.setMinWidth(100);
 		departureMapBtn.setOnAction(e -> {
 			Stage stage = new Stage();
 			
-			Image image = new Image("images/KDAB.jpg");
+			Image image = new Image(dAirportMap);
 			ImageView imageView = new ImageView(image);
 			imageView.setFitHeight(1000);
 			imageView.setFitWidth(800);
@@ -375,35 +381,17 @@ public class FPRA_gui extends Application {
 			stage.show();
 			
 		});
-		vBoxInfo.getChildren().addAll(departAirportText, departureMapBtn);
+		Text dTowerText = new Text("ATC Tower: " + dAirportTower);
+		Text dARTCCText = new Text("ARTCC: " + dAirportARTCC);
+		Text dElevationText = new Text("Airport Elevation: " + dAirportElevation);
+		
+		vBoxInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText);
 		//Departure Map
 		
-		try {
-			FileReader reader = new FileReader("C:\\Users\\cms11\\Desktop\\Airport.json");
-			
-			JSONParser jsonParser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
-			
-			JSONArray airport = (JSONArray) jsonObject.get("KDAB");
-			
-			JSONObject innerObj = (JSONObject) .next();
-			
-			System.out.println(airport.get(0));
-			
-		} catch (FileNotFoundException ex){
-			ex.printStackTrace();
-		} catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        } catch (NullPointerException ex) {
-            ex.printStackTrace();
-        }
-
+		
 		
 		
 	
-		
 		borderPane.setLeft(vBoxInfo);
 		borderPane.setAlignment(vBoxInfo, Pos.CENTER);
 		

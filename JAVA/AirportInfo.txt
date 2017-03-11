@@ -1,0 +1,7 @@
+public class AirportInfo {
+	
+	//static String[] (name)Array = { (Name), (Map), (Tower?), (ARTCC), (Elevation), (Unicom), (ATIS), (Ground), (Tower) }
+	
+	static String[] kdabArray = {"Daytona Beach International (KDAB)","images/KDAB.jpg", "yes", "Jacksonville Center", "34.1ft", "122.95", "132.875", "121.9 348.9", "120.7 257.8 118.1"};
+	
+}

@@ -39,12 +39,16 @@ public class FPRA_gui extends Application {
 	public String dAltimeter;
 	public String dDew;
 	public String dTower;
+	public String dAirportName;
 	public String dAirportMap;
 	public String dAirportTower;
 	public String dAirportARTCC;
 	public String dAirportElevation;
-	public String dTowerString;
-	
+	public String dAirportUNICOM;
+	public String dAirportATIS;
+	public String dAirportGround;
+	public String dAirportTowerFreq;
+
 	public String aAirport;
 	
 	public static void main(String[] args) {
@@ -60,7 +64,7 @@ public class FPRA_gui extends Application {
 		root.setTop(getMenu());
 		
 		
-		Scene scene = new Scene(root, 1000, 650);
+		Scene scene = new Scene(root, 1500, 750);
 		primaryStage.setTitle("Flight Project and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -348,10 +352,15 @@ public class FPRA_gui extends Application {
 		
 			case "KDAB" :
 				String[] KDAB = AirportInfo.kdabArray;
-				dAirportMap = KDAB[0];
-				dAirportTower = KDAB[1];
-				dAirportARTCC = KDAB[2];
-				dAirportElevation = KDAB[3];
+				dAirportName = KDAB[0];
+				dAirportMap = KDAB[1];
+				dAirportTower = KDAB[2];
+				dAirportARTCC = KDAB[3];
+				dAirportElevation = KDAB[4];
+				dAirportUNICOM = KDAB[5];
+				dAirportATIS = KDAB[6];
+				dAirportGround = KDAB[7];
+				dAirportTowerFreq = KDAB[8];
 				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 				
@@ -360,8 +369,8 @@ public class FPRA_gui extends Application {
 			
 		}
 		//Departure Map
-		Text departAirportText = new Text(dAirport);
-		departAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		Text departAirportText = new Text(dAirportName);
+		departAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		departAirportText.setTextAlignment(TextAlignment.CENTER);
 		
 		departureMapBtn.setOnAction(e -> {
@@ -384,14 +393,18 @@ public class FPRA_gui extends Application {
 		Text dTowerText = new Text("ATC Tower: " + dAirportTower);
 		Text dARTCCText = new Text("ARTCC: " + dAirportARTCC);
 		Text dElevationText = new Text("Airport Elevation: " + dAirportElevation);
+		Text dUnicomText = new Text("Unicom Frequency: " + dAirportUNICOM);
+		Text dAtisText = new Text("Atis Frequency: " + dAirportATIS);
+		Text dGroundText = new Text("Ground Frequency: " + dAirportGround);
+		Text dTowerFreqText = new Text("Tower Frequency: " + dAirportTowerFreq);
 		
-		vBoxInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText);
+		vBoxInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText, dUnicomText, dAtisText, dGroundText, dTowerFreqText);
 		//Departure Map
 		
 		
 		
 		
-	
+		vBoxInfo.setPrefWidth(100);
 		borderPane.setLeft(vBoxInfo);
 		borderPane.setAlignment(vBoxInfo, Pos.CENTER);
 		

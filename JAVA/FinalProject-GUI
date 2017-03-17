@@ -50,6 +50,16 @@ public class FPRA_gui extends Application {
 	public String dAirportTowerFreq;
 
 	public String aAirport;
+	public String aTower;
+	public String aAirportName;
+	public String aAirportMap;
+	public String aAirportTower;
+	public String aAirportARTCC;
+	public String aAirportElevation;
+	public String aAirportUNICOM;
+	public String aAirportATIS;
+	public String aAirportGround;
+	public String aAirportTowerFreq;
 	
 	public static void main(String[] args) {
 		Application.launch(args);
@@ -207,6 +217,7 @@ public class FPRA_gui extends Application {
 		
 		
 		TextField aAirportFld = new TextField();
+		aAirportFld.setPromptText(aAirport);
 		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);
 		
 		TextField aTimeFld = new TextField();
@@ -337,9 +348,10 @@ public class FPRA_gui extends Application {
 		
 		BorderPane borderPane = new BorderPane();
 		
-		VBox vBoxInfo = new VBox(10);
+		VBox vBoxInfoDepart = new VBox(10);
+		VBox vBoxInfoArrival = new VBox(10);
 		
-		Text titleText = new Text(10, 50, "Simulation for the flight from " + dAirport + " to " + aAirport);
+		Text titleText = new Text(10, 50, "Flight From " + dAirport + " To " + aAirport);
 		titleText.setFont(new Font(20));
 		borderPane.setTop(titleText);
 		borderPane.setAlignment(titleText, Pos.CENTER);
@@ -364,6 +376,47 @@ public class FPRA_gui extends Application {
 				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 				
+			case "KTPA" :
+				String[] KTPA = AirportInfo.ktpaArray;
+				dAirportName = KTPA[0];
+				dAirportMap = KTPA[1];
+				dAirportTower = KTPA[2];
+				dAirportARTCC = KTPA[3];
+				dAirportElevation = KTPA[4];
+				dAirportUNICOM = KTPA[5];
+				dAirportATIS = KTPA[6];
+				dAirportGround = KTPA[7];
+				dAirportTowerFreq = KTPA[8];
+				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+				
+			case "KDCA" :
+				String[] KDCA = AirportInfo.kdcaArray;
+				dAirportName = KDCA[0];
+				dAirportMap = KDCA[1];
+				dAirportTower = KDCA[2];
+				dAirportARTCC = KDCA[3];
+				dAirportElevation = KDCA[4];
+				dAirportUNICOM = KDCA[5];
+				dAirportATIS = KDCA[6];
+				dAirportGround = KDCA[7];
+				dAirportTowerFreq = KDCA[8];
+				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+				
+			case "KMCO" :
+				String[] KMCO = AirportInfo.kmcoArray;
+				dAirportName = KMCO[0];
+				dAirportMap = KMCO[1];
+				dAirportTower = KMCO[2];
+				dAirportARTCC = KMCO[3];
+				dAirportElevation = KMCO[4];
+				dAirportUNICOM = KMCO[5];
+				dAirportATIS = KMCO[6];
+				dAirportGround = KMCO[7];
+				dAirportTowerFreq = KMCO[8];
+				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
 			
 				
 			
@@ -398,22 +451,112 @@ public class FPRA_gui extends Application {
 		Text dGroundText = new Text("Ground Frequency: " + dAirportGround);
 		Text dTowerFreqText = new Text("Tower Frequency: " + dAirportTowerFreq);
 		
-		vBoxInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText, dUnicomText, dAtisText, dGroundText, dTowerFreqText);
+		vBoxInfoDepart.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText, dUnicomText, dAtisText, dGroundText, dTowerFreqText);
 		//Departure Map
 		
+		vBoxInfoDepart.setPrefWidth(100);
+		borderPane.setLeft(vBoxInfoDepart);
+		borderPane.setAlignment(vBoxInfoDepart, Pos.CENTER);
+		//DEPARTURE INFORMATION
 		
+		//ARRIVAL INFORMAITON
+		Button arrivalMapBtn = new Button();
+		arrivalMapBtn.setMinHeight(100);
+		arrivalMapBtn.setMinWidth(100);
+		switch (aAirport) {
 		
-		
-		vBoxInfo.setPrefWidth(100);
-		borderPane.setLeft(vBoxInfo);
-		borderPane.setAlignment(vBoxInfo, Pos.CENTER);
-		
+			case "KDAB" :
+				String[] KDAB = AirportInfo.kdabArray;
+				aAirportName = KDAB[0];
+				aAirportMap = KDAB[1];
+				aAirportTower = KDAB[2];
+				aAirportARTCC = KDAB[3];
+				aAirportElevation = KDAB[4];
+				aAirportUNICOM = KDAB[5];
+				aAirportATIS = KDAB[6];
+				aAirportGround = KDAB[7];
+				aAirportTowerFreq = KDAB[8];
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+				
+			case "KTPA" :
+				String[] KTPA = AirportInfo.ktpaArray;
+				aAirportName = KTPA[0];
+				aAirportMap = KTPA[1];
+				aAirportTower = KTPA[2];
+				aAirportARTCC = KTPA[3];
+				aAirportElevation = KTPA[4];
+				aAirportUNICOM = KTPA[5];
+				aAirportATIS = KTPA[6];
+				aAirportGround = KTPA[7];
+				aAirportTowerFreq = KTPA[8];
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+				
+			case "KDCA" :
+				String[] KDCA = AirportInfo.kdcaArray;
+				aAirportName = KDCA[0];
+				aAirportMap = KDCA[1];
+				aAirportTower = KDCA[2];
+				aAirportARTCC = KDCA[3];
+				aAirportElevation = KDCA[4];
+				aAirportUNICOM = KDCA[5];
+				aAirportATIS = KDCA[6];
+				aAirportGround = KDCA[7];
+				aAirportTowerFreq = KDCA[8];
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+			
+			case "KMCO" :
+				String[] KMCO = AirportInfo.kmcoArray;
+				aAirportName = KMCO[0];
+				aAirportMap = KMCO[1];
+				aAirportTower = KMCO[2];
+				aAirportARTCC = KMCO[3];
+				aAirportElevation = KMCO[4];
+				aAirportUNICOM = KMCO[5];
+				aAirportATIS = KMCO[6];
+				aAirportGround = KMCO[7];
+				aAirportTowerFreq = KMCO[8];
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				break;
+				
+				
+		}
 		//Arrival Map
-		Text arrivalAirportText = new Text(aAirport);
-		arrivalAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		Text arrivalAirportText = new Text(aAirportName);
+		arrivalAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		arrivalMapBtn.setOnAction(e -> {
+			Stage stage = new Stage();
+			
+			Image image = new Image(aAirportMap);
+			ImageView imageView = new ImageView(image);
+			imageView.setFitHeight(1000);
+			imageView.setFitWidth(800);
+			StackPane Image = new StackPane();
+			
+			Scene scene2 = new Scene(Image, 800, 1000);
+			Image.getChildren().add(imageView);
+			
+			stage.setScene(scene2);
+			stage.setTitle(dAirport);
+			stage.show();
+			
+		});
+		Text aTowerText = new Text("ATC Tower: " + aAirportTower);
+		Text aARTCCText = new Text("ARTCC: " + aAirportARTCC);
+		Text aElevationText = new Text("Airport Elevation: " + aAirportElevation);
+		Text aUnicomText = new Text("Unicom Frequency: " + aAirportUNICOM);
+		Text aAtisText = new Text("Atis Frequency: " + aAirportATIS);
+		Text aGroundText = new Text("Ground Frequency: " + aAirportGround);
+		Text aTowerFreqText = new Text("Tower Frequency: " + aAirportTowerFreq);
 		
 		
-		
+		vBoxInfoArrival.getChildren().addAll(arrivalAirportText, arrivalMapBtn, aTowerText, aARTCCText, aElevationText, aUnicomText, aAtisText, aGroundText, aTowerFreqText);
+		vBoxInfoArrival.setPrefWidth(100);
+		borderPane.setRight(vBoxInfoArrival);
+		borderPane.setAlignment(vBoxInfoArrival, Pos.CENTER);
+		//ARRIVAL INFORMATION
 	
 		return borderPane;
 	}

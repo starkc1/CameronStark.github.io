@@ -65,8 +65,6 @@ public class FPRA_gui extends Application {
 		Application.launch(args);
 	}
 	
-
-	
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -194,7 +192,9 @@ public class FPRA_gui extends Application {
 			dTime = dTimeFld.getText();
 			dWind = dWindFld.getText();
 			dVis = dVisibilityFld.getText();
-			
+			dTemp = dTempFld.getText();
+			dAltimeter = dAltimeterFld.getText();
+			dDew = dDewFld.getText();
 		});
 		
 		ScrollPane scroll = new ScrollPane(vbox);
@@ -349,6 +349,7 @@ public class FPRA_gui extends Application {
 		BorderPane borderPane = new BorderPane();
 		
 		VBox vBoxInfoDepart = new VBox(10);
+		vBoxInfoDepart.setAlignment(Pos.CENTER);
 		VBox vBoxInfoArrival = new VBox(10);
 		
 		Text titleText = new Text(10, 50, "Flight From " + dAirport + " To " + aAirport);
@@ -424,7 +425,6 @@ public class FPRA_gui extends Application {
 		//Departure Map
 		Text departAirportText = new Text(dAirportName);
 		departAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-		departAirportText.setTextAlignment(TextAlignment.CENTER);
 		
 		departureMapBtn.setOnAction(e -> {
 			Stage stage = new Stage();
@@ -456,7 +456,6 @@ public class FPRA_gui extends Application {
 		
 		vBoxInfoDepart.setPrefWidth(100);
 		borderPane.setLeft(vBoxInfoDepart);
-		borderPane.setAlignment(vBoxInfoDepart, Pos.CENTER);
 		//DEPARTURE INFORMATION
 		
 		//ARRIVAL INFORMAITON

@@ -128,8 +128,8 @@ body {
   border-color: transparent;
 }
 
-.nav-pills .nav-stacked {
-  text-align: right;
+.nav {
+  text-align: left;
 }
 
 .projects {

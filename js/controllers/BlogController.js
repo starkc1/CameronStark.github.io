@@ -1,22 +1,28 @@
 app.controller('BlogController', ['$scope', function($scope) {
     $scope.html = [
         {
-            component: 'Navigation Bar'
+            component: 'Navigation Bar',
+            id: 'Navigation'
         },
         {
-            component: 'Card'
+            component: 'Card',
+            id: 'Card'
         },
         {
-            component: 'Jumbotron'
+            component: 'Jumbotron',
+            id: 'Jumbotron'
         },
         {
-            component: 'Button'
+            component: 'Button',
+            id: 'Button'
         },
         {
-            component: 'Background Image'
+            component: 'Background Image',
+            id: 'Background'
         },
         {
-            component: 'Dropdown'
+            component: 'Dropdown',
+            id: 'Dropdown'
         }
     ];
 

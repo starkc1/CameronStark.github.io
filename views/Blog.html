@@ -2,7 +2,7 @@
     <div class="col-lg-10 col-md-10 col-sm-10">
         <div class="container">
             <!--Navigation Bar-->
-            <h3>Basic Navigation Bar</h3>
+            <h3 id="Navigation">Basic Navigation Bar</h3>
             <nav class="nav navbar-default">
                 <div class="navbar-brand">
                     <p>Navbar example</p>
@@ -14,7 +14,7 @@
         <div class="navigation">
             <h3>HTML/CSS</h3>
             <ul class="nav nav-pills nav-stacked">
-                <li ng-repeat="f in html"><a href="#">{{ f.component }}</a></li>
+                <li ng-repeat="f in html"><a href="#{{f.id}}">{{ f.component }}</a></li>
             </ul>
             <h3>AngularJS</h3>
             <ul class="nav nav-pills nav-stacked">

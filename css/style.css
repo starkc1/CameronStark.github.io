@@ -25,6 +25,10 @@ body {
   text-align: center;
 }
 
+.container-fluid-custom {
+  margin-top: 0px;
+}
+
 .container-fluid-report {
   margin-top: 0px;
   margin-left: 0px;

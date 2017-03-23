@@ -155,6 +155,10 @@ body {
   overflow: hidden;
 }
 
+.SectionTitle {
+  text-align: Left;
+}
+
 #Navigation #Card {
   margin-top: 40px;
 }

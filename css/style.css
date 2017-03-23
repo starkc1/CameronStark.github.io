@@ -18,6 +18,10 @@ body {
   width: 100px;
 }
 
+.container-blog {
+  text-align: left;
+}
+
 .container-fluid {
   margin-top: 325px;
   margin-left: -16px;

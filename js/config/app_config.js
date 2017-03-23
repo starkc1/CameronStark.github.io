@@ -16,6 +16,9 @@
         .when('/Resume', {
             templateUrl: 'views/Resume.html'
         })
+        .when('#Navigation', {
+
+        })
         .otherwise({
             redirectTo: '/Home'
         })

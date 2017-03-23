@@ -11,13 +11,27 @@
                 </nav>
             </section>
 
+            <section id="Card">
+                <div class="card card-cascade narrower">
+                        <div class="view">
+                            <img src="https://static.wixstatic.com/media/03cb9a_b076657bf8af47dcbfe6c8b96148eb2e~mv2.jpg/v1/fill/w_240,h_246,al_c,q_80,usm_4.00_1.00_0.00/03cb9a_b076657bf8af47dcbfe6c8b96148eb2e~mv2.webp"
+                                class="img-fluid" alt="">
+                        </div>
+                        <div class="card-block">
+                            <p class="card-text">Remove cover on the adhesive, place Pinkie Link centered on the bottom edge of the back of your
+                                mobile device. (Press firmly and allow a few seconds for drying)
+                            </p>
+                        </div>
+                    </div>
+            </section>
+
         </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2" ng-controller="BlogController">
         <div class="navigation">
             <h3>HTML/CSS</h3>
             <ul class="nav nav-pills nav-stacked">
-                <li ng-repeat="f in html"><a onClick="document.getElementById('Navigation').scrollIntoView();">{{ f.component }}</a></li>
+                <li ng-repeat="f in html"><a onClick="document.getElementById('{{ f.id }}').scrollIntoView();">{{ f.component }}</a></li>
             </ul>
             <h3>AngularJS</h3>
             <ul class="nav nav-pills nav-stacked">

@@ -14,7 +14,7 @@
         <div class="navigation">
             <h3>HTML/CSS</h3>
             <ul class="nav nav-pills nav-stacked">
-                <li ng-repeat="f in html"><a href="#{{f.id}}">{{ f.component }}</a></li>
+                <li ng-repeat="f in html"><a onClick="document.getElementById('{{ f.id }}').scrollIntoView();">{{ f.component }}</a></li>
             </ul>
             <h3>AngularJS</h3>
             <ul class="nav nav-pills nav-stacked">

@@ -2,10 +2,10 @@
     <div class="col-lg-10 col-md-10 col-sm-10">
 
     </div>
-    <div class="col-lg-2 col-md-2 col-sm-2">
+    <div class="col-lg-2 col-md-2 col-sm-2" ng-controller="BlogController">
         <h3>HTML/CSS</h3>
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="#">Jumbotron</a></li>
+        <ul class="nav nav-pills nav-stacked" ng-repeat="f in html">
+            <li><a href="#">{{ f.component }}</a></li>
         </ul>
     </div>
 </div>

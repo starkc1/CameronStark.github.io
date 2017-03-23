@@ -7,8 +7,26 @@
                 <hr class="my-2">
                 <h3>Basic Navigation Bar</h3>
                 <nav class="nav navbar-default">
-                    <div class="navbar-brand">
-                        <p>Navbar example</p>
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle collapsed" aria-expanded="false" type="button" data-toggle="collapse" data-target="#custom-collapse">
+                                <span class="sr-only">Toggle Navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">
+                                Navbar Brand
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="custom-collapse" aria-expanded="false" style="height: 1px;">
+                            <ul class="nav navbar-nav">
+                                <li class=""><a href="#">Nav 1</a></li>
+                                <li class=""><a href="#">Nav 2</a></li>
+                                <li class=""><a href="#">Nav 3</a></li>
+                                <li class=""><a href="#">Nav 4</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </section>

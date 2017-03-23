@@ -168,3 +168,14 @@ body {
 
 
 
+xmp { 
+  margin: 5px 0; 
+  padding: 0 5px 5px 5px; 
+  background: #CCC; 
+}
+
+xmp:before { 
+  content: ""; display: 
+  block; height: 1em; 
+  margin: 0 -5px -2em -5px; 
+}

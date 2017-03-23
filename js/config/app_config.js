@@ -10,6 +10,9 @@
         .when('/Projects', {
             templateUrl: 'views/Projects.html'
         })
+        .when('/Blog', {
+            templateUrl: 'views/Blog.html'
+        })
         .when('/Resume', {
             templateUrl: 'views/Resume.html'
         })

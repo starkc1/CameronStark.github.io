@@ -185,6 +185,11 @@ body {
   border: 0;
 }
 
+.highlight pre code:first-child {
+  display: inline-block;
+  padding-right: 45px;
+}
+
 pre {
   display: block;
   margin: 0  0 10px;

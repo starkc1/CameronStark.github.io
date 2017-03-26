@@ -1,6 +1,6 @@
 .navbar-default { 
     background-color: #1D58B8;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.16), 0 11px 15px 0 rgba(0,0,0,.12);
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -9,4 +9,12 @@
 
 .navbar-default .navbar-brand {
     color: #ffe700;
+}
+
+#MainImage {
+    background: url(images/MainBackground.png) 50% fixed;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
 }

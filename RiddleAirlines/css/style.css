@@ -12,7 +12,7 @@
 }
 
 #MainImage {
-    background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/RiddleAirlines/images/MainBackground.png?raw=true) 50% fixed;
+    background: url(https://github.com/starkc1/Starkc1.github.io/blob/master/RiddleAirlines/images/MainBackground.png?raw=true) 0% fixed;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,8 +21,8 @@
 
 .panel {
     position: absolute;
-    width: 20%;
-    top: 50%;
+    width: 400px;
+    top: 350px;
     left: 40%;
     text-align: center;
     transform: translate(0%,-50%);
@@ -49,8 +49,7 @@
     border: 0;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     width: 80%;
-    margin-left: 40px;
-    margin-right: 20px;
+
     margin-bottom: 20px;
     border-radius: 0px;
 }
@@ -62,6 +61,11 @@
 
 .card-cascade {
     display: inline-block;
+}
+
+.card-cascade-book {
+    margin-top: 40px;
+    align-content: center;
 }
 
 .card-cascade.narrower {
@@ -79,3 +83,6 @@ p {
     margin: -6px 0 -6px;
 }
 
+h4 {
+    text-align: center;
+}

@@ -21,6 +21,8 @@ body {
 .container-blog {
   text-align: left;
   margin-top: -90px;
+  margin-left: 500px;
+  margin-right: 500px;
 }
 
 .container-fluid {

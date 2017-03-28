@@ -349,7 +349,7 @@ public class FPRA_gui extends Application {
 		BorderPane borderPane = new BorderPane();
 		
 		VBox vBoxInfoDepart = new VBox(10);
-		vBoxInfoDepart.setAlignment(Pos.CENTER);
+		vBoxInfoDepart.setAlignment(Pos.TOP_RIGHT);
 		VBox vBoxInfoArrival = new VBox(10);
 		
 		Text titleText = new Text(10, 50, "Flight From " + dAirport + " To " + aAirport);
@@ -388,7 +388,7 @@ public class FPRA_gui extends Application {
 				dAirportATIS = KTPA[6];
 				dAirportGround = KTPA[7];
 				dAirportTowerFreq = KTPA[8];
-				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				departureMapBtn.setStyle("-fx-background-image: url(images/KTPA.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 				
 			case "KDCA" :
@@ -402,7 +402,7 @@ public class FPRA_gui extends Application {
 				dAirportATIS = KDCA[6];
 				dAirportGround = KDCA[7];
 				dAirportTowerFreq = KDCA[8];
-				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				departureMapBtn.setStyle("-fx-background-image: url(images/KDCA.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 				
 			case "KMCO" :
@@ -416,7 +416,7 @@ public class FPRA_gui extends Application {
 				dAirportATIS = KMCO[6];
 				dAirportGround = KMCO[7];
 				dAirportTowerFreq = KMCO[8];
-				departureMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				departureMapBtn.setStyle("-fx-background-image: url(images/KMCO.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 			
 				
@@ -489,7 +489,7 @@ public class FPRA_gui extends Application {
 				aAirportATIS = KTPA[6];
 				aAirportGround = KTPA[7];
 				aAirportTowerFreq = KTPA[8];
-				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KTPA.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 				
 			case "KDCA" :
@@ -503,7 +503,7 @@ public class FPRA_gui extends Application {
 				aAirportATIS = KDCA[6];
 				aAirportGround = KDCA[7];
 				aAirportTowerFreq = KDCA[8];
-				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDCA.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 			
 			case "KMCO" :
@@ -517,7 +517,7 @@ public class FPRA_gui extends Application {
 				aAirportATIS = KMCO[6];
 				aAirportGround = KMCO[7];
 				aAirportTowerFreq = KMCO[8];
-				arrivalMapBtn.setStyle("-fx-background-image: url(images/KDAB.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
+				arrivalMapBtn.setStyle("-fx-background-image: url(images/KMCO.jpg); -fx-background-size: 400px 400px; -fx-background-position: center");
 				break;
 				
 				

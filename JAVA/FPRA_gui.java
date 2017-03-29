@@ -351,6 +351,7 @@ public class FPRA_gui extends Application {
 		VBox vBoxInfoDepart = new VBox(10);
 		vBoxInfoDepart.setAlignment(Pos.TOP_LEFT);
 		VBox vBoxInfoArrival = new VBox(10);
+		vBoxInfoArrival.setAlignment(Pos.TOP_RIGHT);
 		
 		Text titleText = new Text(10, 50, "Flight From " + dAirport + " To " + aAirport);
 		titleText.setFont(new Font(20));
@@ -455,13 +456,13 @@ public class FPRA_gui extends Application {
 			stage.show();
 			
 		});
-		Text aTowerText = new Text("ATC Tower: " + aAirportTower);
-		Text aARTCCText = new Text("ARTCC: " + aAirportARTCC);
-		Text aElevationText = new Text("Airport Elevation: " + aAirportElevation);
-		Text aUnicomText = new Text("Unicom Frequency: " + aAirportUNICOM);
-		Text aAtisText = new Text("Atis Frequency: " + aAirportATIS);
-		Text aGroundText = new Text("Ground Frequency: " + aAirportGround);
-		Text aTowerFreqText = new Text("Tower Frequency: " + aAirportTowerFreq);
+		Text aTowerText = new Text(aAirportTower + " :ATC Tower");
+		Text aARTCCText = new Text(aAirportARTCC + " :ARTCC");
+		Text aElevationText = new Text(aAirportElevation + " :Airport Elevation");
+		Text aUnicomText = new Text(aAirportUNICOM + " :Unicom Frequency");
+		Text aAtisText = new Text(aAirportATIS + " :ATIS Frequency");
+		Text aGroundText = new Text(aAirportGround + " :Ground Frequency");
+		Text aTowerFreqText = new Text(aAirportTowerFreq + " :Tower Frequency");
 		
 		
 		vBoxInfoArrival.getChildren().addAll(arrivalAirportText, arrivalMapBtn, aTowerText, aARTCCText, aElevationText, aUnicomText, aAtisText, aGroundText, aTowerFreqText);

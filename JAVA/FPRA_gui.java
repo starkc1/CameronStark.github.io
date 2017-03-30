@@ -6,6 +6,7 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -60,6 +61,15 @@ public class FPRA_gui extends Application {
 	public String aAirportATIS;
 	public String aAirportGround;
 	public String aAirportTowerFreq;
+	
+	public String plane;
+	public String trueSpeed;
+	public String type;
+	public String cruiseAlt;
+	public String time;
+	public String fuel;
+	public String passengerWeight;
+	public String passengerNumber;
 	
 	public static void main(String[] args) {
 		Application.launch(args);
@@ -161,9 +171,9 @@ public class FPRA_gui extends Application {
 		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		vbox.getChildren().add(text);
 		
-		
-		TextField dAirportFld = new TextField();
-		dAirportFld.setPromptText(dAirport);
+
+		ComboBox<String> dAirportFld = new ComboBox<>();
+		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		vbox.getChildren().addAll(new Label("Departure Airport:"), dAirportFld);
 		
 		TextField dTimeFld = new TextField();
@@ -188,7 +198,7 @@ public class FPRA_gui extends Application {
 		vbox.getChildren().add(dSaveBtn);
 		
 		dSaveBtn.setOnAction(e -> {
-			dAirport = dAirportFld.getText();
+			dAirport = dAirportFld.getValue();
 			dTime = dTimeFld.getText();
 			dWind = dWindFld.getText();
 			dVis = dVisibilityFld.getText();
@@ -216,8 +226,8 @@ public class FPRA_gui extends Application {
 		vbox.getChildren().add(text);
 		
 		
-		TextField aAirportFld = new TextField();
-		aAirportFld.setPromptText(aAirport);
+		ComboBox<String> aAirportFld = new ComboBox<>();
+		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);
 		
 		TextField aTimeFld = new TextField();
@@ -242,7 +252,7 @@ public class FPRA_gui extends Application {
 		vbox.getChildren().add(aSaveBtn);
 		
 		aSaveBtn.setOnAction(e -> {
-			aAirport = aAirportFld.getText();
+			aAirport = aAirportFld.getValue();
 		});
 		
 		ScrollPane scroll = new ScrollPane(vbox);
@@ -264,7 +274,8 @@ public class FPRA_gui extends Application {
 		vbox.getChildren().add(text);
 		
 		
-		TextField planeFld = new TextField();
+		ComboBox<String> planeFld = new ComboBox<>();
+		planeFld.getItems().addAll("737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320", "A330", "A350", "A380", "CRJ200", "ERJ-190");
 		vbox.getChildren().addAll(new Label("Plane Used:"), planeFld);
 		
 		TextField trueSpeedFld = new TextField();
@@ -290,6 +301,18 @@ public class FPRA_gui extends Application {
 		
 		Button fSaveBtn = new Button("Save Information");
 		vbox.getChildren().add(fSaveBtn);
+		
+		fSaveBtn.setOnAction(e -> {
+			plane = planeFld.getValue();
+			trueSpeed = trueSpeedFld.getText();
+			type = typeFld.getText();
+			cruiseAlt = cruiseAltFld.getText();
+			time = timeFld.getText();
+			fuel = fuelFld.getText();
+			passengerWeight = passengerWeightFld.getText();
+			passengerNumber = passengerNumberFld.getText();
+		});
+		
 		
 		ScrollPane scroll = new ScrollPane(vbox);
 		
@@ -432,8 +455,9 @@ public class FPRA_gui extends Application {
 		aAirportARTCC = aAirportInfo[3];
 		aAirportElevation = aAirportInfo[4];
 		aAirportUNICOM = aAirportInfo[5];
-		aAirportGround = aAirportInfo[6];
-		aAirportTowerFreq = aAirportInfo[7];
+		aAirportATIS = aAirportInfo[6];
+		aAirportGround = aAirportInfo[7];
+		aAirportTowerFreq = aAirportInfo[8];
 		arrivalMapBtn.setStyle(aAirportMapBtn);
 		
 		//Arrival Map

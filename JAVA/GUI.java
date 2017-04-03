@@ -27,11 +27,11 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
-public class FPRA_gui extends Application {
-
+public class GUI extends Application {
+	
+	//Establish Variables
 	private BorderPane root;
-	
-	
+
 	public String dAirport;
 	public String dTime;
 	public String dWind;
@@ -70,18 +70,22 @@ public class FPRA_gui extends Application {
 	public String fuel;
 	public String passengerWeight;
 	public String passengerNumber;
+	//Establish Variables
 	
+	//Establish Application
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
 	
+	//Create GUI
 	@Override
 	public void start(Stage primaryStage) {
 		
+		// create BorderPane
 		root = new BorderPane();
 		root.setTop(getMenu());
 		
-		
+		//Create Scene
 		Scene scene = new Scene(root, 1500, 750);
 		primaryStage.setTitle("Flight Project and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
@@ -91,6 +95,7 @@ public class FPRA_gui extends Application {
 	
 	public MenuBar getMenu() {
 		
+		//establish MenuBar
 		MenuBar menuBar = new MenuBar();
 		
 		//Departure Begin
@@ -98,6 +103,7 @@ public class FPRA_gui extends Application {
 		MenuItem editDeparture = new MenuItem("Edit Information");
 		menuDeparture.getItems().add(editDeparture);
 		
+		//Manage button click
 		editDeparture.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
 				root.setLeft(getInputsDeparture());
@@ -110,6 +116,7 @@ public class FPRA_gui extends Application {
 		MenuItem editArrival = new MenuItem("Edit Information");
 		menuArrival.getItems().add(editArrival);
 		
+		//Manage button click
 		editArrival.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
 				root.setLeft(getInputsArrival());
@@ -122,6 +129,7 @@ public class FPRA_gui extends Application {
 		MenuItem editFlight = new MenuItem("Edit Information");
 		menuFlight.getItems().add(editFlight);
 		
+		//Manage button click
 		editFlight.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
 				root.setLeft(getInputsFlight());
@@ -134,6 +142,7 @@ public class FPRA_gui extends Application {
 		MenuItem editPilot = new MenuItem("Edit Information");
 		menuPilot.getItems().add(editPilot);
 		
+		//Manage button click
 		editPilot.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
 				root.setLeft(getInputsPilot());
@@ -146,6 +155,7 @@ public class FPRA_gui extends Application {
 		MenuItem runSim = new MenuItem("Run Simulation");
 		menuDisplayInfo.getItems().add(runSim);
 		
+		//Manage button click
 		runSim.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
 				root.setCenter(getSimInfo());
@@ -154,49 +164,61 @@ public class FPRA_gui extends Application {
 		});
 		//Display End
 		
-		
+		//Add all buttons to the MenuBar field
 		menuBar.getMenus().addAll(menuDeparture, menuArrival, menuFlight, menuPilot, menuDisplayInfo);
 		
+		//Return the establish MenuBar
 		return menuBar;
 	}
 	
 	public HBox getInputsDeparture() {
 		
+		//Establish Departure HBox
 		HBox hbox = new HBox();
 		
+		//Establish Depature VBox
 		VBox vbox = new VBox(10);
 		vbox.setPadding(new Insets(10));
 		
+		//Create Section Label
 		Text text = new Text("Departure Information");
 		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		vbox.getChildren().add(text);
 		
-
+		//Create ComboBox for the possible airports
 		ComboBox<String> dAirportFld = new ComboBox<>();
 		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		vbox.getChildren().addAll(new Label("Departure Airport:"), dAirportFld);
 		
+		//Entry Field for departure Time
 		TextField dTimeFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Time:"), dTimeFld);
 		
+		//Entry Field for departure Wind
 		TextField dWindFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Wind:"), dWindFld);
 		
+		//Entry Field for departure Visibility
 		TextField dVisibilityFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Visibility:"), dVisibilityFld);
 		
+		//Entry Field for departure Temperature
 		TextField dTempFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Temperature:"), dTempFld);
 		
+		//Entry Field for departure Altimeter
 		TextField dAltimeterFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Time:"), dAltimeterFld);
+		vbox.getChildren().addAll(new Label("Departure Altimeter:"), dAltimeterFld);
 		
+		//Entry Field for departure Dew
 		TextField dDewFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Dew Point:"), dDewFld);
 		
+		//Create button for saving data
 		Button dSaveBtn = new Button("Save Information");
 		vbox.getChildren().add(dSaveBtn);
 		
+		//Collect the inputed data
 		dSaveBtn.setOnAction(e -> {
 			dAirport = dAirportFld.getValue();
 			dTime = dTimeFld.getText();
@@ -207,25 +229,31 @@ public class FPRA_gui extends Application {
 			dDew = dDewFld.getText();
 		});
 		
+		//create a scrollpane and embed the vbox
 		ScrollPane scroll = new ScrollPane(vbox);
 		
+		//add fields to hbox
 		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
 		
+		//return hbox to gui contstructor
 		return hbox;
 	}
 	
 	public HBox getInputsArrival() {
 		
+		//Establish Hbox
 		HBox hbox = new HBox();
 		
+		//Establish Vbox
 		VBox vbox = new VBox(10);
 		vbox.setPadding(new Insets(10));
 		
+		//Create section label
 		Text text = new Text("Arrival Information");
 		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		vbox.getChildren().add(text);
 		
-		
+		//
 		ComboBox<String> aAirportFld = new ComboBox<>();
 		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);

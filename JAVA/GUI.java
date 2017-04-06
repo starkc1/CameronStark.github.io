@@ -20,10 +20,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
@@ -85,6 +85,7 @@ public class GUI extends Application {
 		root = new BorderPane();
 		root.setTop(getMenu());
 		
+		
 		//Create Scene
 		Scene scene = new Scene(root, 1500, 750);
 		primaryStage.setTitle("Flight Project and Risk Assessment Simulation");
@@ -93,6 +94,7 @@ public class GUI extends Application {
 		
 	}
 	
+	//Method for creating the MenuBar
 	public MenuBar getMenu() {
 		
 		//establish MenuBar
@@ -158,8 +160,7 @@ public class GUI extends Application {
 		//Manage button click
 		runSim.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
-				root.setCenter(getSimInfo());
-				
+				root.setCenter(getSimInfo());	
 			}
 		});
 		//Display End
@@ -171,6 +172,7 @@ public class GUI extends Application {
 		return menuBar;
 	}
 	
+	//Method for gathering Departure Data
 	public HBox getInputsDeparture() {
 		
 		//Establish Departure HBox
@@ -239,6 +241,7 @@ public class GUI extends Application {
 		return hbox;
 	}
 	
+	//Mehtod for gathering Arrival Data
 	public HBox getInputsArrival() {
 		
 		//Establish Hbox
@@ -253,43 +256,55 @@ public class GUI extends Application {
 		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		vbox.getChildren().add(text);
 		
-		//
+		//Create ComboBox for possible airports
 		ComboBox<String> aAirportFld = new ComboBox<>();
 		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);
 		
+		//Entry Field for Arrival Time
 		TextField aTimeFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Time:"), aTimeFld);
 		
+		//Entry Field for Arrival Wind
 		TextField aWindFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Wind:"), aWindFld);
 		
+		//Entry Field for Arrival Visibility
 		TextField aVisibilityFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Visibility:"), aVisibilityFld);
 		
+		//Entry Field for Arrival Temperature
 		TextField aTempFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Temperature:"), aTempFld);
 		
+		//Entry Field for Arrival Altimeter
 		TextField aAltimeterFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Time:"), aAltimeterFld);
+		vbox.getChildren().addAll(new Label("Arrival Altimeter:"), aAltimeterFld);
 		
+		//Entry Field for Arrival Dew
 		TextField aDewFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Dew Point:"), aDewFld);
 		
+		//Create button for saving data entries
 		Button aSaveBtn = new Button("Save Information");
 		vbox.getChildren().add(aSaveBtn);
 		
+		//Collect inputed data
 		aSaveBtn.setOnAction(e -> {
 			aAirport = aAirportFld.getValue();
 		});
 		
+		//Create ScrollPane and add entry vbox
 		ScrollPane scroll = new ScrollPane(vbox);
 		
+		//Add scrollpane with entry fields to hbox
 		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
 		
+		//Return hbox to GUI contstructor
 		return hbox;
 	}
 	
+	//Method for gathering Flight Data
 	public HBox getInputsFlight() {
 		
 		HBox hbox = new HBox();
@@ -349,6 +364,7 @@ public class GUI extends Application {
 		return hbox;
 	}
 	
+	//Method for gathering Pilot Data
 	public HBox getInputsPilot() {
 		
 		HBox hbox = new HBox();
@@ -395,10 +411,12 @@ public class GUI extends Application {
 		return hbox;
 	}
 
+	//Method for gathering and displaying all of the information
 	public BorderPane getSimInfo() {
 		
 		BorderPane borderPane = new BorderPane();
 		
+		//Orient Layout of main Components
 		VBox vBoxInfoDepart = new VBox(10);
 		vBoxInfoDepart.setAlignment(Pos.TOP_LEFT);
 		
@@ -407,6 +425,7 @@ public class GUI extends Application {
 		
 		VBox vBoxInfo = new VBox(40);
 		
+		//Create the tile of the information
 		Text titleText = new Text(10, 50, "Flight From " + dAirport + " To " + aAirport);
 		titleText.setFont(new Font(20));
 		borderPane.setTop(titleText);
@@ -423,10 +442,11 @@ public class GUI extends Application {
 		vBoxInfo.getChildren().addAll(vBoxInfoDepart, vBoxInfoArrival);	
 		borderPane.setLeft(vBoxInfo);
 		
-	
+		//Return the information to the GUI constructor
 		return borderPane;
 	}
 	
+	//Method for collecting the Departure Airport Information
 	public VBox DepartureInfo() {
 		
 		VBox DepartureInfo = new VBox(10);
@@ -435,11 +455,13 @@ public class GUI extends Application {
 		departureMapBtn.setMinHeight(100);
 		departureMapBtn.setMinWidth(100);
 		
+		//Get the Airport Information from the respected array
 		String[] dAirportInfo;
 		dAirportInfo = Airport.airportInfo(dAirport); 	
 		String dAirportMapBtn;
 		dAirportMapBtn = Airport.airportMap(dAirport);
 		
+		//Assign information to variable
 		dAirportName = dAirportInfo[0];
 		dAirportMap = dAirportInfo[1];
 		dAirportTower = dAirportInfo[2];
@@ -485,6 +507,8 @@ public class GUI extends Application {
 		return DepartureInfo;
 	}
 	
+	
+	//Method for collecting the Arrival Airport Information
 	public VBox ArrivalInfo() {
 		
 		VBox ArrivalInfo = new VBox(10);

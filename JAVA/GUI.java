@@ -431,7 +431,7 @@ public class GUI extends Application {
 		borderPane.setTop(titleText);
 		borderPane.setAlignment(titleText, Pos.CENTER);
 		
-		//DEPARTURE INFORMATION
+		//DEPARTURE INFORMATION`
 		vBoxInfoDepart = DepartureInfo();
 		//DEPARTURE INFORMATION
 		
@@ -506,8 +506,7 @@ public class GUI extends Application {
 		
 		return DepartureInfo;
 	}
-	
-	
+
 	//Method for collecting the Arrival Airport Information
 	public VBox ArrivalInfo() {
 		

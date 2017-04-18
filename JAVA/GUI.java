@@ -51,6 +51,12 @@ public class GUI extends Application {
 	public String dAirportTowerFreq;
 
 	public String aAirport;
+	public String aTime;
+	public String aWind;
+	public String aVis;
+	public String aTemp;
+	public String aAltimeter;
+	public String aDew;
 	public String aTower;
 	public String aAirportName;
 	public String aAirportMap;
@@ -70,6 +76,15 @@ public class GUI extends Application {
 	public String fuel;
 	public String passengerWeight;
 	public String passengerNumber;
+	
+	public int timeRisk;
+	public int windRisk;
+	
+	
+	
+	
+	
+	
 	//Establish Variables
 	
 	//Establish Application
@@ -194,27 +209,27 @@ public class GUI extends Application {
 		
 		//Entry Field for departure Time
 		TextField dTimeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Time:"), dTimeFld);
+		vbox.getChildren().addAll(new Label("Departure Time (24hr 0000):"), dTimeFld);
 		
 		//Entry Field for departure Wind
 		TextField dWindFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Wind:"), dWindFld);
+		vbox.getChildren().addAll(new Label("Departure Wind (KNOTS):"), dWindFld);
 		
 		//Entry Field for departure Visibility
 		TextField dVisibilityFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Visibility:"), dVisibilityFld);
+		vbox.getChildren().addAll(new Label("Departure Visibility (Nautical Miles):"), dVisibilityFld);
 		
 		//Entry Field for departure Temperature
 		TextField dTempFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Temperature:"), dTempFld);
+		vbox.getChildren().addAll(new Label("Departure Temperature (Degrees F):"), dTempFld);
 		
 		//Entry Field for departure Altimeter
 		TextField dAltimeterFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Altimeter:"), dAltimeterFld);
+		vbox.getChildren().addAll(new Label("Departure Altimeter (Feet):"), dAltimeterFld);
 		
 		//Entry Field for departure Dew
 		TextField dDewFld = new TextField();
-		vbox.getChildren().addAll(new Label("Departure Dew Point:"), dDewFld);
+		vbox.getChildren().addAll(new Label("Departure Dew Point (Degrees F):"), dDewFld);
 		
 		//Create button for saving data
 		Button dSaveBtn = new Button("Save Information");
@@ -292,6 +307,12 @@ public class GUI extends Application {
 		//Collect inputed data
 		aSaveBtn.setOnAction(e -> {
 			aAirport = aAirportFld.getValue();
+			aTime = aTimeFld.getText();
+			aWind = aWindFld.getText();
+			aVis = aVisibilityFld.getText();
+			aTemp = aTempFld.getText();
+			aAltimeter = aAltimeterFld.getText();
+			aDew = aDewFld.getText();
 		});
 		
 		//Create ScrollPane and add entry vbox
@@ -423,6 +444,9 @@ public class GUI extends Application {
 		VBox vBoxInfoArrival = new VBox(10);
 		vBoxInfoArrival.setAlignment(Pos.CENTER_LEFT);
 		
+		VBox vBoxRiskAssign = new VBox(10);
+		vBoxRiskAssign.setAlignment(Pos.TOP_RIGHT);
+		
 		VBox vBoxInfo = new VBox(40);
 		
 		//Create the tile of the information
@@ -438,6 +462,10 @@ public class GUI extends Application {
 		//ARRIVAL INFORMAITON
 		vBoxInfoArrival = ArrivalInfo();
 		//ARRIVAL INFORMATION
+		
+		//Risk Assignment
+		vBoxRiskAssign = RiskAssignment();
+		//Risk Assignment
 		
 		vBoxInfo.getChildren().addAll(vBoxInfoDepart, vBoxInfoArrival);	
 		borderPane.setLeft(vBoxInfo);
@@ -567,7 +595,100 @@ public class GUI extends Application {
 		return ArrivalInfo;
 	}
 	
+	public VBox RiskAssignment() {
+		
+		VBox vBoxRisk = new VBox(10);
+		
+		int DTime = Integer.parseInt(dTime);
+		int ATime = Integer.parseInt(aTime);
+		
+		if (DTime < 0600 && ATime < 0600) {
+			timeRisk = 5;
+			//System.out.println("Night Flight");
+		} else if (DTime < 0600 && ATime > 0600) {
+			timeRisk = 3;
+			//System.out.println("Partial Night Flight");
+		} else if (DTime > 0600 && DTime < 2000 && ATime > 0600 && ATime < 2000) {
+			timeRisk = 0;
+			//System.out.println("Day flight");
+		} else if (DTime > 0600 || DTime < 2000 && ATime > 2000) {
+			timeRisk = 3;
+			//System.out.println("Partial Night Flight");
+		} else if (DTime > 2000 && ATime > 2000 || ATime < 0600) {
+			timeRisk = 5;
+			//System.out.println("Night Flight");
+		} else {
+			//System.out.println("Enter correct value");
+		}
+			
+		
+		int DWind = Integer.parseInt(dWind);
+		int AWind = Integer.parseInt(aWind);
+		
+		if (DWind > 15 && AWind > 15) {
+			windRisk = 4;
+			//System.out.println("High Wind");
+		} else if (DWind > 15 && AWind < 15) {
+			windRisk = 2;
+			//System.out.println("High D Wind");
+		} else if (DWind < 15 && AWind > 15) {
+			windRisk = 2;
+			//System.out.println("High A Wind");
+		} else if (DWind < 15 && AWind < 15) {
+			windRisk = 0;
+			//System.out.println("Low Wind");
+		}
+		
+		
+		return vBoxRisk;
+	}
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -278,27 +278,27 @@ public class GUI extends Application {
 		
 		//Entry Field for Arrival Time
 		TextField aTimeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Time:"), aTimeFld);
+		vbox.getChildren().addAll(new Label("Arrival Time (24hr 0000):"), aTimeFld);
 		
 		//Entry Field for Arrival Wind
 		TextField aWindFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Wind:"), aWindFld);
+		vbox.getChildren().addAll(new Label("Arrival Wind (KNOTS):"), aWindFld);
 		
 		//Entry Field for Arrival Visibility
 		TextField aVisibilityFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Visibility:"), aVisibilityFld);
+		vbox.getChildren().addAll(new Label("Arrival Visibility (Nautical Miles):"), aVisibilityFld);
 		
 		//Entry Field for Arrival Temperature
 		TextField aTempFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Temperature:"), aTempFld);
+		vbox.getChildren().addAll(new Label("Arrival Temperature (Degrees F):"), aTempFld);
 		
 		//Entry Field for Arrival Altimeter
 		TextField aAltimeterFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Altimeter:"), aAltimeterFld);
+		vbox.getChildren().addAll(new Label("Arrival Altimeter (Feet):"), aAltimeterFld);
 		
 		//Entry Field for Arrival Dew
 		TextField aDewFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Dew Point:"), aDewFld);
+		vbox.getChildren().addAll(new Label("Arrival Dew Point (Degrees F):"), aDewFld);
 		
 		//Create button for saving data entries
 		Button aSaveBtn = new Button("Save Information");

@@ -76,11 +76,28 @@ public class GUI extends Application {
 	public String fuel;
 	public String passengerWeight;
 	public String passengerNumber;
+	public String planeName;
+	public String planeCrew;
+	public String planeLength;
+	public String planeSpan;
+	public String planeWidth;
+	public String planeMaxLandWeight;
+	public String planeMaxTakeOffWeight;
+	public String planeTakeOffDis;
+	public String planeRange;
+	
+	public String crewNumber;
+	public String rating;
+	public String rest;
+	public String ceiling;
+	public String hrsType;
+	public String hrsDays;
+	public String totalHrs;
 	
 	public int timeRisk;
 	public int windRisk;
-	
-	
+	public int visRisk;
+	public int tempRisk;
 	
 	
 	
@@ -102,7 +119,7 @@ public class GUI extends Application {
 		
 		
 		//Create Scene
-		Scene scene = new Scene(root, 1500, 750);
+		Scene scene = new Scene(root, 1100, 750);
 		primaryStage.setTitle("Flight Project and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -401,9 +418,6 @@ public class GUI extends Application {
 		TextField dualsoloFld = new TextField();
 		vbox.getChildren().addAll(new Label("Dual or Solo:"), dualsoloFld);
 		
-		TextField daynightFld = new TextField();
-		vbox.getChildren().addAll(new Label("Day or Night"), daynightFld);
-		
 		TextField ratingFld = new TextField();
 		vbox.getChildren().addAll(new Label("Rating held"), ratingFld);
 		
@@ -425,6 +439,18 @@ public class GUI extends Application {
 		Button pSaveBtn = new Button("Save Information");
 		vbox.getChildren().add(pSaveBtn);
 		
+		pSaveBtn.setOnAction(e -> {
+			crewNumber = dualsoloFld.getText();
+			rating = ratingFld.getText();
+			rest = restFld.getText();
+			ceiling = ceilingFld.getText();
+			hrsType = hrsTypeFld.getText();
+			hrsDays = hrsDaysFld.getText();
+			totalHrs = totalHrsFld.getText();
+		});
+		
+		
+		
 		ScrollPane scroll = new ScrollPane(vbox);
 		
 		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
@@ -444,8 +470,11 @@ public class GUI extends Application {
 		VBox vBoxInfoArrival = new VBox(10);
 		vBoxInfoArrival.setAlignment(Pos.CENTER_LEFT);
 		
+		VBox vBoxPlaneInfo = new VBox(10);
+		vBoxPlaneInfo.setAlignment(Pos.TOP_LEFT);
+		
 		VBox vBoxRiskAssign = new VBox(10);
-		vBoxRiskAssign.setAlignment(Pos.TOP_RIGHT);
+		vBoxRiskAssign.setAlignment(Pos.TOP_CENTER);
 		
 		VBox vBoxInfo = new VBox(40);
 		
@@ -463,12 +492,20 @@ public class GUI extends Application {
 		vBoxInfoArrival = ArrivalInfo();
 		//ARRIVAL INFORMATION
 		
+		//PLANE INFORMATION
+		vBoxPlaneInfo = PlaneInfo();
+		
 		//Risk Assignment
 		vBoxRiskAssign = RiskAssignment();
 		//Risk Assignment
 		
 		vBoxInfo.getChildren().addAll(vBoxInfoDepart, vBoxInfoArrival);	
 		borderPane.setLeft(vBoxInfo);
+		borderPane.setRight(vBoxPlaneInfo);
+		
+		BorderPane centerPane = new BorderPane();
+		centerPane.setLeft(vBoxRiskAssign);
+		borderPane.setCenter(centerPane);
 		
 		//Return the information to the GUI constructor
 		return borderPane;
@@ -534,7 +571,6 @@ public class GUI extends Application {
 		
 		return DepartureInfo;
 	}
-
 	//Method for collecting the Arrival Airport Information
 	public VBox ArrivalInfo() {
 		
@@ -595,6 +631,44 @@ public class GUI extends Application {
 		return ArrivalInfo;
 	}
 	
+	public VBox PlaneInfo() {
+		
+		VBox PlaneInfo = new VBox(10);
+		
+		String[] planeInfo;
+		planeInfo = Plane.planeInfo(plane);
+		
+		planeName = planeInfo[0];
+		planeCrew = planeInfo[1];
+		planeLength = planeInfo[2];
+		planeSpan = planeInfo[3];
+		planeWidth = planeInfo[4];
+		planeMaxLandWeight = planeInfo[5];
+		planeMaxTakeOffWeight = planeInfo[6];
+		planeTakeOffDis = planeInfo[7];
+		planeRange = planeInfo[8];
+		
+		Text planeText = new Text(planeName);
+		planeText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		
+		Text planeCrewText = new Text("Crew: " + planeCrew);
+		Text planeLengthText = new Text("Plane Length: " + planeLength);
+		Text planeSpanText = new Text("Plane Wing Span: " + planeSpan);
+		Text planeWidthText = new Text("Plane Fuesalge Width: " + planeWidth);
+		Text planeLandWeightText = new Text("Plane Max Landing Weight: " + planeMaxLandWeight);
+		Text planeTakeWeightText = new Text("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+		Text planeTakeDisText = new Text("Plane Take Off Distance: " + planeTakeOffDis);
+		Text planeRangeText = new Text("Plane Range: " + planeRange);
+		
+		
+		
+		PlaneInfo.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+		
+		return PlaneInfo;
+	}
+	
+	
+	//Method for Assigning risk to the parameters
 	public VBox RiskAssignment() {
 		
 		VBox vBoxRisk = new VBox(10);
@@ -605,16 +679,16 @@ public class GUI extends Application {
 		if (DTime < 0600 && ATime < 0600) {
 			timeRisk = 5;
 			//System.out.println("Night Flight");
-		} else if (DTime < 0600 && ATime > 0600) {
+		} else if (DTime <= 0600 && ATime >= 0600) {
 			timeRisk = 3;
 			//System.out.println("Partial Night Flight");
-		} else if (DTime > 0600 && DTime < 2000 && ATime > 0600 && ATime < 2000) {
+		} else if (DTime >= 0600 && DTime <= 2000 && ATime >= 0600 && ATime <= 2000) {
 			timeRisk = 0;
 			//System.out.println("Day flight");
-		} else if (DTime > 0600 || DTime < 2000 && ATime > 2000) {
+		} else if (DTime >= 0600 || DTime <= 2000 && ATime >= 2000) {
 			timeRisk = 3;
 			//System.out.println("Partial Night Flight");
-		} else if (DTime > 2000 && ATime > 2000 || ATime < 0600) {
+		} else if (DTime >= 2000 && ATime >= 2000 || ATime <= 0600) {
 			timeRisk = 5;
 			//System.out.println("Night Flight");
 		} else {
@@ -625,20 +699,100 @@ public class GUI extends Application {
 		int DWind = Integer.parseInt(dWind);
 		int AWind = Integer.parseInt(aWind);
 		
-		if (DWind > 15 && AWind > 15) {
+		if (DWind >= 15 && AWind >= 15) {
 			windRisk = 4;
 			//System.out.println("High Wind");
-		} else if (DWind > 15 && AWind < 15) {
+		} else if (DWind >= 15 && AWind <= 15) {
 			windRisk = 2;
 			//System.out.println("High D Wind");
-		} else if (DWind < 15 && AWind > 15) {
+		} else if (DWind <= 15 && AWind >= 15) {
 			windRisk = 2;
 			//System.out.println("High A Wind");
-		} else if (DWind < 15 && AWind < 15) {
+		} else if (DWind <= 15 && AWind <= 15) {
 			windRisk = 0;
 			//System.out.println("Low Wind");
 		}
 		
+		int DVis = Integer.parseInt(dVis);
+		int AVis = Integer.parseInt(aVis);
+		
+		if (DVis >= 3 && DVis < 5 || AVis >= 3 && AVis < 5) {
+			switch (type) {
+				case "VFR":
+					visRisk = 2;
+					break;
+				case "IFR":
+					visRisk = 0;
+					break;
+			}
+		} else if (DVis >= 1 && DVis < 3 || AVis >= 1  && AVis < 3) {
+			switch (type) {
+				case "VFR":
+					visRisk = 5;
+					break;
+				case "IFR":
+					visRisk = 0;
+					break;
+			}
+		} else if (DVis < 1 || AVis < 1) {
+			switch (type) {
+				case "VFR":
+					visRisk = 5;
+					break;
+				case "IFR":
+					visRisk = 0;
+					break;
+			}
+		}
+		
+		int DTemp = Integer.parseInt(dTemp);
+		int ATemp = Integer.parseInt(aTemp);
+		
+		if (DTemp > 32 && ATemp > 32) {
+			tempRisk = 0;
+		} else if (DTemp < 32 || ATemp < 32) {
+			tempRisk = 3;
+		} else if (DTemp < 32 && ATemp < 32) {
+			tempRisk = 5;
+		}
+		
+		
+		int pilotTypeTime = Integer.parseInt(hrsType);
+		
+		
+		
+		//System.out.println(tempRisk);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		int totalRisk;
+		totalRisk = timeRisk + windRisk + visRisk + tempRisk;
+		
+		Text totalRiskText = new Text("    The Total Flight Risk is: " + totalRisk);
+		
+		String risk = null;
+		if (totalRisk < 7){
+			risk = "    Flight Risk is Minimal";
+			
+		} else if (totalRisk >= 7 && totalRisk <= 10) {
+			risk = "    Flight Risk is Low";
+			
+		} else if (totalRisk >= 11 && totalRisk <= 15) {
+			risk = "    Flight Risk is Medium";
+			
+		} else if (totalRisk > 15) {
+			risk = "    Flight Risk is High";
+		}
+		Text riskAdvisement = new Text(risk);
+		
+		
+		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement);
 		
 		return vBoxRisk;
 	}

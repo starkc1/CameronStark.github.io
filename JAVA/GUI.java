@@ -98,6 +98,8 @@ public class GUI extends Application {
 	public int windRisk;
 	public int visRisk;
 	public int tempRisk;
+	public int typeRisk;
+	public int hrsDaysRisk;
 	
 	
 	
@@ -667,7 +669,6 @@ public class GUI extends Application {
 		return PlaneInfo;
 	}
 	
-	
 	//Method for Assigning risk to the parameters
 	public VBox RiskAssignment() {
 		
@@ -757,11 +758,25 @@ public class GUI extends Application {
 		}
 		
 		
-		int pilotTypeTime = Integer.parseInt(hrsType);
+		int typeTime = Integer.parseInt(hrsType);
+		
+		if (typeTime > 200) {
+			typeRisk = 0;
+		} else if (typeTime < 200) {
+			typeRisk = 5;
+		}
 		
 		
+		int flightTimeDays = Integer.parseInt(hrsDays);
 		
-		//System.out.println(tempRisk);
+		if (flightTimeDays > 100) {
+			hrsDaysRisk = 0;
+		} else if (flightTimeDays < 100) {
+			hrsDaysRisk = 3;
+		}
+		
+		
+		//System.out.println(typeRisk);
 		
 		
 		
@@ -772,7 +787,7 @@ public class GUI extends Application {
 		
 		
 		int totalRisk;
-		totalRisk = timeRisk + windRisk + visRisk + tempRisk;
+		totalRisk = timeRisk + windRisk + visRisk + tempRisk + typeRisk + hrsDaysRisk;
 		
 		Text totalRiskText = new Text("    The Total Flight Risk is: " + totalRisk);
 		
@@ -791,8 +806,20 @@ public class GUI extends Application {
 		}
 		Text riskAdvisement = new Text(risk);
 		
+		Text timeRiskText = new Text("    Flight Time of Day Rating: " + timeRisk);
 		
-		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement);
+		Text windRiskText = new Text("    Flight Wind Rating: " + windRisk);
+		
+		Text visRiskText = new Text("    Flight Visiblity Rating: " + visRisk);
+		
+		Text tempRiskText = new Text("    Flight Temperature Rating: " + tempRisk);
+		
+		Text typeRiskText = new Text("    Pilot Hours in Aircraft Type Rating: " + typeRisk);
+		
+		Text hrsDaysText = new Text("    Pilot Hours in Last 90 Days Rating: " + hrsDaysRisk);
+		
+		
+		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement, timeRiskText, windRiskText, visRiskText, tempRiskText, typeRiskText, hrsDaysText);
 		
 		return vBoxRisk;
 	}

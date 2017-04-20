@@ -36,6 +36,7 @@ public class GUI extends Application {
 	public String dTime;
 	public String dWind;
 	public String dVis;
+	public String dCeil;
 	public String dTemp;
 	public String dAltimeter;
 	public String dDew;
@@ -55,6 +56,7 @@ public class GUI extends Application {
 	public String aTime;
 	public String aWind;
 	public String aVis;
+	public String aCeil;
 	public String aTemp;
 	public String aAltimeter;
 	public String aDew;
@@ -131,6 +133,8 @@ public class GUI extends Application {
 		
 		//Create Scene
 		Scene scene = new Scene(root, 1100, 750);
+		
+		scene.getStylesheets().add("CSS/Style.css");
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -142,9 +146,16 @@ public class GUI extends Application {
 		
 		//establish MenuBar
 		MenuBar menuBar = new MenuBar();
+		//menuBar.setStyle("-fx-background-color: #1D58B8;");
 		
 		//Departure Begin
-		Menu menuDeparture = new Menu("Departure Information");
+		Menu menuDeparture = new Menu(""); 
+		
+	    Label departure = new Label("Departure Information");
+	    departure.setStyle("-fx-text-fill: white;");
+	    departure.setFont(Font.font("Arial", 15));
+	    menuDeparture.setGraphic(departure);
+		
 		MenuItem editDeparture = new MenuItem("Edit Information");
 		menuDeparture.getItems().add(editDeparture);
 		
@@ -157,7 +168,11 @@ public class GUI extends Application {
 		//Departure End
 		
 		//Arrival Begin
-		Menu menuArrival = new Menu("Arrival Information");
+		Menu menuArrival = new Menu("");
+		
+		Label arrival = new Label("Arrival Information");
+		arrival.setStyle("-fx-text-fill: white");
+		
 		MenuItem editArrival = new MenuItem("Edit Information");
 		menuArrival.getItems().add(editArrival);
 		
@@ -247,6 +262,9 @@ public class GUI extends Application {
 		TextField dVisibilityFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Visibility (Nautical Miles):"), dVisibilityFld);
 		
+		TextField dCeilingFld = new TextField();
+		vbox.getChildren().addAll(new Label("Departure Ceiling (Feet):"),dCeilingFld);
+		
 		//Entry Field for departure Temperature
 		TextField dTempFld = new TextField();
 		vbox.getChildren().addAll(new Label("Departure Temperature (Degrees F):"), dTempFld);
@@ -269,6 +287,7 @@ public class GUI extends Application {
 			dTime = dTimeFld.getText();
 			dWind = dWindFld.getText();
 			dVis = dVisibilityFld.getText();
+			dCeil = dCeilingFld.getText();
 			dTemp = dTempFld.getText();
 			dAltimeter = dAltimeterFld.getText();
 			dDew = dDewFld.getText();
@@ -316,6 +335,9 @@ public class GUI extends Application {
 		TextField aVisibilityFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Visibility (Nautical Miles):"), aVisibilityFld);
 		
+		TextField aCeilingFld = new TextField();
+		vbox.getChildren().addAll(new Label("Arrival Ceiling (Feet):"),aCeilingFld);
+		
 		//Entry Field for Arrival Temperature
 		TextField aTempFld = new TextField();
 		vbox.getChildren().addAll(new Label("Arrival Temperature (Degrees F):"), aTempFld);
@@ -338,6 +360,7 @@ public class GUI extends Application {
 			aTime = aTimeFld.getText();
 			aWind = aWindFld.getText();
 			aVis = aVisibilityFld.getText();
+			aCeil = aCeilingFld.getText();
 			aTemp = aTempFld.getText();
 			aAltimeter = aAltimeterFld.getText();
 			aDew = aDewFld.getText();
@@ -435,9 +458,6 @@ public class GUI extends Application {
 		TextField restFld = new TextField();
 		vbox.getChildren().addAll(new Label("Rest in the last 24hr"), restFld);
 		
-		TextField ceilingFld = new TextField();
-		vbox.getChildren().addAll(new Label("Allowed Cieling (feet)"), ceilingFld);
-		
 		TextField hrsTypeFld = new TextField();
 		vbox.getChildren().addAll(new Label("Hours aircraft type"), hrsTypeFld);
 		
@@ -454,7 +474,6 @@ public class GUI extends Application {
 			crewNumber = dualsoloFld.getText();
 			rating = ratingFld.getText();
 			rest = restFld.getText();
-			ceiling = ceilingFld.getText();
 			hrsType = hrsTypeFld.getText();
 			hrsDays = hrsDaysFld.getText();
 			totalHrs = totalHrsFld.getText();
@@ -697,10 +716,13 @@ public class GUI extends Application {
 		airportTowerRisk = TowerRisk();
 		airportElevRisk = ElevationRisk();
 		internationalRisk = InternationalRisk();
-		
+		ceilingRisk = CeilingRisk();
+		dewRisk = DewRisk();
 		
 		int totalRisk;
-		totalRisk = timeRisk + windRisk + visRisk + tempRisk + typeRisk + hrsDaysRisk + crewNumRisk + flightRisk + restRisk + airportTowerRisk + airportElevRisk + internationalRisk;
+		totalRisk = timeRisk + windRisk + visRisk + tempRisk + typeRisk + hrsDaysRisk + crewNumRisk + 
+				flightRisk + restRisk + airportTowerRisk + airportElevRisk + internationalRisk + ceilingRisk
+				+ dewRisk;
 		
 		Text totalRiskText = new Text("    The Total Flight Risk is: " + totalRisk);
 		
@@ -724,9 +746,13 @@ public class GUI extends Application {
 		Text visRiskText = new Text("    Flight Visiblity Rating: " + visRisk);
 		Text tempRiskText = new Text("    Flight Temperature Rating: " + tempRisk);
 		Text flightTimeText = new Text("    Flight Time Rating: " + flightRisk);
+		Text flightCeilingText = new Text("    Flight Ceiling Rating: " + ceilingRisk);
+		Text flightDewText = new Text("    Flight Dew Point Rating: " + dewRisk);
+		
 		Text airportTowerText = new Text("    Airport Tower Rating: " + airportTowerRisk);
 		Text airportElevText = new Text("    Airport Elevation Rating: " + airportElevRisk);
 		Text airportInternationalText = new Text("    Airport International Rating: " + internationalRisk);
+	
 		
 		
 		Text typeRiskText = new Text("    Pilot Hours in Aircraft Type Rating: " + typeRisk);
@@ -737,7 +763,8 @@ public class GUI extends Application {
 		
 		
 		
-		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement, timeRiskText, windRiskText, visRiskText, tempRiskText, flightTimeText);
+		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement, timeRiskText, windRiskText, visRiskText, tempRiskText
+				, flightTimeText, flightCeilingText, flightDewText);
 		vBoxRisk.getChildren().addAll(airportTowerText, airportElevText, airportInternationalText);
 		vBoxRisk.getChildren().addAll(typeRiskText, hrsDaysText, crewNumText, restRiskText);
 		
@@ -981,8 +1008,66 @@ public class GUI extends Application {
 		return internationalRisk;
  	}
 	
+	public int CeilingRisk() {
+		
+		int DCeil = Integer.parseInt(dCeil);
+		int ACeil = Integer.parseInt(aCeil);
+		
+		if (DCeil >= 3000 && ACeil >= 3000) {
+			ceilingRisk = 0;
+		} else if (DCeil < 3000 || ACeil < 3000) {
+			switch (type) {
+				case "VFR":
+					ceilingRisk = 3;
+					break;
+				case "IFR":
+					ceilingRisk = 0;
+					break;
+			}
+		} else if (DCeil < 1000 || ACeil < 1000) {
+			switch (type) {
+				case "VFR":
+					ceilingRisk = 3;
+					break;
+				case "IFR":
+					ceilingRisk = 1;
+					break;
+			}
+		} else if (DCeil < 500 || ACeil < 500) {
+			switch (type) {
+				case "VFR":
+					ceilingRisk = 3;
+					break;
+				case "IFR":
+					ceilingRisk = 2;
+					break;
+			}
+		}
+		
+		
+		return ceilingRisk;
+	}
 	
-	
+	public int DewRisk() {
+		
+		int DDew = Integer.parseInt(dDew);
+		int ADew = Integer.parseInt(aDew);
+		
+		if (DDew >= 3 || ADew >= 3) {
+			dewRisk = 0;
+		} else if (DDew < 3 || ADew < 3){
+			switch (type) {
+				case "VFR":
+					dewRisk = 5;
+					break;
+				case "IFR":
+					dewRisk = 1;
+					break;
+			}
+		}
+		
+		return dewRisk;
+	}
 	
 	
 	

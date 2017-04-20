@@ -131,13 +131,14 @@ public class GUI extends Application {
 		// create BorderPane
 		root = new BorderPane();
 		root.setTop(getMenu());
-		root.setStyle("-fx-background-color: white");
 		
 		
 		//Create Scene
 		Scene scene = new Scene(root, 1100, 750);
-		;
-
+		
+		String style = getClass().getResource("style.css").toExternalForm();
+		scene.getStylesheets().addAll(style);
+		root.getStylesheets().addAll(style);
 		
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
@@ -187,11 +188,7 @@ public class GUI extends Application {
 		//Arrival End
 		
 		//Flight Begin
-		Menu menuFlight = new Menu("");
-		
-		Label flight = new Label("Flight Information");
-		menuFlight.setGraphic(flight);
-		
+		Menu menuFlight = new Menu("Flight Information");
 		MenuItem editFlight = new MenuItem("Edit Information");
 		menuFlight.getItems().add(editFlight);
 		
@@ -204,11 +201,7 @@ public class GUI extends Application {
 		//Flight End
 		
 		//Pilot Begin
-		Menu menuPilot = new Menu("");
-		
-		Label pilot = new Label("Pilot Information");
-		menuPilot.setGraphic(pilot);
-		
+		Menu menuPilot = new Menu("Pilot Information");
 		MenuItem editPilot = new MenuItem("Edit Information");
 		menuPilot.getItems().add(editPilot);
 		
@@ -221,11 +214,7 @@ public class GUI extends Application {
 		//Pilot End
 		
 		//Display Begin
-		Menu menuDisplayInfo = new Menu("");
-		
-		Label info = new Label("Simulation");
-		menuDisplayInfo.setGraphic(info);
-		
+		Menu menuDisplayInfo = new Menu("Simulation");
 		MenuItem runSim = new MenuItem("Run Simulation");
 		menuDisplayInfo.getItems().add(runSim);
 		
@@ -241,29 +230,31 @@ public class GUI extends Application {
 		menuBar.getMenus().addAll(menuDeparture, menuArrival, menuFlight, menuPilot, menuDisplayInfo);
 		
 		
-		//Styling
+		
 		menuBar.setStyle("-fx-background-color: #1D58B8");
 		
+		menuDeparture.setStyle("-fx-focus-color: transparent;");
+		
 	    departure.setStyle("-fx-text-fill: white;");
-	    departure.setFont(Font.font("Arial", 16));
-	    
-	    editDeparture.setStyle("-fx-background-color: #1D58B8");
+	    departure.setFont(Font.font("Arial", 15));
 		
 	    arrival.setStyle("-fx-text-fill: white");
-	    arrival.setFont(Font.font("Arial", 16));
+	    arrival.setFont(Font.font("Arial", 15));
 		
-		flight.setStyle("-fx-text-fill: white");
-		flight.setFont(Font.font("Arial", 16));
 		
-		pilot.setStyle("-fx-text-fill: white");
-		pilot.setFont(Font.font("Arial", 16));
 		
-		info.setStyle("-fx-text-fill: #ffe700");
-		info.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 		
-
 		
-		//Return the established MenuBar
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Return the establish MenuBar
 		return menuBar;
 	}
 	
@@ -278,48 +269,41 @@ public class GUI extends Application {
 		vbox.setPadding(new Insets(10));
 		
 		//Create Section Label
-		Label title = new Label("Departure Information");
-		vbox.getChildren().add(title);
+		Text text = new Text("Departure Information");
+		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		vbox.getChildren().add(text);
 		
 		//Create ComboBox for the possible airports
 		ComboBox<String> dAirportFld = new ComboBox<>();
 		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
-		Label dairport = new Label("Departure Airport:");
-		vbox.getChildren().addAll(dairport, dAirportFld);
+		vbox.getChildren().addAll(new Label("Departure Airport:"), dAirportFld);
 		
 		//Entry Field for departure Time
 		TextField dTimeFld = new TextField();
-		Label dtime = new Label("Departure Time (24hr 0000):");
-		vbox.getChildren().addAll(dtime, dTimeFld);
+		vbox.getChildren().addAll(new Label("Departure Time (24hr 0000):"), dTimeFld);
 		
 		//Entry Field for departure Wind
 		TextField dWindFld = new TextField();
-		Label dwind = new Label("Departure Wind (KNOTS):");
-		vbox.getChildren().addAll(dwind, dWindFld);
+		vbox.getChildren().addAll(new Label("Departure Wind (KNOTS):"), dWindFld);
 		
 		//Entry Field for departure Visibility
 		TextField dVisibilityFld = new TextField();
-		Label dvis = new Label("Departure Visibility (Nautical Miles):");
-		vbox.getChildren().addAll(dvis, dVisibilityFld);
+		vbox.getChildren().addAll(new Label("Departure Visibility (Nautical Miles):"), dVisibilityFld);
 		
 		TextField dCeilingFld = new TextField();
-		Label dceil = new Label("Departure Ceiling (Feet):");
-		vbox.getChildren().addAll(dceil, dCeilingFld);
+		vbox.getChildren().addAll(new Label("Departure Ceiling (Feet):"),dCeilingFld);
 		
 		//Entry Field for departure Temperature
 		TextField dTempFld = new TextField();
-		Label dtemp = new Label("Departure Temperature (Degrees F):");
-		vbox.getChildren().addAll(dtemp, dTempFld);
+		vbox.getChildren().addAll(new Label("Departure Temperature (Degrees F):"), dTempFld);
 		
 		//Entry Field for departure Altimeter
 		TextField dAltimeterFld = new TextField();
-		Label dalt = new Label("Departure Altimeter (Feet):");
-		vbox.getChildren().addAll(dalt, dAltimeterFld);
+		vbox.getChildren().addAll(new Label("Departure Altimeter (Feet):"), dAltimeterFld);
 		
 		//Entry Field for departure Dew
 		TextField dDewFld = new TextField();
-		Label ddew = new Label("Departure Dew Point (Degrees F):");
-		vbox.getChildren().addAll(ddew, dDewFld);
+		vbox.getChildren().addAll(new Label("Departure Dew Point (Degrees F):"), dDewFld);
 		
 		//Create button for saving data
 		Button dSaveBtn = new Button("Save Information");
@@ -342,23 +326,6 @@ public class GUI extends Application {
 		
 		//add fields to hbox
 		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
-		
-		
-		//Styling
-		vbox.setStyle("-fx-background-color: white");
-		scroll.setStyle("-fx-background-color: white");
-		hbox.setStyle("-fx-background-color: white");
-		
-		
-		
-		title.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-		title.setStyle("-fx-text-fill: #1D58B8");
-		
-		
-		
-		
-		
-		
 		
 		//return hbox to gui contstructor
 		return hbox;

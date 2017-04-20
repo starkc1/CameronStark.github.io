@@ -1,3 +1,5 @@
+import com.oracle.webservices.internal.api.EnvelopeStyle.Style;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -134,7 +136,10 @@ public class GUI extends Application {
 		//Create Scene
 		Scene scene = new Scene(root, 1100, 750);
 		
-		scene.getStylesheets().add("CSS/Style.css");
+		String style = getClass().getResource("style.css").toExternalForm();
+		scene.getStylesheets().addAll(style);
+		root.getStylesheets().addAll(style);
+		
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -146,14 +151,12 @@ public class GUI extends Application {
 		
 		//establish MenuBar
 		MenuBar menuBar = new MenuBar();
-		//menuBar.setStyle("-fx-background-color: #1D58B8;");
+
 		
 		//Departure Begin
 		Menu menuDeparture = new Menu(""); 
-		
+
 	    Label departure = new Label("Departure Information");
-	    departure.setStyle("-fx-text-fill: white;");
-	    departure.setFont(Font.font("Arial", 15));
 	    menuDeparture.setGraphic(departure);
 		
 		MenuItem editDeparture = new MenuItem("Edit Information");
@@ -171,7 +174,7 @@ public class GUI extends Application {
 		Menu menuArrival = new Menu("");
 		
 		Label arrival = new Label("Arrival Information");
-		arrival.setStyle("-fx-text-fill: white");
+		menuArrival.setGraphic(arrival);
 		
 		MenuItem editArrival = new MenuItem("Edit Information");
 		menuArrival.getItems().add(editArrival);
@@ -225,6 +228,31 @@ public class GUI extends Application {
 		
 		//Add all buttons to the MenuBar field
 		menuBar.getMenus().addAll(menuDeparture, menuArrival, menuFlight, menuPilot, menuDisplayInfo);
+		
+		
+		
+		menuBar.setStyle("-fx-background-color: #1D58B8");
+		
+		menuDeparture.setStyle("-fx-focus-color: transparent;");
+		
+	    departure.setStyle("-fx-text-fill: white;");
+	    departure.setFont(Font.font("Arial", 15));
+		
+	    arrival.setStyle("-fx-text-fill: white");
+	    arrival.setFont(Font.font("Arial", 15));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//Return the establish MenuBar
 		return menuBar;

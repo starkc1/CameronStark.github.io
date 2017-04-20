@@ -49,6 +49,7 @@ public class GUI extends Application {
 	public String dAirportATIS;
 	public String dAirportGround;
 	public String dAirportTowerFreq;
+	public String dAirportInternational;
 
 	public String aAirport;
 	public String aTime;
@@ -67,6 +68,7 @@ public class GUI extends Application {
 	public String aAirportATIS;
 	public String aAirportGround;
 	public String aAirportTowerFreq;
+	public String aAirportInternational;
 	
 	public String plane;
 	public String trueSpeed;
@@ -100,8 +102,15 @@ public class GUI extends Application {
 	public int tempRisk;
 	public int typeRisk;
 	public int hrsDaysRisk;
-	
-	
+	public int crewNumRisk;
+	public int flightRisk;
+	public int restRisk;
+	public int airportTowerRisk;
+	public int airportElevRisk;
+	public int internationalRisk;
+	public int weatherRisk;
+	public int ceilingRisk;
+	public int dewRisk;
 	
 	
 	//Establish Variables
@@ -122,7 +131,7 @@ public class GUI extends Application {
 		
 		//Create Scene
 		Scene scene = new Scene(root, 1100, 750);
-		primaryStage.setTitle("Flight Project and Risk Assessment Simulation");
+		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
@@ -362,22 +371,22 @@ public class GUI extends Application {
 		vbox.getChildren().addAll(new Label("Plane Used:"), planeFld);
 		
 		TextField trueSpeedFld = new TextField();
-		vbox.getChildren().addAll(new Label("True Airspeed:"), trueSpeedFld);
+		vbox.getChildren().addAll(new Label("True Airspeed (KNOTS):"), trueSpeedFld);
 		
 		TextField typeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Type Of Flight:"), typeFld);
+		vbox.getChildren().addAll(new Label("Type Of Flight (VFR or IFR):"), typeFld);
 		
 		TextField cruiseAltFld = new TextField();
-		vbox.getChildren().addAll(new Label("Cruising Altitude:"), cruiseAltFld);
+		vbox.getChildren().addAll(new Label("Cruising Altitude (Feet):"), cruiseAltFld);
 		
 		TextField timeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Flight Time:"), timeFld);
+		vbox.getChildren().addAll(new Label("Flight Time (hrs):"), timeFld);
 		
 		TextField fuelFld = new TextField();
-		vbox.getChildren().addAll(new Label("Fuel On Board:"), fuelFld);
+		vbox.getChildren().addAll(new Label("Fuel On Board (Gallons):"), fuelFld);
 		
 		TextField passengerWeightFld = new TextField();
-		vbox.getChildren().addAll(new Label("Passenger Weight:"), passengerWeightFld);
+		vbox.getChildren().addAll(new Label("Passenger Weight (lbs):"), passengerWeightFld);
 		
 		TextField passengerNumberFld = new TextField();
 		vbox.getChildren().addAll(new Label("Passenger Number:"), passengerNumberFld);
@@ -421,13 +430,13 @@ public class GUI extends Application {
 		vbox.getChildren().addAll(new Label("Dual or Solo:"), dualsoloFld);
 		
 		TextField ratingFld = new TextField();
-		vbox.getChildren().addAll(new Label("Rating held"), ratingFld);
+		vbox.getChildren().addAll(new Label("Rating held (Private, Instrument, etc.)"), ratingFld);
 		
 		TextField restFld = new TextField();
 		vbox.getChildren().addAll(new Label("Rest in the last 24hr"), restFld);
 		
 		TextField ceilingFld = new TextField();
-		vbox.getChildren().addAll(new Label("Allowed Cieling"), ceilingFld);
+		vbox.getChildren().addAll(new Label("Allowed Cieling (feet)"), ceilingFld);
 		
 		TextField hrsTypeFld = new TextField();
 		vbox.getChildren().addAll(new Label("Hours aircraft type"), hrsTypeFld);
@@ -506,7 +515,7 @@ public class GUI extends Application {
 		borderPane.setRight(vBoxPlaneInfo);
 		
 		BorderPane centerPane = new BorderPane();
-		centerPane.setLeft(vBoxRiskAssign);
+		centerPane.setCenter(vBoxRiskAssign);
 		borderPane.setCenter(centerPane);
 		
 		//Return the information to the GUI constructor
@@ -538,6 +547,7 @@ public class GUI extends Application {
 		dAirportATIS = dAirportInfo[6];
 		dAirportGround = dAirportInfo[7];
 		dAirportTowerFreq = dAirportInfo[8];
+		dAirportInternational = dAirportInfo[9];
 		departureMapBtn.setStyle(dAirportMapBtn);
 
 		//Departure Map
@@ -597,6 +607,7 @@ public class GUI extends Application {
 		aAirportATIS = aAirportInfo[6];
 		aAirportGround = aAirportInfo[7];
 		aAirportTowerFreq = aAirportInfo[8];
+		aAirportInternational = aAirportInfo[9];
 		arrivalMapBtn.setStyle(aAirportMapBtn);
 		
 		//Arrival Map
@@ -674,6 +685,68 @@ public class GUI extends Application {
 		
 		VBox vBoxRisk = new VBox(10);
 		
+		timeRisk = TimeRisk();		
+		windRisk = WindRisk();		
+		visRisk = VisRisk();		
+		tempRisk = TempRisk();		
+		typeRisk = TypeRisk();		
+		hrsDaysRisk = FlightTimeDaysRisk();	
+		crewNumRisk = CrewRisk();	
+		flightRisk = FlightTimeRisk();
+		restRisk = RestTimeRisk();
+		airportTowerRisk = TowerRisk();
+		airportElevRisk = ElevationRisk();
+		internationalRisk = InternationalRisk();
+		
+		
+		int totalRisk;
+		totalRisk = timeRisk + windRisk + visRisk + tempRisk + typeRisk + hrsDaysRisk + crewNumRisk + flightRisk + restRisk + airportTowerRisk + airportElevRisk + internationalRisk;
+		
+		Text totalRiskText = new Text("    The Total Flight Risk is: " + totalRisk);
+		
+		String risk = null;
+		if (totalRisk < 7){
+			risk = "    Flight Risk is Minimal";
+			
+		} else if (totalRisk >= 7 && totalRisk <= 10) {
+			risk = "    Flight Risk is Low";
+			
+		} else if (totalRisk >= 11 && totalRisk <= 15) {
+			risk = "    Flight Risk is Medium";
+			
+		} else if (totalRisk > 15) {
+			risk = "    Flight Risk is High";
+		}
+		Text riskAdvisement = new Text(risk);
+		
+		Text timeRiskText = new Text("    Flight Time of Day Rating: " + timeRisk);
+		Text windRiskText = new Text("    Flight Wind Rating: " + windRisk);
+		Text visRiskText = new Text("    Flight Visiblity Rating: " + visRisk);
+		Text tempRiskText = new Text("    Flight Temperature Rating: " + tempRisk);
+		Text flightTimeText = new Text("    Flight Time Rating: " + flightRisk);
+		Text airportTowerText = new Text("    Airport Tower Rating: " + airportTowerRisk);
+		Text airportElevText = new Text("    Airport Elevation Rating: " + airportElevRisk);
+		Text airportInternationalText = new Text("    Airport International Rating: " + internationalRisk);
+		
+		
+		Text typeRiskText = new Text("    Pilot Hours in Aircraft Type Rating: " + typeRisk);
+		Text hrsDaysText = new Text("    Pilot Hours in Last 90 Days Rating: " + hrsDaysRisk);
+		Text crewNumText = new Text("    Crew Number Rating: " + crewNumRisk);
+		Text restRiskText = new Text("    Pilot Rest in the last 24hrs Rating: " + restRisk);
+		
+		
+		
+		
+		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement, timeRiskText, windRiskText, visRiskText, tempRiskText, flightTimeText);
+		vBoxRisk.getChildren().addAll(airportTowerText, airportElevText, airportInternationalText);
+		vBoxRisk.getChildren().addAll(typeRiskText, hrsDaysText, crewNumText, restRiskText);
+		
+		return vBoxRisk;
+	}
+
+	
+	public int TimeRisk() {
+
 		int DTime = Integer.parseInt(dTime);
 		int ATime = Integer.parseInt(aTime);
 		
@@ -695,7 +768,11 @@ public class GUI extends Application {
 		} else {
 			//System.out.println("Enter correct value");
 		}
-			
+		
+		return timeRisk;
+	}
+	
+	public int WindRisk() {
 		
 		int DWind = Integer.parseInt(dWind);
 		int AWind = Integer.parseInt(aWind);
@@ -714,6 +791,10 @@ public class GUI extends Application {
 			//System.out.println("Low Wind");
 		}
 		
+		return windRisk;
+	}
+	
+	public int VisRisk() {
 		int DVis = Integer.parseInt(dVis);
 		int AVis = Integer.parseInt(aVis);
 		
@@ -746,6 +827,11 @@ public class GUI extends Application {
 			}
 		}
 		
+		return visRisk;
+	}
+	
+	public int TempRisk() {
+		
 		int DTemp = Integer.parseInt(dTemp);
 		int ATemp = Integer.parseInt(aTemp);
 		
@@ -757,7 +843,10 @@ public class GUI extends Application {
 			tempRisk = 5;
 		}
 		
-		
+		return tempRisk;
+	}
+	
+	public int TypeRisk() {
 		int typeTime = Integer.parseInt(hrsType);
 		
 		if (typeTime > 200) {
@@ -766,7 +855,10 @@ public class GUI extends Application {
 			typeRisk = 5;
 		}
 		
-		
+		return typeRisk;
+	}
+	
+	public int FlightTimeDaysRisk() {
 		int flightTimeDays = Integer.parseInt(hrsDays);
 		
 		if (flightTimeDays > 100) {
@@ -775,77 +867,119 @@ public class GUI extends Application {
 			hrsDaysRisk = 3;
 		}
 		
-		
-		//System.out.println(typeRisk);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		int totalRisk;
-		totalRisk = timeRisk + windRisk + visRisk + tempRisk + typeRisk + hrsDaysRisk;
-		
-		Text totalRiskText = new Text("    The Total Flight Risk is: " + totalRisk);
-		
-		String risk = null;
-		if (totalRisk < 7){
-			risk = "    Flight Risk is Minimal";
-			
-		} else if (totalRisk >= 7 && totalRisk <= 10) {
-			risk = "    Flight Risk is Low";
-			
-		} else if (totalRisk >= 11 && totalRisk <= 15) {
-			risk = "    Flight Risk is Medium";
-			
-		} else if (totalRisk > 15) {
-			risk = "    Flight Risk is High";
-		}
-		Text riskAdvisement = new Text(risk);
-		
-		Text timeRiskText = new Text("    Flight Time of Day Rating: " + timeRisk);
-		
-		Text windRiskText = new Text("    Flight Wind Rating: " + windRisk);
-		
-		Text visRiskText = new Text("    Flight Visiblity Rating: " + visRisk);
-		
-		Text tempRiskText = new Text("    Flight Temperature Rating: " + tempRisk);
-		
-		Text typeRiskText = new Text("    Pilot Hours in Aircraft Type Rating: " + typeRisk);
-		
-		Text hrsDaysText = new Text("    Pilot Hours in Last 90 Days Rating: " + hrsDaysRisk);
-		
-		
-		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement, timeRiskText, windRiskText, visRiskText, tempRiskText, typeRiskText, hrsDaysText);
-		
-		return vBoxRisk;
+		return hrsDaysRisk;
 	}
-
 	
+	public int CrewRisk() {
+		switch (crewNumber) {
+			case "Dual":
+				crewNumRisk = 0;
+				break;
+			
+			case "Solo":
+				crewNumRisk = 5;
+				break;
+		}
+		
+		return crewNumRisk;
+	}
 	
+	public int FlightTimeRisk() {
+		int flightTime = Integer.parseInt(time);
+		
+		if (flightTime > 8) {
+			flightRisk = 4;
+		} else if (flightTime < 8) {
+			flightRisk = 0;
+		}
+		
+		return flightRisk;
+	}
 	
+	public int RestTimeRisk() {
+		
+		int restTime = Integer.parseInt(rest);
+		
+		if (restTime > 10) {
+			restRisk = 0;
+		} else if (restTime < 10) {
+			restRisk = 5;
+		}
+		
+		return restRisk;
+	}
 	
+	public int TowerRisk() {
+		
+		switch (dAirportTower) {
+			case "Yes":
+				switch (aAirportTower) {
+					case "Yes":
+						airportTowerRisk = 0;
+						break;
+					case "No":
+						airportTowerRisk = 3;
+						break;
+				}
+				break;
+			
+			case "No": 
+				switch (aAirportTower) {
+					case "Yes":
+						airportTowerRisk = 3;
+						break;
+					case "No":
+						airportTowerRisk = 5;
+						break;
+				}
+				break;
+		}
+		
+		return airportTowerRisk;
+	}
 	
+	public int ElevationRisk() {
+		System.out.println(dAirportElevation);
+		
+		int dElev = Integer.parseInt(dAirportElevation);
+		int aElev = Integer.parseInt(aAirportElevation);
+		
+		if (dElev > 5000 && aElev < 5000) {
+			airportElevRisk = 1;
+		} else if (dElev < 5000 && aElev > 5000) {
+			airportElevRisk = 1;
+		} else if (dElev > 5000 && aElev > 5000) {
+			airportElevRisk = 3;
+		} else if (dElev < 5000 && aElev < 5000) {
+			airportElevRisk = 0;
+		}
+		
+		return airportElevRisk;
+		
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public int InternationalRisk() {
+		
+		switch (dAirportInternational) {
+			case "Yes":
+				internationalRisk = 1;
+				break;
+			case "No": 
+				internationalRisk = 0;
+				break;
+		}
+		
+		switch (aAirportInternational) {
+			case "Yes":
+				internationalRisk = 1;
+				break;
+			case "No":
+				internationalRisk = 0;
+				break;
+		}
+		
+		return internationalRisk;
+ 	}
 	
 	
 	

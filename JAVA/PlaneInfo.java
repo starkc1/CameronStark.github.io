@@ -1,3 +1,4 @@
+package application;
 public class PlaneInfo {
 	
 	//static String[] (planeName) = {(Name), (Crew), (Length), (WingSpan), (Fuselage width), (Max Landing Weight), (Max Take-Off Weight), (Take-Off), (Range) };

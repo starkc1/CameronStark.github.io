@@ -1,3 +1,4 @@
+package application;
 public class Plane {
 	
 	public static String[] planeInfo(String planeName) {

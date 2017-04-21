@@ -1,3 +1,4 @@
+package application;
 public class AirportInfo {
 	
 	//static String[] (name)Array = { (Name), (Map), (Tower?), (ARTCC), (Elevation (ft)), (Unicom), (ATIS), (Ground), (Tower), (international) }

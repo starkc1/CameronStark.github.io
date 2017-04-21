@@ -1,3 +1,4 @@
+package application;
 public class Airport {
 	
 	public static String[] airportInfo(String airportName) {

@@ -132,7 +132,6 @@ public class Main extends Application {
 		// create BorderPane
 		root = new BorderPane();
 		root.setTop(getMenu());
-		root.setStyle("-fx-background-color: white");
 		
 		
 		//Create Scene
@@ -158,6 +157,7 @@ public class Main extends Application {
 
 	    Label departure = new Label("Departure Information");
 	    menuDeparture.setGraphic(departure);
+	    departure.setId("departure");
 		
 		MenuItem editDeparture = new MenuItem("Edit Information");
 		menuDeparture.getItems().add(editDeparture);
@@ -175,6 +175,7 @@ public class Main extends Application {
 		
 		Label arrival = new Label("Arrival Information");
 		menuArrival.setGraphic(arrival);
+		arrival.setId("arrival");
 		
 		MenuItem editArrival = new MenuItem("Edit Information");
 		menuArrival.getItems().add(editArrival);
@@ -192,6 +193,7 @@ public class Main extends Application {
 		
 		Label flight = new Label("Flight Information");
 		menuFlight.setGraphic(flight);
+		flight.setId("flight");
 		
 		MenuItem editFlight = new MenuItem("Edit Information");
 		menuFlight.getItems().add(editFlight);
@@ -209,6 +211,7 @@ public class Main extends Application {
 		
 		Label pilot = new Label("Pilot Information");
 		menuPilot.setGraphic(pilot);
+		pilot.setId("pilot");
 		
 		MenuItem editPilot = new MenuItem("Edit Information");
 		menuPilot.getItems().add(editPilot);
@@ -226,6 +229,7 @@ public class Main extends Application {
 		
 		Label info = new Label("Simulation");
 		menuDisplayInfo.setGraphic(info);
+		info.setId("info");
 		
 		MenuItem runSim = new MenuItem("Run Simulation");
 		menuDisplayInfo.getItems().add(runSim);
@@ -233,6 +237,7 @@ public class Main extends Application {
 		//Manage button click
 		runSim.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) {
+				root.setLeft(null);
 				root.setCenter(getSimInfo());	
 			}
 		});
@@ -242,25 +247,9 @@ public class Main extends Application {
 		menuBar.getMenus().addAll(menuDeparture, menuArrival, menuFlight, menuPilot, menuDisplayInfo);
 		
 		
-		//Styling
-		//menuBar.setStyle("-fx-background-color: #1D58B8");
-		
-	    departure.setStyle("-fx-text-fill: white;");
-	    departure.setFont(Font.font("Arial", 16));
 	    
 	    editDeparture.setStyle("-fx-background-color: #1D58B8");
 		
-	    arrival.setStyle("-fx-text-fill: white");
-	    arrival.setFont(Font.font("Arial", 16));
-		
-		flight.setStyle("-fx-text-fill: white");
-		flight.setFont(Font.font("Arial", 16));
-		
-		pilot.setStyle("-fx-text-fill: white");
-		pilot.setFont(Font.font("Arial", 16));
-		
-		info.setStyle("-fx-text-fill: #ffe700");
-		info.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 		
 
 		

@@ -17,6 +17,10 @@
 	-fx-background-color: #1D58B8;
 }
 
+#editD {
+	-fx-text-fill: white;
+}
+
 #departure, #arrival, #flight, #pilot {
 	-fx-text-fill: white;
 	-fx-font-family: "Arial";
@@ -33,7 +37,7 @@
 	-fx-background-color: black;
 }
 
-.menu:active { 
+.menu:focused { 
 	-fx-background-color: gray;
 }
 

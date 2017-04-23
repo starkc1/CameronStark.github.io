@@ -148,7 +148,7 @@ public class Main extends Application {
 	//Method for creating the MenuBar
 	public MenuBar getMenu() {
 		
-		//establish MenuBar
+		//estabslish MenuBar
 		MenuBar menuBar = new MenuBar();
 
 		
@@ -159,7 +159,12 @@ public class Main extends Application {
 	    menuDeparture.setGraphic(departure);
 	    departure.setId("departure");
 		
-		MenuItem editDeparture = new MenuItem("Edit Information");
+	    
+		MenuItem editDeparture = new MenuItem("");
+		
+		Label editD = new Label("Edit Information");
+		editD.setId("editD");
+		editDeparture.setGraphic(editD);
 		menuDeparture.getItems().add(editDeparture);
 		
 		//Manage button click
@@ -179,6 +184,7 @@ public class Main extends Application {
 		
 		MenuItem editArrival = new MenuItem("Edit Information");
 		menuArrival.getItems().add(editArrival);
+		
 		
 		//Manage button click
 		editArrival.setOnAction(new EventHandler<ActionEvent>() {

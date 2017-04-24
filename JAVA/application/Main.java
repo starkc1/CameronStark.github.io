@@ -386,7 +386,7 @@ public class Main extends Application {
 		hbox.setId("aHbox");
 		
 		//Establish Vbox
-		VBox vbox = new VBox(10);
+		VBox vbox = new VBox(15);
 		vbox.setId("aVbox");
 		vbox.setPadding(new Insets(10));
 		
@@ -399,37 +399,62 @@ public class Main extends Application {
 		ComboBox<String> aAirportFld = new ComboBox<>();
 		aAirportFld.setId("aDropdown");
 		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
-		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);
+		Label aairport = new Label("Arrival Airport");
+		aairport.setId("aairport");
+		vbox.getChildren().addAll(aairport, aAirportFld);
 		
 		//Entry Field for Arrival Time
 		TextField aTimeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Time (24hr 0000):"), aTimeFld);
+		aTimeFld.setId("aTimeFld");
+		Label atime = new Label("Arrival Time (24hr 0000)");
+		atime.setId("atime");
+		vbox.getChildren().addAll(atime, aTimeFld);
 		
 		//Entry Field for Arrival Wind
 		TextField aWindFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Wind (KNOTS):"), aWindFld);
+		aWindFld.setId("aWindFld");
+		Label awind = new Label("Arrival Wind (KNOTS)");
+		awind.setId("awind");
+		vbox.getChildren().addAll(awind, aWindFld);
 		
 		//Entry Field for Arrival Visibility
 		TextField aVisibilityFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Visibility (Nautical Miles):"), aVisibilityFld);
+		aVisibilityFld.setId("aVisibilityFld");
+		Label avis = new Label("Arrival Visibility (Nautical Miles)");
+		avis.setId("avis");
+		vbox.getChildren().addAll(avis, aVisibilityFld);
 		
+		//Entry Field for Arrival Ceiling
 		TextField aCeilingFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Ceiling (Feet):"),aCeilingFld);
+		aCeilingFld.setId("aCeilingFld");
+		Label aceil = new Label("Arrival Ceiling (Feet)");
+		aceil.setId("aceil");
+		vbox.getChildren().addAll(aceil, aCeilingFld);
 		
 		//Entry Field for Arrival Temperature
 		TextField aTempFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Temperature (Degrees F):"), aTempFld);
+		aTempFld.setId("aTempFld");
+		Label atemp = new Label("Arrival Temperature (Degreess F)");
+		atemp.setId("atemp");
+		vbox.getChildren().addAll(atemp, aTempFld);
 		
 		//Entry Field for Arrival Altimeter
 		TextField aAltimeterFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Altimeter (Feet):"), aAltimeterFld);
+		aAltimeterFld.setId("aAltimeterFld");
+		Label aalt = new Label("Arrival Altimeter (Feet)");
+		aalt.setId("aalt");
+		vbox.getChildren().addAll(aalt, aAltimeterFld);
 		
 		//Entry Field for Arrival Dew
 		TextField aDewFld = new TextField();
-		vbox.getChildren().addAll(new Label("Arrival Dew Point (Degrees F):"), aDewFld);
+		aDewFld.setId("aDewFld");
+		Label adew = new Label("Arrival Dew Point (Degrees F)");
+		adew.setId("adew");
+		vbox.getChildren().addAll(adew, aDewFld);
 		
 		//Create button for saving data entries
 		Button aSaveBtn = new Button("Save Information");
+		aSaveBtn.setId("aSaveBtn");
 		vbox.getChildren().add(aSaveBtn);
 		
 		//Collect inputed data

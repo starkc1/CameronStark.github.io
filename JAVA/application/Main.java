@@ -383,18 +383,21 @@ public class Main extends Application {
 		
 		//Establish Hbox
 		HBox hbox = new HBox();
+		hbox.setId("aHbox");
 		
 		//Establish Vbox
 		VBox vbox = new VBox(10);
+		vbox.setId("aVbox");
 		vbox.setPadding(new Insets(10));
 		
 		//Create section label
-		Text text = new Text("Arrival Information");
-		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		vbox.getChildren().add(text);
+		Label title = new Label("Arrival Information");
+		title.setId("aTitle");
+		vbox.getChildren().add(title);
 		
 		//Create ComboBox for possible airports
 		ComboBox<String> aAirportFld = new ComboBox<>();
+		aAirportFld.setId("aDropdown");
 		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		vbox.getChildren().addAll(new Label("Arrival Airport:"), aAirportFld);
 		

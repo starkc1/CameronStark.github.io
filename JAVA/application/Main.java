@@ -483,41 +483,68 @@ public class Main extends Application {
 	public HBox getInputsFlight() {
 		
 		HBox hbox = new HBox();
+		hbox.setId("fHbox");
 		
-		VBox vbox = new VBox(10);
+		VBox vbox = new VBox(15);
+		vbox.setId("fVbox");
 		vbox.setPadding(new Insets(10));
 		
-		Text text = new Text("Flight Information");
-		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		vbox.getChildren().add(text);
+		Label fTitle = new Label("Flight Information");
+		fTitle.setId("fTitle");
+		vbox.getChildren().add(fTitle);
 		
 		
 		ComboBox<String> planeFld = new ComboBox<>();
+		planeFld.setId("fDropdown");
 		planeFld.getItems().addAll("737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320", "A330", "A350", "A380", "CRJ200", "ERJ-190");
-		vbox.getChildren().addAll(new Label("Plane Used:"), planeFld);
+		Label planeUsed = new Label("Plane Used");
+		planeUsed.setId("plane");
+		vbox.getChildren().addAll(planeUsed, planeFld);
 		
 		TextField trueSpeedFld = new TextField();
-		vbox.getChildren().addAll(new Label("True Airspeed (KNOTS):"), trueSpeedFld);
+		trueSpeedFld.setId("trueSpeedFld");
+		Label trueSpeedlbl = new Label("True Airspeed (KNOTS)");
+		trueSpeedlbl.setId("trueSpeed");
+		vbox.getChildren().addAll(trueSpeedlbl, trueSpeedFld);
 		
 		TextField typeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Type Of Flight (VFR or IFR):"), typeFld);
+		typeFld.setId("typeFld");
+		Label typelbl = new Label("Type of Flight (VFR or IFR)");
+		typelbl.setId("type");
+		vbox.getChildren().addAll(typelbl, typeFld);
 		
 		TextField cruiseAltFld = new TextField();
-		vbox.getChildren().addAll(new Label("Cruising Altitude (Feet):"), cruiseAltFld);
+		cruiseAltFld.setId("cruiseAltFld");
+		Label cruiseAltlbl = new Label("Cruising Altitude (Feet)");
+		cruiseAltlbl.setId("cruiseAlt");
+		vbox.getChildren().addAll(cruiseAltlbl, cruiseAltFld);
 		
 		TextField timeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Flight Time (hrs):"), timeFld);
+		timeFld.setId("timeFld");
+		Label timelbl = new Label("Flight Time (hrs)");
+		timelbl.setId("time");
+		vbox.getChildren().addAll(timelbl, timeFld);
 		
 		TextField fuelFld = new TextField();
-		vbox.getChildren().addAll(new Label("Fuel On Board (Gallons):"), fuelFld);
+		fuelFld.setId("fuelFld");
+		Label fuellbl = new Label("Fuel On Board (Gallons)");
+		fuellbl.setId("fuel");
+		vbox.getChildren().addAll(fuellbl, fuelFld);
 		
 		TextField passengerWeightFld = new TextField();
-		vbox.getChildren().addAll(new Label("Passenger Weight (lbs):"), passengerWeightFld);
+		passengerWeightFld.setId("passengerWeightFld");
+		Label passengerWeightlbl = new Label("Passenger Weight (lbs)");
+		passengerWeightlbl.setId("passengerWeight");
+		vbox.getChildren().addAll(passengerWeightlbl, passengerWeightFld);
 		
 		TextField passengerNumberFld = new TextField();
-		vbox.getChildren().addAll(new Label("Passenger Number:"), passengerNumberFld);
+		passengerNumberFld.setId("passengerNumberFld");
+		Label passengerNumberlbl = new Label("Passenger Number");
+		passengerNumberlbl.setId("passengerNumber");
+		vbox.getChildren().addAll(passengerNumberlbl, passengerNumberFld);
 		
 		Button fSaveBtn = new Button("Save Information");
+		fSaveBtn.setId("fSaveBtn");
 		vbox.getChildren().add(fSaveBtn);
 		
 		fSaveBtn.setOnAction(e -> {
@@ -705,6 +732,7 @@ public class Main extends Application {
 		
 		return DepartureInfo;
 	}
+	
 	//Method for collecting the Arrival Airport Information
 	public VBox ArrivalInfo() {
 		
@@ -765,7 +793,8 @@ public class Main extends Application {
 		
 		return ArrivalInfo;
 	}
-	
+
+	//Method for collecting the Plane Information
 	public VBox PlaneInfo() {
 		
 		VBox PlaneInfo = new VBox(10);

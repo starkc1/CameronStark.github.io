@@ -150,7 +150,9 @@ public class Main extends Application {
 		
 		//estabslish MenuBar
 		MenuBar menuBar = new MenuBar();
-
+		Label Temp = new Label("Fill out Departure, Arrival, Flight and Pilot Information, then run simulation");
+		Temp.setId("Temp");
+		root.setCenter(Temp);
 		
 		//Departure Begin
 		Menu menuDeparture = new Menu(""); 
@@ -204,10 +206,10 @@ public class Main extends Application {
 		menuFlight.setGraphic(flight);
 		flight.setId("flight");
 		
-		MenuItem editFlight = new MenuItem("Edit Information");
+		MenuItem editFlight = new MenuItem("");
 		
 		Label editF = new Label("Edit Information");
-		
+		editFlight.setGraphic(editF);
 		menuFlight.getItems().add(editFlight);
 		
 		//Manage button click
@@ -225,7 +227,10 @@ public class Main extends Application {
 		menuPilot.setGraphic(pilot);
 		pilot.setId("pilot");
 		
-		MenuItem editPilot = new MenuItem("Edit Information");
+		MenuItem editPilot = new MenuItem("");
+		
+		Label editP = new Label("Edit Information");
+		editPilot.setGraphic(editP);
 		menuPilot.getItems().add(editPilot);
 		
 		//Manage button click
@@ -243,7 +248,10 @@ public class Main extends Application {
 		menuDisplayInfo.setGraphic(info);
 		info.setId("info");
 		
-		MenuItem runSim = new MenuItem("Run Simulation");
+		MenuItem runSim = new MenuItem("");
+		
+		Label run = new Label("Run Simulation");
+		runSim.setGraphic(run);
 		menuDisplayInfo.getItems().add(runSim);
 		
 		//Manage button click
@@ -259,9 +267,6 @@ public class Main extends Application {
 		menuBar.getMenus().addAll(menuDeparture, menuArrival, menuFlight, menuPilot, menuDisplayInfo);
 		
 		
-	    
-	    editDeparture.setStyle("-fx-background-color: #1D58B8");
-		
 		
 
 		
@@ -274,57 +279,77 @@ public class Main extends Application {
 		
 		//Establish Departure HBox
 		HBox hbox = new HBox();
+		hbox.setId("dHbox");
 		
 		//Establish Depature VBox
-		VBox vbox = new VBox(10);
+		VBox vbox = new VBox(15);
+		vbox.setId("dVbox");
 		vbox.setPadding(new Insets(10));
 		
 		//Create Section Label
 		Label title = new Label("Departure Information");
+		title.setId("dTitle");
 		vbox.getChildren().add(title);
 		
 		//Create ComboBox for the possible airports
 		ComboBox<String> dAirportFld = new ComboBox<>();
+		dAirportFld.setId("dDropdown");
 		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
-		Label dairport = new Label("Departure Airport:");
+		Label dairport = new Label("Departure Airport");
+		dairport.setId("dairport");
 		vbox.getChildren().addAll(dairport, dAirportFld);
 		
 		//Entry Field for departure Time
 		TextField dTimeFld = new TextField();
-		Label dtime = new Label("Departure Time (24hr 0000):");
+		dTimeFld.setId("dTimeFld");
+		Label dtime = new Label("Departure Time (24hr 0000)");
+		dtime.setId("dtime");
 		vbox.getChildren().addAll(dtime, dTimeFld);
 		
 		//Entry Field for departure Wind
 		TextField dWindFld = new TextField();
-		Label dwind = new Label("Departure Wind (KNOTS):");
+		dWindFld.setId("dWindFld");
+		Label dwind = new Label("Departure Wind (KNOTS)");
+		dwind.setId("dwind");
 		vbox.getChildren().addAll(dwind, dWindFld);
 		
 		//Entry Field for departure Visibility
 		TextField dVisibilityFld = new TextField();
-		Label dvis = new Label("Departure Visibility (Nautical Miles):");
+		dVisibilityFld.setId("dVisibilityFld");
+		Label dvis = new Label("Departure Visibility (Nautical Miles)");
+		dvis.setId("dvis");
 		vbox.getChildren().addAll(dvis, dVisibilityFld);
 		
 		TextField dCeilingFld = new TextField();
-		Label dceil = new Label("Departure Ceiling (Feet):");
+		dCeilingFld.setId("dCeilingFld");
+		Label dceil = new Label("Departure Ceiling (Feet)");
+		dceil.setId("dceil");
 		vbox.getChildren().addAll(dceil, dCeilingFld);
 		
 		//Entry Field for departure Temperature
 		TextField dTempFld = new TextField();
-		Label dtemp = new Label("Departure Temperature (Degrees F):");
+		dTempFld.setId("dTempFld");
+		Label dtemp = new Label("Departure Temperature (Degrees F)");
+		dtemp.setId("dtemp");
 		vbox.getChildren().addAll(dtemp, dTempFld);
 		
 		//Entry Field for departure Altimeter
 		TextField dAltimeterFld = new TextField();
-		Label dalt = new Label("Departure Altimeter (Feet):");
+		dAltimeterFld.setId("dAltimeterFld");
+		Label dalt = new Label("Departure Altimeter (Feet)");
+		dalt.setId("dalt");
 		vbox.getChildren().addAll(dalt, dAltimeterFld);
 		
 		//Entry Field for departure Dew
 		TextField dDewFld = new TextField();
-		Label ddew = new Label("Departure Dew Point (Degrees F):");
+		dDewFld.setId("dDewFld");
+		Label ddew = new Label("Departure Dew Point (Degrees F)");
+		ddew.setId("ddew");
 		vbox.getChildren().addAll(ddew, dDewFld);
 		
 		//Create button for saving data
 		Button dSaveBtn = new Button("Save Information");
+		dSaveBtn.setId("dSaveBtn");
 		vbox.getChildren().add(dSaveBtn);
 		
 		//Collect the inputed data
@@ -345,20 +370,7 @@ public class Main extends Application {
 		//add fields to hbox
 		hbox.getChildren().addAll(scroll, new Separator(Orientation.VERTICAL));
 		
-		
-		//Styling
-		vbox.setStyle("-fx-background-color: white");
-		scroll.setStyle("-fx-background-color: white");
-		hbox.setStyle("-fx-background-color: white");
-		
-		
-		
-		title.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-		title.setStyle("-fx-text-fill: #1D58B8");
-		
-		
-		
-		
+
 		
 		
 		

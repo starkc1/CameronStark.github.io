@@ -1,0 +1,86 @@
+
+/* Flight Inputs CSS */
+#pHbox, #pVbox {
+	-fx-background-color: white;
+}
+
+#pTitle {
+	-fx-text-fill: #1d58b8;
+	-fx-font-family: "Arial";
+	-fx-font-size: 16px;
+	-fx-font-weight: bold;
+}
+
+
+#crew, #rating, #rest, #hrsType, #hrsDays, #totalHrs {
+	-fx-text-fill: #1d58b8;
+	-fx-font-size: 14px;
+	-fx-font-family: "Arial";
+}
+
+#dualsoloFld, #ratingFld, #restFld, #hrsTypeFld, #hrsDaysFld, #totalHrsFld {
+	-fx-background-color: white;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+#pSaveBtn {
+	-fx-background-color: #1d58b8;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+	-fx-text-fill: white;
+	-fx-font-family: "Arial";
+	-fx-font-size: 15px;
+}
+
+#pSaveBtn:pressed {
+	-fx-background-color: white;
+	-fx-text-fill: #1d58b8;
+	-fx-font-family: "Arial";
+	-fx-font-size: 15px;
+}
+/* End Flight Inputs CSS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

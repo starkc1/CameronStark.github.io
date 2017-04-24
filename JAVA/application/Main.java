@@ -136,7 +136,11 @@ public class Main extends Application {
 		
 		//Create Scene
 		Scene scene = new Scene(root, 1100, 750);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Component.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Departure.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Arrival.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Flight.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Pilot.css").toExternalForm());
 
 		
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
@@ -570,34 +574,55 @@ public class Main extends Application {
 	public HBox getInputsPilot() {
 		
 		HBox hbox = new HBox();
+		hbox.setId("pHbox");
 		
-		VBox vbox = new VBox(10);
+		VBox vbox = new VBox(15);
+		vbox.setId("pVbox");
 		vbox.setPadding(new Insets(10));
 		
-		Text text = new Text("Pilot Information");
-		text.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		vbox.getChildren().add(text);
+		Label pTitle = new Label("Pilot Information");
+		pTitle.setId("pTitle");
+		vbox.getChildren().add(pTitle);
 		
 		
 		TextField dualsoloFld = new TextField();
-		vbox.getChildren().addAll(new Label("Dual or Solo:"), dualsoloFld);
+		dualsoloFld.setId("dualsoloFld");
+		Label dualsolo = new Label("Dual or Solo");
+		dualsolo.setId("crew");
+		vbox.getChildren().addAll(dualsolo, dualsoloFld);
 		
 		TextField ratingFld = new TextField();
-		vbox.getChildren().addAll(new Label("Rating held (Private, Instrument, etc.)"), ratingFld);
+		ratingFld.setId("ratingFld");
+		Label ratinglbl = new Label("Rating held (Private, Instrument, etc.)");
+		ratinglbl.setId("rating");
+		vbox.getChildren().addAll(ratinglbl, ratingFld);
 		
 		TextField restFld = new TextField();
-		vbox.getChildren().addAll(new Label("Rest in the last 24hr"), restFld);
+		restFld.setId("restFld");
+		Label restlbl = new Label("Rest in the last 24hr");
+		restlbl.setId("rest");
+		vbox.getChildren().addAll(restlbl, restFld);
 		
 		TextField hrsTypeFld = new TextField();
-		vbox.getChildren().addAll(new Label("Hours aircraft type"), hrsTypeFld);
+		hrsTypeFld.setId("hrsTypeFld");
+		Label hrsTypelbl = new Label("Hours aircraft type");
+		hrsTypelbl.setId("hrsType");
+		vbox.getChildren().addAll(hrsTypelbl, hrsTypeFld);
 		
 		TextField hrsDaysFld = new TextField();
-		vbox.getChildren().addAll(new Label("Hours in the last 90 days"), hrsDaysFld);
+		hrsDaysFld.setId("hrsDaysFld");
+		Label hrsDayslbl = new Label("Hours in the last 90 days");
+		hrsDayslbl.setId("hrsDays");
+		vbox.getChildren().addAll(hrsDayslbl, hrsDaysFld);
 		
 		TextField totalHrsFld = new TextField();
-		vbox.getChildren().addAll(new Label("Total flight hours"), totalHrsFld);
+		totalHrsFld.setId("totalHrsFld");
+		Label totalHrslbl = new Label("Total flight hours");
+		totalHrslbl.setId("totalHrs");
+		vbox.getChildren().addAll(totalHrslbl, totalHrsFld);
 		
 		Button pSaveBtn = new Button("Save Information");
+		pSaveBtn.setId("pSaveBtn");
 		vbox.getChildren().add(pSaveBtn);
 		
 		pSaveBtn.setOnAction(e -> {
@@ -622,6 +647,7 @@ public class Main extends Application {
 	public BorderPane getSimInfo() {
 		
 		BorderPane borderPane = new BorderPane();
+		borderPane.setId("borderPane");
 		
 		//Orient Layout of main Components
 		VBox vBoxInfoDepart = new VBox(10);
@@ -639,8 +665,8 @@ public class Main extends Application {
 		VBox vBoxInfo = new VBox(40);
 		
 		//Create the tile of the information
-		Text titleText = new Text(10, 50, "Flight From " + dAirport + " To " + aAirport);
-		titleText.setFont(new Font(20));
+		Label titleText = new Label("Flight From " + dAirport + " To " + aAirport);
+		titleText.setId("titleText");
 		borderPane.setTop(titleText);
 		borderPane.setAlignment(titleText, Pos.CENTER);
 		
@@ -1098,7 +1124,6 @@ public class Main extends Application {
 	}
 	
 	public int ElevationRisk() {
-		System.out.println(dAirportElevation);
 		
 		int dElev = Integer.parseInt(dAirportElevation);
 		int aElev = Integer.parseInt(aAirportElevation);

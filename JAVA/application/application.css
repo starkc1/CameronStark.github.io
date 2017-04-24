@@ -7,18 +7,25 @@
 /* MenuBar CSS */
 .menu-bar {
 	-fx-background-color: #1D58B8;
+	-fx-selection-bar: #1a4fa5;
 }
 
 .context-menu {
 	-fx-background-color: #1D58B8;
+	-fx-selection-bar: #1D58B8;
 }
 
-.menu-item:focused {
-	-fx-background-color: #1D58B8;
+.context-menu:hover {
+	-fx-background-color: #1a4af5;
 }
 
-#editD {
+#editD, #editA {
 	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+#editD:hover, #editA:hover { 
+	-fx-background-color: #1d58b8;
 }
 
 #departure, #arrival, #flight, #pilot {
@@ -34,11 +41,11 @@
 }
 
 .menu:hover {
-	-fx-background-color: black;
+	-fx-background-color: #1a4fa5;
 }
 
-.menu:focused { 
-	-fx-background-color: gray;
+.menu-item:hover {
+	-fx-background-color: #1d58b8;
 }
 
 /* End MenuBar CSS */

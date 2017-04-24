@@ -182,7 +182,10 @@ public class Main extends Application {
 		menuArrival.setGraphic(arrival);
 		arrival.setId("arrival");
 		
-		MenuItem editArrival = new MenuItem("Edit Information");
+		MenuItem editArrival = new MenuItem("");
+		
+		Label editA = new Label("Edit Information");
+		editArrival.setGraphic(editA);
 		menuArrival.getItems().add(editArrival);
 		
 		
@@ -202,6 +205,9 @@ public class Main extends Application {
 		flight.setId("flight");
 		
 		MenuItem editFlight = new MenuItem("Edit Information");
+		
+		Label editF = new Label("Edit Information");
+		
 		menuFlight.getItems().add(editFlight);
 		
 		//Manage button click

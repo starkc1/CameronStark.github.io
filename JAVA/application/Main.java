@@ -23,9 +23,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -120,17 +117,6 @@ public class Main extends Application {
 	
 	
 	
-	//Testing Variables, Comment out when not testing
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	//Establish Application
 	public static void main(String[] args) {
@@ -154,7 +140,9 @@ public class Main extends Application {
 		scene.getStylesheets().add(getClass().getResource("Flight.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("Pilot.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("DepartureInfo.css").toExternalForm());
-
+		scene.getStylesheets().add(getClass().getResource("ArrivalInfo.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("PlaneInfo.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("RiskInfo.css").toExternalForm());
 		
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
@@ -702,8 +690,8 @@ public class Main extends Application {
 		VBox vBoxPlaneInfo = new VBox(10);
 		vBoxPlaneInfo.setAlignment(Pos.TOP_LEFT);
 		
-		VBox vBoxRiskAssign = new VBox(10);
-		vBoxRiskAssign.setAlignment(Pos.TOP_CENTER);
+		BorderPane RiskPane = new BorderPane();
+		
 		
 		VBox vBoxInfo = new VBox(20);
 		
@@ -725,16 +713,15 @@ public class Main extends Application {
 		vBoxPlaneInfo = PlaneInfo();
 		
 		//Risk Assignment
-		vBoxRiskAssign = RiskAssignment();
+		RiskPane = RiskAssignment();
 		//Risk Assignment
 		
 		vBoxInfo.getChildren().addAll(vBoxInfoDepart, vBoxInfoArrival);	
 		borderPane.setLeft(vBoxInfo);
 		borderPane.setRight(vBoxPlaneInfo);
 		
-		BorderPane centerPane = new BorderPane();
-		centerPane.setCenter(vBoxRiskAssign);
-		borderPane.setCenter(centerPane);
+		
+		borderPane.setCenter(RiskPane);
 		
 		//Return the information to the GUI constructor
 		return borderPane;
@@ -790,25 +777,25 @@ public class Main extends Application {
 			stage.show();
 			
 		});
-		Label dTowerText = new Label("ATC Tower: \n" + dAirportTower);
+		Label dTowerText = new Label("ATC Tower: " + dAirportTower);
 		dTowerText.setId("dTowerlbl");
 
-		Label dARTCCText = new Label("ARTCC: \n" + dAirportARTCC);
+		Label dARTCCText = new Label("ARTCC: " + dAirportARTCC);
 		dARTCCText.setId("dARTCC");
 		
-		Label dElevationText = new Label("Airport Elevation: \n" + dAirportElevation);
+		Label dElevationText = new Label("Airport Elevation: " + dAirportElevation);
 		dElevationText.setId("dElevation");
 		
-		Label dUnicomText = new Label("Unicom Frequency: \n" + dAirportUNICOM);
+		Label dUnicomText = new Label("Unicom Frequency: " + dAirportUNICOM);
 		dUnicomText.setId("dUnicom");
 		
-		Label dAtisText = new Label("Atis Frequency: \n" + dAirportATIS);
+		Label dAtisText = new Label("Atis Frequency: " + dAirportATIS);
 		dAtisText.setId("dAtis");
 		
-		Label dGroundText = new Label("Ground Frequency: \n" + dAirportGround);
+		Label dGroundText = new Label("Ground Frequency: " + dAirportGround);
 		dGroundText.setId("dGround");
 		
-		Label dTowerFreqText = new Label("Tower Frequency: \n" + dAirportTowerFreq);
+		Label dTowerFreqText = new Label("Tower Frequency: " + dAirportTowerFreq);
 		dTowerFreqText.setId("dFreq");
 		
 		DepartureInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText, dUnicomText, dAtisText, dGroundText, dTowerFreqText);
@@ -820,6 +807,7 @@ public class Main extends Application {
 	public VBox ArrivalInfo() {
 		
 		VBox ArrivalInfo = new VBox(10);
+		ArrivalInfo.setPadding(new Insets(0, 0, 0, 20));
 		
 		Button arrivalMapBtn = new Button();
 		arrivalMapBtn.setMinHeight(100);
@@ -844,8 +832,8 @@ public class Main extends Application {
 		arrivalMapBtn.setStyle(aAirportMapBtn);
 		
 		//Arrival Map
-		Text arrivalAirportText = new Text(aAirportName);
-		arrivalAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		Label arrivalAirportText = new Label(aAirportName);
+		arrivalAirportText.setId("arrivalAirport");
 		arrivalMapBtn.setOnAction(e -> {
 			Stage stage = new Stage();
 			
@@ -863,13 +851,26 @@ public class Main extends Application {
 			stage.show();
 			
 		});
-		Text aTowerText = new Text("ATC Tower: " + aAirportTower);
-		Text aARTCCText = new Text("ARTCC: " + aAirportARTCC);
-		Text aElevationText = new Text("Airport Elevation: " + aAirportElevation);
-		Text aUnicomText = new Text("UNICOM Frequency: " + aAirportUNICOM);
-		Text aAtisText = new Text("ATIS Frequency: " + aAirportATIS);
-		Text aGroundText = new Text("Ground Frequency: " + aAirportGround);
-		Text aTowerFreqText = new Text("Tower Frequency: " + aAirportTowerFreq);
+		Label aTowerText = new Label("ATC Tower: " + aAirportTower);
+		aTowerText.setId("aTower");
+		
+		Label aARTCCText = new Label("ARTCC: " + aAirportARTCC);
+		aARTCCText.setId("aARTCC");
+		
+		Label aElevationText = new Label("Airport Elevation: " + aAirportElevation);
+		aElevationText.setId("aElevation");
+		
+		Label aUnicomText = new Label("UNICOM Frequency: " + aAirportUNICOM);
+		aUnicomText.setId("aUnicom");
+		
+		Label aAtisText = new Label("ATIS Frequency: " + aAirportATIS);
+		aAtisText.setId("aAtis");
+		
+		Label aGroundText = new Label("Ground Frequency: " + aAirportGround);
+		aGroundText.setId("aGround");
+		
+		Label aTowerFreqText = new Label("Tower Frequency: " + aAirportTowerFreq);
+		aTowerFreqText.setId("aFreq");
 		
 		
 		ArrivalInfo.getChildren().addAll(arrivalAirportText, arrivalMapBtn, aTowerText, aARTCCText, aElevationText, aUnicomText, aAtisText, aGroundText, aTowerFreqText);
@@ -881,6 +882,7 @@ public class Main extends Application {
 	public VBox PlaneInfo() {
 		
 		VBox PlaneInfo = new VBox(10);
+		PlaneInfo.setPadding(new Insets(0, 20, 0, 0));
 		
 		String[] planeInfo;
 		planeInfo = Plane.planeInfo(plane);
@@ -895,18 +897,33 @@ public class Main extends Application {
 		planeTakeOffDis = planeInfo[7];
 		planeRange = planeInfo[8];
 		
-		Text planeText = new Text(planeName);
-		planeText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		Label planeText = new Label(planeName);
+		planeText.setId("planeTitle");
 		
-		Text planeCrewText = new Text("Crew: " + planeCrew);
-		Text planeLengthText = new Text("Plane Length: " + planeLength);
-		Text planeSpanText = new Text("Plane Wing Span: " + planeSpan);
-		Text planeWidthText = new Text("Plane Fuesalge Width: " + planeWidth);
-		Text planeLandWeightText = new Text("Plane Max Landing Weight: " + planeMaxLandWeight);
-		Text planeTakeWeightText = new Text("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
-		Text planeTakeDisText = new Text("Plane Take Off Distance: " + planeTakeOffDis);
-		Text planeRangeText = new Text("Plane Range: " + planeRange);
 		
+		Label planeCrewText = new Label("Crew: " + planeCrew);
+		planeCrewText.setId("planeCrew");
+		
+		Label planeLengthText = new Label("Plane Length: " + planeLength);
+		planeLengthText.setId("planeLength");
+		
+		Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+		planeSpanText.setId("planeSpan");
+		
+		Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+		planeWidthText.setId("planeWidth");
+		
+		Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+		planeLandWeightText.setId("planeLand");
+		
+		Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+		planeTakeWeightText.setId("planeTakeWeight");
+		
+		Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+		planeTakeDisText.setId("planeTakeDis");
+		
+		Label planeRangeText = new Label("Plane Range: " + planeRange);
+		planeRangeText.setId("planeRange");
 		
 		
 		PlaneInfo.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
@@ -915,9 +932,27 @@ public class Main extends Application {
 	}
 	
 	//Method for Assigning risk to the parameters
-	public VBox RiskAssignment() {
+	public BorderPane RiskAssignment() {
 		
-		VBox vBoxRisk = new VBox(10);
+		
+		BorderPane riskPane = new BorderPane();
+		
+		
+		VBox riskTitle = new VBox(10);
+		riskTitle.setAlignment(Pos.CENTER);
+		riskTitle.setPadding(new Insets(10));
+		
+		VBox riskFlight = new VBox(10);
+		riskFlight.setAlignment(Pos.TOP_CENTER);
+		riskFlight.setPadding(new Insets(10));
+		
+		VBox riskAirport = new VBox(10);
+		riskAirport.setAlignment(Pos.TOP_CENTER);
+		riskAirport.setPadding(new Insets(10));
+		
+		VBox riskPilot = new VBox(10);
+		riskPilot.setAlignment(Pos.TOP_CENTER);
+		riskPilot.setPadding(new Insets(10));
 		
 		timeRisk = TimeRisk();		
 		windRisk = WindRisk();		
@@ -939,51 +974,102 @@ public class Main extends Application {
 				flightRisk + restRisk + airportTowerRisk + airportElevRisk + internationalRisk + ceilingRisk
 				+ dewRisk;
 		
-		Text totalRiskText = new Text("    The Total Flight Risk is: " + totalRisk);
+		Label totalRiskText = new Label("The Total Flight Risk is: " + totalRisk);
+		totalRiskText.setId("totalText");
 		
 		String risk = null;
+		Label riskAdvisement = new Label(null);
 		if (totalRisk < 7){
-			risk = "    Flight Risk is Minimal";
+			risk = "Flight Risk is Minimal";
+			riskAdvisement = new Label(risk);
+			riskAdvisement.setId("riskMinmal");
 			
 		} else if (totalRisk >= 7 && totalRisk <= 10) {
-			risk = "    Flight Risk is Low";
+			risk = "Flight Risk is Low";
+			riskAdvisement = new Label(risk);
+			riskAdvisement.setId("riskLow");
 			
 		} else if (totalRisk >= 11 && totalRisk <= 15) {
-			risk = "    Flight Risk is Medium";
+			risk = "Flight Risk is Medium";
+			riskAdvisement = new Label(risk);
+			riskAdvisement.setId("riskMedium");
 			
 		} else if (totalRisk > 15) {
-			risk = "    Flight Risk is High";
+			risk = "Flight Risk is High";
+			riskAdvisement = new Label(risk);
+			riskAdvisement.setId("riskHigh");
 		}
-		Text riskAdvisement = new Text(risk);
 		
-		Text timeRiskText = new Text("    Flight Time of Day Rating: " + timeRisk);
-		Text windRiskText = new Text("    Flight Wind Rating: " + windRisk);
-		Text visRiskText = new Text("    Flight Visiblity Rating: " + visRisk);
-		Text tempRiskText = new Text("    Flight Temperature Rating: " + tempRisk);
-		Text flightTimeText = new Text("    Flight Time Rating: " + flightRisk);
-		Text flightCeilingText = new Text("    Flight Ceiling Rating: " + ceilingRisk);
-		Text flightDewText = new Text("    Flight Dew Point Rating: " + dewRisk);
+		Label flightTitle = new Label("Flight Risk Ratings");
+		flightTitle.setId("flightTitle");
 		
-		Text airportTowerText = new Text("    Airport Tower Rating: " + airportTowerRisk);
-		Text airportElevText = new Text("    Airport Elevation Rating: " + airportElevRisk);
-		Text airportInternationalText = new Text("    Airport International Rating: " + internationalRisk);
-	
+		Label timeRiskText = new Label("Time of Day Rating: " + timeRisk);
+		timeRiskText.setId("timeRisk");
+		
+		Label windRiskText = new Label("Wind Rating: " + windRisk);
+		windRiskText.setId("windRisk");
+		
+		Label visRiskText = new Label("Visiblity Rating: " + visRisk);
+		visRiskText.setId("visRisk");
+		
+		Label tempRiskText = new Label("Temperature Rating: " + tempRisk);
+		tempRiskText.setId("tempRisk");
+		
+		Label flightTimeText = new Label("Time Rating: " + flightRisk);
+		flightTimeText.setId("durationRisk");
+		
+		Label flightCeilingText = new Label("Ceiling Rating: " + ceilingRisk);
+		flightCeilingText.setId("ceilingRisk");
+		
+		Label flightDewText = new Label("Dew Point Rating: " + dewRisk);
+		flightDewText.setId("dewRisk");
 		
 		
-		Text typeRiskText = new Text("    Pilot Hours in Aircraft Type Rating: " + typeRisk);
-		Text hrsDaysText = new Text("    Pilot Hours in Last 90 Days Rating: " + hrsDaysRisk);
-		Text crewNumText = new Text("    Crew Number Rating: " + crewNumRisk);
-		Text restRiskText = new Text("    Pilot Rest in the last 24hrs Rating: " + restRisk);
+		
+		Label airportTitle = new Label("Airport Risk Ratings");
+		airportTitle.setId("airportTitle");
+		
+		Label airportTowerText = new Label("Tower Rating: " + airportTowerRisk);
+		airportTowerText.setId("towerRisk");
+		
+		Label airportElevText = new Label("Elevation Rating: " + airportElevRisk);
+		airportElevText.setId("elevRisk");
+		
+		Label airportInternationalText = new Label("International Rating: " + internationalRisk);
+		airportInternationalText.setId("internationalRisk");
 		
 		
 		
 		
-		vBoxRisk.getChildren().addAll(totalRiskText, riskAdvisement, timeRiskText, windRiskText, visRiskText, tempRiskText
-				, flightTimeText, flightCeilingText, flightDewText);
-		vBoxRisk.getChildren().addAll(airportTowerText, airportElevText, airportInternationalText);
-		vBoxRisk.getChildren().addAll(typeRiskText, hrsDaysText, crewNumText, restRiskText);
 		
-		return vBoxRisk;
+		Label pilotTitle = new Label("Pilot Risk Ratings");
+		pilotTitle.setId("pilotTitle");
+		
+		Label typeRiskText = new Label("Hours in Aircraft Type Rating: " + typeRisk);
+		typeRiskText.setId("typeRisk");
+		
+		Label hrsDaysText = new Label("Hours in Last 90 Days Rating: " + hrsDaysRisk);
+		hrsDaysText.setId("hrsDaysRisk");
+		
+		Label crewNumText = new Label("Crew Number Rating: " + crewNumRisk);
+		crewNumText.setId("crewNumRisk");
+		
+		Label restRiskText = new Label("Rest in the last 24hrs Rating: " + restRisk);
+		restRiskText.setId("restRisk");
+		
+		riskTitle.getChildren().addAll(totalRiskText, riskAdvisement);
+		riskFlight.getChildren().addAll(flightTitle, timeRiskText, windRiskText, visRiskText, tempRiskText, flightTimeText, flightCeilingText, flightDewText);
+		riskAirport.getChildren().addAll(airportTitle, airportTowerText, airportElevText, airportInternationalText);
+		riskPilot.getChildren().addAll(pilotTitle, typeRiskText, hrsDaysText, crewNumText, restRiskText);
+		
+		
+		
+		riskPane.setTop(riskTitle);
+		riskPane.setLeft(riskAirport);
+		riskPane.setCenter(riskFlight);
+		riskPane.setRight(riskPilot);
+		
+		return riskPane;
 	}
 
 	

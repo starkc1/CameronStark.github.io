@@ -518,7 +518,7 @@ public class Main extends Application {
 		ComboBox<String> planeFld = new ComboBox<>();
 		planeFld.setPromptText(plane);
 		planeFld.setId("fDropdown");
-		planeFld.getItems().addAll("737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320", "A330", "A350", "A380", "CRJ200", "ERJ-190");
+		planeFld.getItems().addAll("Choose For Me", "737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320", "A330", "A350", "A380", "CRJ200", "ERJ-190");
 		Label planeUsed = new Label("Plane Used");
 		planeUsed.setId("plane");
 		vbox.getChildren().addAll(planeUsed, planeFld);
@@ -710,7 +710,12 @@ public class Main extends Application {
 		//ARRIVAL INFORMATION
 		
 		//PLANE INFORMATION
-		vBoxPlaneInfo = PlaneInfo();
+		if (plane == "Choose For Me") {
+			vBoxPlaneInfo = ChoosePlanes();
+		} else {
+			vBoxPlaneInfo = PlaneInfo();
+		}
+		//Plane Information
 		
 		//Risk Assignment
 		RiskPane = RiskAssignment();
@@ -885,6 +890,7 @@ public class Main extends Application {
 		PlaneInfo.setPadding(new Insets(0, 20, 0, 0));
 		
 		String[] planeInfo;
+		
 		planeInfo = Plane.planeInfo(plane);
 		
 		planeName = planeInfo[0];
@@ -929,6 +935,15 @@ public class Main extends Application {
 		PlaneInfo.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
 		
 		return PlaneInfo;
+	}
+	
+	//Method for providing a list of Plane Options
+	public VBox ChoosePlanes() {
+		VBox choosePlanes = new VBox(10);
+		
+		
+		
+		return choosePlanes;
 	}
 	
 	//Method for Assigning risk to the parameters

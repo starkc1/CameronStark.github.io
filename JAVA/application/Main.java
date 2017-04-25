@@ -141,6 +141,7 @@ public class Main extends Application {
 		scene.getStylesheets().add(getClass().getResource("Arrival.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("Flight.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("Pilot.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("DepartureInfo.css").toExternalForm());
 
 		
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
@@ -297,6 +298,7 @@ public class Main extends Application {
 		
 		//Create ComboBox for the possible airports
 		ComboBox<String> dAirportFld = new ComboBox<>();
+		dAirportFld.setPromptText(dAirport);
 		dAirportFld.setId("dDropdown");
 		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		Label dairport = new Label("Departure Airport");
@@ -305,6 +307,7 @@ public class Main extends Application {
 		
 		//Entry Field for departure Time
 		TextField dTimeFld = new TextField();
+		dTimeFld.setPromptText(dTime);
 		dTimeFld.setId("dTimeFld");
 		Label dtime = new Label("Departure Time (24hr 0000)");
 		dtime.setId("dtime");
@@ -312,6 +315,7 @@ public class Main extends Application {
 		
 		//Entry Field for departure Wind
 		TextField dWindFld = new TextField();
+		dWindFld.setPromptText(dWind);
 		dWindFld.setId("dWindFld");
 		Label dwind = new Label("Departure Wind (KNOTS)");
 		dwind.setId("dwind");
@@ -319,12 +323,14 @@ public class Main extends Application {
 		
 		//Entry Field for departure Visibility
 		TextField dVisibilityFld = new TextField();
+		dVisibilityFld.setPromptText(dVis);
 		dVisibilityFld.setId("dVisibilityFld");
 		Label dvis = new Label("Departure Visibility (Nautical Miles)");
 		dvis.setId("dvis");
 		vbox.getChildren().addAll(dvis, dVisibilityFld);
 		
 		TextField dCeilingFld = new TextField();
+		dCeilingFld.setPromptText(dCeil);
 		dCeilingFld.setId("dCeilingFld");
 		Label dceil = new Label("Departure Ceiling (Feet)");
 		dceil.setId("dceil");
@@ -332,6 +338,7 @@ public class Main extends Application {
 		
 		//Entry Field for departure Temperature
 		TextField dTempFld = new TextField();
+		dTempFld.setPromptText(dTemp);
 		dTempFld.setId("dTempFld");
 		Label dtemp = new Label("Departure Temperature (Degrees F)");
 		dtemp.setId("dtemp");
@@ -339,6 +346,7 @@ public class Main extends Application {
 		
 		//Entry Field for departure Altimeter
 		TextField dAltimeterFld = new TextField();
+		dAltimeterFld.setPromptText(dAltimeter);
 		dAltimeterFld.setId("dAltimeterFld");
 		Label dalt = new Label("Departure Altimeter (Feet)");
 		dalt.setId("dalt");
@@ -346,6 +354,7 @@ public class Main extends Application {
 		
 		//Entry Field for departure Dew
 		TextField dDewFld = new TextField();
+		dDewFld.setPromptText(dDew);
 		dDewFld.setId("dDewFld");
 		Label ddew = new Label("Departure Dew Point (Degrees F)");
 		ddew.setId("ddew");
@@ -401,6 +410,7 @@ public class Main extends Application {
 		
 		//Create ComboBox for possible airports
 		ComboBox<String> aAirportFld = new ComboBox<>();
+		aAirportFld.setPromptText(aAirport);
 		aAirportFld.setId("aDropdown");
 		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
 		Label aairport = new Label("Arrival Airport");
@@ -409,6 +419,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Time
 		TextField aTimeFld = new TextField();
+		aTimeFld.setPromptText(aTime);
 		aTimeFld.setId("aTimeFld");
 		Label atime = new Label("Arrival Time (24hr 0000)");
 		atime.setId("atime");
@@ -416,6 +427,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Wind
 		TextField aWindFld = new TextField();
+		aWindFld.setPromptText(aWind);
 		aWindFld.setId("aWindFld");
 		Label awind = new Label("Arrival Wind (KNOTS)");
 		awind.setId("awind");
@@ -423,6 +435,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Visibility
 		TextField aVisibilityFld = new TextField();
+		aVisibilityFld.setPromptText(aVis);
 		aVisibilityFld.setId("aVisibilityFld");
 		Label avis = new Label("Arrival Visibility (Nautical Miles)");
 		avis.setId("avis");
@@ -430,6 +443,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Ceiling
 		TextField aCeilingFld = new TextField();
+		aCeilingFld.setPromptText(aCeil);
 		aCeilingFld.setId("aCeilingFld");
 		Label aceil = new Label("Arrival Ceiling (Feet)");
 		aceil.setId("aceil");
@@ -437,6 +451,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Temperature
 		TextField aTempFld = new TextField();
+		aTempFld.setPromptText(aTemp);
 		aTempFld.setId("aTempFld");
 		Label atemp = new Label("Arrival Temperature (Degreess F)");
 		atemp.setId("atemp");
@@ -444,6 +459,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Altimeter
 		TextField aAltimeterFld = new TextField();
+		aAltimeterFld.setPromptText(aAltimeter);
 		aAltimeterFld.setId("aAltimeterFld");
 		Label aalt = new Label("Arrival Altimeter (Feet)");
 		aalt.setId("aalt");
@@ -451,6 +467,7 @@ public class Main extends Application {
 		
 		//Entry Field for Arrival Dew
 		TextField aDewFld = new TextField();
+		aDewFld.setPromptText(aDew);
 		aDewFld.setId("aDewFld");
 		Label adew = new Label("Arrival Dew Point (Degrees F)");
 		adew.setId("adew");
@@ -499,6 +516,7 @@ public class Main extends Application {
 		
 		
 		ComboBox<String> planeFld = new ComboBox<>();
+		planeFld.setPromptText(plane);
 		planeFld.setId("fDropdown");
 		planeFld.getItems().addAll("737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320", "A330", "A350", "A380", "CRJ200", "ERJ-190");
 		Label planeUsed = new Label("Plane Used");
@@ -506,42 +524,49 @@ public class Main extends Application {
 		vbox.getChildren().addAll(planeUsed, planeFld);
 		
 		TextField trueSpeedFld = new TextField();
+		trueSpeedFld.setPromptText(trueSpeed);
 		trueSpeedFld.setId("trueSpeedFld");
 		Label trueSpeedlbl = new Label("True Airspeed (KNOTS)");
 		trueSpeedlbl.setId("trueSpeed");
 		vbox.getChildren().addAll(trueSpeedlbl, trueSpeedFld);
 		
 		TextField typeFld = new TextField();
+		typeFld.setPromptText(type);
 		typeFld.setId("typeFld");
 		Label typelbl = new Label("Type of Flight (VFR or IFR)");
 		typelbl.setId("type");
 		vbox.getChildren().addAll(typelbl, typeFld);
 		
 		TextField cruiseAltFld = new TextField();
+		cruiseAltFld.setPromptText(cruiseAlt);
 		cruiseAltFld.setId("cruiseAltFld");
 		Label cruiseAltlbl = new Label("Cruising Altitude (Feet)");
 		cruiseAltlbl.setId("cruiseAlt");
 		vbox.getChildren().addAll(cruiseAltlbl, cruiseAltFld);
 		
 		TextField timeFld = new TextField();
+		timeFld.setPromptText(time);
 		timeFld.setId("timeFld");
 		Label timelbl = new Label("Flight Time (hrs)");
 		timelbl.setId("time");
 		vbox.getChildren().addAll(timelbl, timeFld);
 		
 		TextField fuelFld = new TextField();
+		fuelFld.setPromptText(fuel);
 		fuelFld.setId("fuelFld");
 		Label fuellbl = new Label("Fuel On Board (Gallons)");
 		fuellbl.setId("fuel");
 		vbox.getChildren().addAll(fuellbl, fuelFld);
 		
 		TextField passengerWeightFld = new TextField();
+		passengerWeightFld.setPromptText(passengerWeight);
 		passengerWeightFld.setId("passengerWeightFld");
 		Label passengerWeightlbl = new Label("Passenger Weight (lbs)");
 		passengerWeightlbl.setId("passengerWeight");
 		vbox.getChildren().addAll(passengerWeightlbl, passengerWeightFld);
 		
 		TextField passengerNumberFld = new TextField();
+		passengerNumberFld.setPromptText(passengerNumber);
 		passengerNumberFld.setId("passengerNumberFld");
 		Label passengerNumberlbl = new Label("Passenger Number");
 		passengerNumberlbl.setId("passengerNumber");
@@ -586,36 +611,42 @@ public class Main extends Application {
 		
 		
 		TextField dualsoloFld = new TextField();
+		dualsoloFld.setPromptText(crewNumber);
 		dualsoloFld.setId("dualsoloFld");
 		Label dualsolo = new Label("Dual or Solo");
 		dualsolo.setId("crew");
 		vbox.getChildren().addAll(dualsolo, dualsoloFld);
 		
 		TextField ratingFld = new TextField();
+		ratingFld.setPromptText(rating);
 		ratingFld.setId("ratingFld");
 		Label ratinglbl = new Label("Rating held (Private, Instrument, etc.)");
 		ratinglbl.setId("rating");
 		vbox.getChildren().addAll(ratinglbl, ratingFld);
 		
 		TextField restFld = new TextField();
+		restFld.setPromptText(rest);
 		restFld.setId("restFld");
 		Label restlbl = new Label("Rest in the last 24hr");
 		restlbl.setId("rest");
 		vbox.getChildren().addAll(restlbl, restFld);
 		
 		TextField hrsTypeFld = new TextField();
+		hrsTypeFld.setPromptText(hrsType);
 		hrsTypeFld.setId("hrsTypeFld");
 		Label hrsTypelbl = new Label("Hours aircraft type");
 		hrsTypelbl.setId("hrsType");
 		vbox.getChildren().addAll(hrsTypelbl, hrsTypeFld);
 		
 		TextField hrsDaysFld = new TextField();
+		hrsDaysFld.setPromptText(hrsDays);
 		hrsDaysFld.setId("hrsDaysFld");
 		Label hrsDayslbl = new Label("Hours in the last 90 days");
 		hrsDayslbl.setId("hrsDays");
 		vbox.getChildren().addAll(hrsDayslbl, hrsDaysFld);
 		
 		TextField totalHrsFld = new TextField();
+		totalHrsFld.setPromptText(totalHrs);
 		totalHrsFld.setId("totalHrsFld");
 		Label totalHrslbl = new Label("Total flight hours");
 		totalHrslbl.setId("totalHrs");
@@ -662,7 +693,7 @@ public class Main extends Application {
 		VBox vBoxRiskAssign = new VBox(10);
 		vBoxRiskAssign.setAlignment(Pos.TOP_CENTER);
 		
-		VBox vBoxInfo = new VBox(40);
+		VBox vBoxInfo = new VBox(20);
 		
 		//Create the tile of the information
 		Label titleText = new Label("Flight From " + dAirport + " To " + aAirport);
@@ -701,6 +732,7 @@ public class Main extends Application {
 	public VBox DepartureInfo() {
 		
 		VBox DepartureInfo = new VBox(10);
+		DepartureInfo.setPadding(new Insets( 0, 0, 0, 20));
 		
 		Button departureMapBtn = new Button();
 		departureMapBtn.setMinHeight(100);
@@ -726,8 +758,8 @@ public class Main extends Application {
 		departureMapBtn.setStyle(dAirportMapBtn);
 
 		//Departure Map
-		Text departAirportText = new Text(dAirportName);
-		departAirportText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		Label departAirportText = new Label(dAirportName);
+		departAirportText.setId("departAirport");
 		
 		departureMapBtn.setOnAction(e -> {
 			Stage stage = new Stage();
@@ -746,13 +778,26 @@ public class Main extends Application {
 			stage.show();
 			
 		});
-		Text dTowerText = new Text("ATC Tower: " + dAirportTower);
-		Text dARTCCText = new Text("ARTCC: " + dAirportARTCC);
-		Text dElevationText = new Text("Airport Elevation: " + dAirportElevation);
-		Text dUnicomText = new Text("Unicom Frequency: " + dAirportUNICOM);
+		Label dTowerText = new Label("ATC Tower: \n" + dAirportTower);
+		dTowerText.setId("dTowerlbl");
+
+		Text dARTCCText = new Text("ARTCC: \n" + dAirportARTCC);
+		dARTCCText.setId("dARTCC");
+		
+		Text dElevationText = new Text("Airport Elevation: \n" + dAirportElevation);
+		dElevationText.setId("dElevation");
+		
+		Text dUnicomText = new Text("Unicom Frequency: \n" + dAirportUNICOM);
+		dUnicomText.setId("dUnicom");
+		
 		Text dAtisText = new Text("Atis Frequency: " + dAirportATIS);
+		dAtisText.setId("dAtis");
+		
 		Text dGroundText = new Text("Ground Frequency: " + dAirportGround);
+		dGroundText.setId("dGround");
+		
 		Text dTowerFreqText = new Text("Tower Frequency: " + dAirportTowerFreq);
+		dTowerFreqText.setId("dFreq");
 		
 		DepartureInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText, dUnicomText, dAtisText, dGroundText, dTowerFreqText);
 		

@@ -1,0 +1,42 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#departAirport {
+	-fx-text-fill: #1d58b8;
+	-fx-font-family: "Arial";
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+}
+
+#dTowerlbl, #dARTCC, #dElevation, #dUnicom, #dAtis, #dGround, #dFreq {
+	-fx-text-fill: #1d58b8;
+	-fx-font-family: "Arial";
+	-fx-font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

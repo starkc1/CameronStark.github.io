@@ -116,10 +116,22 @@ public class Main extends Application {
 	public int weatherRisk;
 	public int ceilingRisk;
 	public int dewRisk;
+	//Establish Variables	
 	
 	
-	//Establish Variables
 	
+	//Testing Variables, Comment out when not testing
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 	//Establish Application
 	public static void main(String[] args) {
 		Application.launch(args);
@@ -781,22 +793,22 @@ public class Main extends Application {
 		Label dTowerText = new Label("ATC Tower: \n" + dAirportTower);
 		dTowerText.setId("dTowerlbl");
 
-		Text dARTCCText = new Text("ARTCC: \n" + dAirportARTCC);
+		Label dARTCCText = new Label("ARTCC: \n" + dAirportARTCC);
 		dARTCCText.setId("dARTCC");
 		
-		Text dElevationText = new Text("Airport Elevation: \n" + dAirportElevation);
+		Label dElevationText = new Label("Airport Elevation: \n" + dAirportElevation);
 		dElevationText.setId("dElevation");
 		
-		Text dUnicomText = new Text("Unicom Frequency: \n" + dAirportUNICOM);
+		Label dUnicomText = new Label("Unicom Frequency: \n" + dAirportUNICOM);
 		dUnicomText.setId("dUnicom");
 		
-		Text dAtisText = new Text("Atis Frequency: " + dAirportATIS);
+		Label dAtisText = new Label("Atis Frequency: \n" + dAirportATIS);
 		dAtisText.setId("dAtis");
 		
-		Text dGroundText = new Text("Ground Frequency: " + dAirportGround);
+		Label dGroundText = new Label("Ground Frequency: \n" + dAirportGround);
 		dGroundText.setId("dGround");
 		
-		Text dTowerFreqText = new Text("Tower Frequency: " + dAirportTowerFreq);
+		Label dTowerFreqText = new Label("Tower Frequency: \n" + dAirportTowerFreq);
 		dTowerFreqText.setId("dFreq");
 		
 		DepartureInfo.getChildren().addAll(departAirportText, departureMapBtn, dTowerText, dARTCCText, dElevationText, dUnicomText, dAtisText, dGroundText, dTowerFreqText);

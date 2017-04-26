@@ -8,7 +8,14 @@
 	-fx-background-color: white;
 }
 
-#Temp {
+#howTo_1 {
+	-fx-text-fill: #1d58b8;
+	-fx-font-family: "Arial";
+	-fx-font-size: 25px;
+	-fx-font-weight: Bold;
+}
+
+#howTo_2, #howTo_3, #howTo_4, #howTo_5, #howTo_6 {
 	-fx-text-fill: #1d58b8;
 	-fx-font-family: "Arial";
 	-fx-font-size: 25px;

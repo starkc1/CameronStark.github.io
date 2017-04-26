@@ -1,5 +1,5 @@
 
-#planeABtn, #planeBBtn, #planeCBtn, #planeDBtn, #planeEBtn, #planeFBtn, #planeGBtn, #planeHBtn{
+#planeABtn, #planeBBtn, #planeCBtn, #planeDBtn, #planeEBtn, #planeFBtn, #planeGBtn, #planeHBtn, #planeIBtn, #planeJBtn{
 	-fx-background-color: #1d58b8;
 	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 	-fx-text-fill: white;
@@ -7,11 +7,16 @@
 	-fx-font-size: 15px;
 }
 
-#planeABtn:pressed, #planeBBtn:pressed, #planeCBtn:pressed, #planeDBtn:pressed, #planeEBtn:pressed, #planeFBtn:pressed, #planeGBtn:pressed, #planeHBtn:pressed {
+#planeABtn:pressed, #planeBBtn:pressed, #planeCBtn:pressed, #planeDBtn:pressed, #planeEBtn:pressed, 
+#planeFBtn:pressed, #planeGBtn:pressed, #planeHBtn:pressed, #planeIBtn:pressed, #planeJBtn:pressed {
 	-fx-background-color: white;
 	-fx-text-fill: #1d58b8;
 	-fx-font-family: "Arial";
 	-fx-font-size: 15px;
+}
+
+#planeList {
+	
 }
 
 /* End Departure Inputs CSS */

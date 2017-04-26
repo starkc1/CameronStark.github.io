@@ -135,7 +135,7 @@ public class Main extends Application {
 		
 		
 		//Create Scene
-		Scene scene = new Scene(root, 1100, 750);
+		Scene scene = new Scene(root, 1400, 750);
 		scene.getStylesheets().add(getClass().getResource("Component.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("Departure.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("Arrival.css").toExternalForm());
@@ -158,9 +158,10 @@ public class Main extends Application {
 		
 		//estabslish MenuBar
 		MenuBar menuBar = new MenuBar();
-		Label Temp = new Label("Fill out Departure, Arrival, Flight and Pilot Information, then run simulation");
-		Temp.setId("Temp");
-		root.setCenter(Temp);
+		
+		VBox howTo = new VBox(10);
+		howTo = HowTo();
+		root.setCenter(howTo);
 		
 		//Departure Begin
 		Menu menuDeparture = new Menu(""); 
@@ -280,6 +281,33 @@ public class Main extends Application {
 		
 		//Return the established MenuBar
 		return menuBar;
+	}
+	
+	public VBox HowTo() {
+		VBox howTo = new VBox(10);
+		howTo.setAlignment(Pos.CENTER);
+			
+		Label howTo_1 = new Label("How To Use");
+		howTo_1.setId("howTo_1");
+		
+		Label howTo_2 = new Label("Fill out the Departure Information and Select an Airport, Click Save Information");
+		howTo_2.setId("howTo_2");
+		
+		Label howTo_3 = new Label("Fill out the Arrival Information and Select an Airport, Click Save Information");
+		howTo_3.setId("howTo_3");
+		
+		Label howTo_4 = new Label("Fill out the Flight Information, Choose a plane or have the program provide a list, Click Save Information");
+		howTo_4.setId("howTo_4");
+		
+		Label howTo_5 = new Label("Fill out the Pilot Information, Click Save Information");
+		howTo_5.setId("howTo_5");
+		
+		Label howTo_6 = new Label("Click Run Simulation");
+		howTo_6.setId("howTo_6");
+		
+		howTo.getChildren().addAll(howTo_1, howTo_2, howTo_3, howTo_4, howTo_5, howTo_6);
+		
+		return howTo;
 	}
 	
 	//Method for gathering Departure Data
@@ -951,15 +979,17 @@ public class Main extends Application {
 	//Method for providing a list of Plane Options
 	public VBox ChoosePlanes() {
 		VBox choosePlanes = new VBox(10);
+		choosePlanes.setPadding(new Insets(0, 15, 0, 0));
 		
+		Label planeList = new Label("List of Possible Planes");
+		planeList.setId("planeList");
 		int Distance = Distances.distanceInfo(dAirport, aAirport);
-		Label travelDistance = new Label("Total Travel Distance: " + Distance);
 		
 		VBox Planes = CollectPlanes(Distance);
 		
 		
 		
-		choosePlanes.getChildren().addAll(travelDistance, Planes);
+		choosePlanes.getChildren().addAll(Planes);
 		
 		
 		
@@ -967,7 +997,7 @@ public class Main extends Application {
 		return choosePlanes;
 	}
 	
-	
+	//Method for collecting and displaying the plane options
 	public VBox CollectPlanes(int Distance) {
 		VBox planes = new VBox(10);
 		planes.setPadding(new Insets(10,0,0,0));
@@ -1484,6 +1514,125 @@ public class Main extends Application {
 			planes.getChildren().addAll(planeH_Info);
 		}
 		
+		if (B787_10_Range > Distance && B787_10_Seat > passengers) {
+			Button planeI_Info = new Button("Boeing 787-10");
+			planeI_Info.setId("planeIBtn");
+			
+			planeI_Info.setOnAction(e -> {
+				VBox PlaneI = new VBox(10);
+				PlaneI.setPadding(new Insets(0, 10, 20, 0));
+				PlaneI.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("787-10");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneI.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneI);
+				
+			});
+			
+			planes.getChildren().addAll(planeI_Info);
+		}
+		
+		if (A320_Range > Distance && A320_Seat > passengers) {
+			Button planeJ_Info = new Button("Airbus A320");
+			planeJ_Info.setId("planeJBtn");
+			
+			planeJ_Info.setOnAction(e -> {
+				VBox PlaneJ = new VBox(10);
+				PlaneJ.setPadding(new Insets(0, 10, 20, 0));
+				PlaneJ.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("A320");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneJ.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneJ);
+				
+			});
+			
+			planes.getChildren().addAll(planeJ_Info);
+		}
 		
 		
 		

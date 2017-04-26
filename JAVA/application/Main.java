@@ -941,7 +941,9 @@ public class Main extends Application {
 	public VBox ChoosePlanes() {
 		VBox choosePlanes = new VBox(10);
 		
+		int Distance = Distances.distanceInfo(dAirport, aAirport);
 		
+		System.out.println(Distance);
 		
 		return choosePlanes;
 	}

@@ -943,7 +943,7 @@ public class Main extends Application {
 		
 		int Distance = Distances.distanceInfo(dAirport, aAirport);
 		
-		
+		String[] Planes = CollectPlanes(Distance);
 		
 		
 		
@@ -956,8 +956,53 @@ public class Main extends Application {
 	}
 	
 	
-	public String[] CollectPlanes() {
+	public String[] CollectPlanes(int Distance) {
 		String[] planes = null;
+		
+		int passengers = Integer.parseInt(passengerNumber);
+		
+		int B737_700_Range = Integer.parseInt(PlaneInfo.B737_700[9]);
+		int B737_700_Seat = Integer.parseInt(PlaneInfo.B737_700[10]);
+		
+		int B737_800_Range = Integer.parseInt(PlaneInfo.B737_800[9]);
+		int B737_800_Seat = Integer.parseInt(PlaneInfo.B737_800[10]);
+		
+		int B737_900ER_Range = Integer.parseInt(PlaneInfo.B737_900ER[9]);
+		int B737_900ER_Seat =Integer.parseInt(PlaneInfo.B737_900ER[10]);
+		
+		int B747_400_Range = Integer.parseInt(PlaneInfo.B747_400[9]);
+		int B747_400_Seat = Integer.parseInt(PlaneInfo.B747_400[10]);
+		
+		int B747_800_Range = Integer.parseInt(PlaneInfo.B747_800[9]);
+		int B747_800_Seat = Integer.parseInt(PlaneInfo.B747_800[10]);
+		
+		int B777_300ER_Range = Integer.parseInt(PlaneInfo.B777_300ER[9]);
+		int B777_300ER_Seat = Integer.parseInt(PlaneInfo.B777_300ER[10]);
+		
+		int B787_800_Range = Integer.parseInt(PlaneInfo.B787_800[9]);
+		int B787_800_Seat = Integer.parseInt(PlaneInfo.B787_800[10]);
+		
+		int B787_900_Range = Integer.parseInt(PlaneInfo.B787_900[9]);
+		int B787_900_Seat = Integer.parseInt(PlaneInfo.B787_900[10]);
+		
+		int B787_10_Range = Integer.parseInt(PlaneInfo.B787_10[9]);
+		int B787_10_Seat = Integer.parseInt(PlaneInfo.B787_10[10]);
+		
+		int A320_Range = Integer.parseInt(PlaneInfo.A320[9]);
+		int A320_Seat = Integer.parseInt(PlaneInfo.A320[10]);
+		
+		if (B737_700_Range > Distance && B737_700_Seat > passengers) {   
+			planes[0] = "Boeing 737-700";
+		}
+		if (B737_800_Range > Distance && B737_800_Seat > passengers) {
+			planes[1] = "Boeing 737-800";
+		}
+		if (B737_900ER_Range > Distance && B737_900ER_Seat > passengers) {
+			planes[2] = "Boeing 737-900ER";
+		}
+		if (B747_400_Range > Distance && B747_400_Seat > passengers) {
+			planes[3] = "B747_400";
+		}
 		
 		
 		

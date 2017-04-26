@@ -39,18 +39,13 @@ public class Plane {
 				break;
 				
 			case "787-10":
+				plane = PlaneInfo.B787_10;
+				break;
 				
 			case "A320":
+				plane = PlaneInfo.A320;
+				break;
 				
-			case "A330":
-				
-			case "A350":
-				
-			case "A380":
-				
-			case "CRJ200":
-				
-			case "ERJ-190":
 		}
 		
 		

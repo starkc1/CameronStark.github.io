@@ -113,6 +113,8 @@ public class Main extends Application {
 	public int weatherRisk;
 	public int ceilingRisk;
 	public int dewRisk;
+	
+	public BorderPane planePane = new BorderPane();
 	//Establish Variables	
 	
 	
@@ -143,6 +145,7 @@ public class Main extends Application {
 		scene.getStylesheets().add(getClass().getResource("ArrivalInfo.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("PlaneInfo.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("RiskInfo.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Planes.css").toExternalForm());
 		
 		primaryStage.setTitle("Flight Projection and Risk Assessment Simulation");
 		primaryStage.setScene(scene);
@@ -518,7 +521,7 @@ public class Main extends Application {
 		ComboBox<String> planeFld = new ComboBox<>();
 		planeFld.setPromptText(plane);
 		planeFld.setId("fDropdown");
-		planeFld.getItems().addAll("Choose For Me", "737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320", "A330", "A350", "A380", "CRJ200", "ERJ-190");
+		planeFld.getItems().addAll("Choose For Me", "737-700","737-800", "737-900ER", "747-400", "747-800", "777-300ER","787-800", "787-900", "787-10", "A320");
 		Label planeUsed = new Label("Plane Used");
 		planeUsed.setId("plane");
 		vbox.getChildren().addAll(planeUsed, planeFld);
@@ -712,10 +715,14 @@ public class Main extends Application {
 		//PLANE INFORMATION
 		if (plane == "Choose For Me") {
 			vBoxPlaneInfo = ChoosePlanes();
+			planePane.setCenter(vBoxPlaneInfo);
+			borderPane.setRight(planePane);
 		} else {
 			vBoxPlaneInfo = PlaneInfo();
+			borderPane.setRight(vBoxPlaneInfo);
 		}
 		//Plane Information
+		vBoxPlaneInfo.setAlignment(Pos.TOP_CENTER);
 		
 		//Risk Assignment
 		RiskPane = RiskAssignment();
@@ -723,7 +730,9 @@ public class Main extends Application {
 		
 		vBoxInfo.getChildren().addAll(vBoxInfoDepart, vBoxInfoArrival);	
 		borderPane.setLeft(vBoxInfo);
-		borderPane.setRight(vBoxPlaneInfo);
+		
+		
+		
 		
 		
 		borderPane.setCenter(RiskPane);
@@ -737,6 +746,7 @@ public class Main extends Application {
 		
 		VBox DepartureInfo = new VBox(10);
 		DepartureInfo.setPadding(new Insets( 0, 0, 0, 20));
+		DepartureInfo.setAlignment(Pos.TOP_CENTER);
 		
 		Button departureMapBtn = new Button();
 		departureMapBtn.setMinHeight(100);
@@ -813,6 +823,7 @@ public class Main extends Application {
 		
 		VBox ArrivalInfo = new VBox(10);
 		ArrivalInfo.setPadding(new Insets(0, 0, 0, 20));
+		ArrivalInfo.setAlignment(Pos.BOTTOM_CENTER);
 		
 		Button arrivalMapBtn = new Button();
 		arrivalMapBtn.setMinHeight(100);
@@ -942,12 +953,13 @@ public class Main extends Application {
 		VBox choosePlanes = new VBox(10);
 		
 		int Distance = Distances.distanceInfo(dAirport, aAirport);
+		Label travelDistance = new Label("Total Travel Distance: " + Distance);
 		
-		String[] Planes = CollectPlanes(Distance);
+		VBox Planes = CollectPlanes(Distance);
 		
 		
 		
-		
+		choosePlanes.getChildren().addAll(travelDistance, Planes);
 		
 		
 		
@@ -956,53 +968,524 @@ public class Main extends Application {
 	}
 	
 	
-	public String[] CollectPlanes(int Distance) {
-		String[] planes = null;
+	public VBox CollectPlanes(int Distance) {
+		VBox planes = new VBox(10);
+		planes.setPadding(new Insets(10,0,0,0));
+		planes.setAlignment(Pos.TOP_CENTER);
 		
 		int passengers = Integer.parseInt(passengerNumber);
 		
-		int B737_700_Range = Integer.parseInt(PlaneInfo.B737_700[9]);
-		int B737_700_Seat = Integer.parseInt(PlaneInfo.B737_700[10]);
+		int B737_700_Range = Integer.parseInt(PlaneInfo.B737_700[8]);
+		int B737_700_Seat = Integer.parseInt(PlaneInfo.B737_700[9]);
 		
-		int B737_800_Range = Integer.parseInt(PlaneInfo.B737_800[9]);
-		int B737_800_Seat = Integer.parseInt(PlaneInfo.B737_800[10]);
+		int B737_800_Range = Integer.parseInt(PlaneInfo.B737_800[8]);
+		int B737_800_Seat = Integer.parseInt(PlaneInfo.B737_800[9]);
 		
-		int B737_900ER_Range = Integer.parseInt(PlaneInfo.B737_900ER[9]);
-		int B737_900ER_Seat =Integer.parseInt(PlaneInfo.B737_900ER[10]);
+		int B737_900ER_Range = Integer.parseInt(PlaneInfo.B737_900ER[8]);
+		int B737_900ER_Seat =Integer.parseInt(PlaneInfo.B737_900ER[9]);
 		
-		int B747_400_Range = Integer.parseInt(PlaneInfo.B747_400[9]);
-		int B747_400_Seat = Integer.parseInt(PlaneInfo.B747_400[10]);
+		int B747_400_Range = Integer.parseInt(PlaneInfo.B747_400[8]);
+		int B747_400_Seat = Integer.parseInt(PlaneInfo.B747_400[9]);
 		
-		int B747_800_Range = Integer.parseInt(PlaneInfo.B747_800[9]);
-		int B747_800_Seat = Integer.parseInt(PlaneInfo.B747_800[10]);
+		int B747_800_Range = Integer.parseInt(PlaneInfo.B747_800[8]);
+		int B747_800_Seat = Integer.parseInt(PlaneInfo.B747_800[9]);
 		
-		int B777_300ER_Range = Integer.parseInt(PlaneInfo.B777_300ER[9]);
-		int B777_300ER_Seat = Integer.parseInt(PlaneInfo.B777_300ER[10]);
+		int B777_300ER_Range = Integer.parseInt(PlaneInfo.B777_300ER[8]);
+		int B777_300ER_Seat = Integer.parseInt(PlaneInfo.B777_300ER[9]);
 		
-		int B787_800_Range = Integer.parseInt(PlaneInfo.B787_800[9]);
-		int B787_800_Seat = Integer.parseInt(PlaneInfo.B787_800[10]);
+		int B787_800_Range = Integer.parseInt(PlaneInfo.B787_800[8]);
+		int B787_800_Seat = Integer.parseInt(PlaneInfo.B787_800[9]);
 		
-		int B787_900_Range = Integer.parseInt(PlaneInfo.B787_900[9]);
-		int B787_900_Seat = Integer.parseInt(PlaneInfo.B787_900[10]);
+		int B787_900_Range = Integer.parseInt(PlaneInfo.B787_900[8]);
+		int B787_900_Seat = Integer.parseInt(PlaneInfo.B787_900[9]);
 		
-		int B787_10_Range = Integer.parseInt(PlaneInfo.B787_10[9]);
-		int B787_10_Seat = Integer.parseInt(PlaneInfo.B787_10[10]);
+		int B787_10_Range = Integer.parseInt(PlaneInfo.B787_10[8]);
+		int B787_10_Seat = Integer.parseInt(PlaneInfo.B787_10[9]);
 		
-		int A320_Range = Integer.parseInt(PlaneInfo.A320[9]);
-		int A320_Seat = Integer.parseInt(PlaneInfo.A320[10]);
+		int A320_Range = Integer.parseInt(PlaneInfo.A320[8]);
+		int A320_Seat = Integer.parseInt(PlaneInfo.A320[9]);
 		
 		if (B737_700_Range > Distance && B737_700_Seat > passengers) {   
-			planes[0] = "Boeing 737-700";
+			Button planeA_Info = new Button("Boeing 737-700");
+			planeA_Info.setId("planeABtn");
+			
+			planeA_Info.setOnAction(e -> {
+				VBox PlaneA = new VBox(10);
+				PlaneA.setPadding(new Insets(0, 10, 20, 0));
+				PlaneA.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("737-700");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneA.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneA);
+				
+			});
+			
+			planes.getChildren().addAll(planeA_Info);
 		}
+		
+		
 		if (B737_800_Range > Distance && B737_800_Seat > passengers) {
-			planes[1] = "Boeing 737-800";
+			Button planeB_Info = new Button("Boeing 737-800");
+			planeB_Info.setId("planeBBtn");
+			
+			planeB_Info.setOnAction(e -> {
+				VBox PlaneB = new VBox(10);
+				PlaneB.setPadding(new Insets(0, 10, 20, 0));
+				PlaneB.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("737-800");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneB.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneB);
+				
+			});
+			
+			
+			planes.getChildren().addAll(planeB_Info);
 		}
+		
+		
 		if (B737_900ER_Range > Distance && B737_900ER_Seat > passengers) {
-			planes[2] = "Boeing 737-900ER";
+			Button planeC_Info = new Button("Boeing 737-900ER");
+			planeC_Info.setId("planeCBtn");
+			
+			planeC_Info.setOnAction(e -> {
+				VBox PlaneC = new VBox(10);
+				PlaneC.setPadding(new Insets(0, 10, 20, 0));
+				PlaneC.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("737-900ER");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneC.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneC);
+				
+			});
+			
+			planes.getChildren().addAll(planeC_Info);
 		}
 		if (B747_400_Range > Distance && B747_400_Seat > passengers) {
-			planes[3] = "B747_400";
+			Button planeD_Info = new Button("Boeing 747-400");
+			planeD_Info.setId("planeDBtn");
+			
+			
+			planeD_Info.setOnAction(e -> {
+				VBox PlaneD = new VBox(10);
+				PlaneD.setPadding(new Insets(0, 10, 20, 0));
+				PlaneD.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("747-400");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneD.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneD);
+				
+			});
+			
+			planes.getChildren().addAll(planeD_Info);
 		}
+		if (B747_800_Range > Distance && B747_800_Seat > passengers) {
+			Button planeE_Info = new Button("Boeing 747-800");
+			planeE_Info.setId("planeEBtn");
+			
+			planeE_Info.setOnAction(e -> {
+				VBox PlaneE = new VBox(10);
+				PlaneE.setPadding(new Insets(0, 10, 20, 0));
+				PlaneE.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("747-800");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneE.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneE);
+				
+			});
+			planes.getChildren().addAll(planeE_Info);
+		}
+		if (B777_300ER_Range > Distance && B777_300ER_Seat > passengers) {
+			Button planeF_Info = new Button("Boeing 777-300ER");
+			planeF_Info.setId("planeFBtn");
+			
+			
+			planeF_Info.setOnAction(e -> {
+				VBox PlaneF = new VBox(10);
+				PlaneF.setPadding(new Insets(0, 10, 20, 0));
+				PlaneF.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("777-300ER");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneF.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneF);
+				
+			});
+			
+			planes.getChildren().addAll(planeF_Info);
+		}
+		if (B787_800_Range > Distance && B787_800_Seat > passengers) {
+			Button planeG_Info = new Button("Boeing 787-800");
+			planeG_Info.setId("planeGBtn");
+			
+			planeG_Info.setOnAction(e -> {
+				VBox PlaneG = new VBox(10);
+				PlaneG.setPadding(new Insets(0, 10, 20, 0));
+				PlaneG.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("787-800");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneG.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneG);
+				
+			});
+			
+			planes.getChildren().addAll(planeG_Info);
+		}
+		if (B787_900_Range > Distance && B787_900_Seat > passengers) {
+			Button planeH_Info = new Button("Boeing 787-900");
+			planeH_Info.setId("planeHBtn");
+			
+			planeH_Info.setOnAction(e -> {
+				VBox PlaneH = new VBox(10);
+				PlaneH.setPadding(new Insets(0, 10, 20, 0));
+				PlaneH.setAlignment(Pos.CENTER);
+				
+				String[] PlaneInfo;
+				PlaneInfo = Plane.planeInfo("787-900");
+				
+				planeName = PlaneInfo[0];
+				planeCrew = PlaneInfo[1];
+				planeLength = PlaneInfo[2];
+				planeSpan = PlaneInfo[3];
+				planeWidth = PlaneInfo[4];
+				planeMaxLandWeight = PlaneInfo[5];
+				planeMaxTakeOffWeight = PlaneInfo[6];
+				planeTakeOffDis = PlaneInfo[7];
+				planeRange = PlaneInfo[8];
+				
+				Label planeText = new Label(planeName);
+				planeText.setId("planeTitle");
+				
+				
+				Label planeCrewText = new Label("Crew: " + planeCrew);
+				planeCrewText.setId("planeCrew");
+				
+				Label planeLengthText = new Label("Plane Length: " + planeLength);
+				planeLengthText.setId("planeLength");
+				
+				Label planeSpanText = new Label("Plane Wing Span: " + planeSpan);
+				planeSpanText.setId("planeSpan");
+				
+				Label planeWidthText = new Label("Plane Fuesalge Width: " + planeWidth);
+				planeWidthText.setId("planeWidth");
+				
+				Label planeLandWeightText = new Label("Plane Max Landing Weight: " + planeMaxLandWeight);
+				planeLandWeightText.setId("planeLand");
+				
+				Label planeTakeWeightText = new Label("Plane Max Take Off Weight: " + planeMaxTakeOffWeight);
+				planeTakeWeightText.setId("planeTakeWeight");
+				
+				Label planeTakeDisText = new Label("Plane Take Off Distance: " + planeTakeOffDis);
+				planeTakeDisText.setId("planeTakeDis");
+				
+				Label planeRangeText = new Label("Plane Range: " + planeRange);
+				planeRangeText.setId("planeRange");
+				
+				
+				PlaneH.getChildren().addAll(planeText, planeCrewText, planeLengthText, planeSpanText, planeWidthText, planeLandWeightText, planeTakeWeightText, planeTakeDisText, planeRangeText);
+				
+				planePane.setBottom(PlaneH);
+				
+			});
+			
+			planes.getChildren().addAll(planeH_Info);
+		}
+		
+		
+		
 		
 		
 		
@@ -1450,25 +1933,6 @@ public class Main extends Application {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

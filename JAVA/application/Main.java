@@ -943,9 +943,27 @@ public class Main extends Application {
 		
 		int Distance = Distances.distanceInfo(dAirport, aAirport);
 		
-		System.out.println(Distance);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		return choosePlanes;
+	}
+	
+	
+	public String[] CollectPlanes() {
+		String[] planes = null;
+		
+		
+		
+		
+		
+		return planes;
 	}
 	
 	//Method for Assigning risk to the parameters

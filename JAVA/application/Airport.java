@@ -26,6 +26,26 @@ public class Airport {
 				String[] KMCO = AirportInfo.kmcoArray;
 				airport = KMCO;
 				break;	
+			
+			case "KSEA" :
+				String[] KSEA = AirportInfo.kseaArray;
+				airport = KSEA;
+				break;
+			
+			case "KPHX" :
+				String[] KPHX = AirportInfo.kphxArray;
+				airport = KPHX;
+				break;
+			
+			case "KEWR" :
+				String[] KEWR = AirportInfo.kewrArray;
+				airport = KEWR;
+				break;
+			
+			case "KMCI" :
+				String[] KMCI = AirportInfo.kmciArray;
+				airport = KMCI;
+				break;
 		}
 		
 		
@@ -53,6 +73,22 @@ public class Airport {
 		case "KMCO" :
 			airportMap = "-fx-background-image: url(images/KMCO.jpg); -fx-background-size: 400px 400px; -fx-background-position: center";
 			break;	
+
+		case "KSEA" :
+			airportMap = "-fx-background-image: url(images/KSEA.jpg); -fx-background-size: 400px 400px; -fx-background-position: center";
+			break;
+			
+		case "KPHX" :
+			airportMap = "-fx-background-image: url(images/KPHX.jpg); -fx-background-size: 400px 400px; -fx-background-position: center";
+			break;
+			
+		case "KEWR" :
+			airportMap = "-fx-background-image: url(images/KMCO.jpg); -fx-background-size: 400px 400px; -fx-background-position: center";
+			break;
+			
+		case "KMCI" :
+			airportMap = "-fx-background-image: url(images/KMCO.jpg); -fx-background-size: 400px 400px; -fx-background-position: center";
+			break;
 	}
 		
 		

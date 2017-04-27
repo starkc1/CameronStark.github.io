@@ -331,7 +331,7 @@ public class Main extends Application {
 		ComboBox<String> dAirportFld = new ComboBox<>();
 		dAirportFld.setPromptText(dAirport);
 		dAirportFld.setId("dDropdown");
-		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
+		dAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA", "KSEA", "KPHX", "KEWR", "KMCI");
 		Label dairport = new Label("Departure Airport");
 		dairport.setId("dairport");
 		vbox.getChildren().addAll(dairport, dAirportFld);
@@ -443,7 +443,7 @@ public class Main extends Application {
 		ComboBox<String> aAirportFld = new ComboBox<>();
 		aAirportFld.setPromptText(aAirport);
 		aAirportFld.setId("aDropdown");
-		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA");
+		aAirportFld.getItems().addAll("KDAB", "KTPA", "KMCO", "KDCA", "KSEA", "KPHX", "KEWR", "KMCI");
 		Label aairport = new Label("Arrival Airport");
 		aairport.setId("aairport");
 		vbox.getChildren().addAll(aairport, aAirportFld);
@@ -1784,7 +1784,7 @@ public class Main extends Application {
 		return riskPane;
 	}
 
-	
+	//Method for assigning risk to the time
 	public int TimeRisk() {
 
 		int DTime = Integer.parseInt(dTime);
@@ -1812,6 +1812,7 @@ public class Main extends Application {
 		return timeRisk;
 	}
 	
+	//Method for assigning risk to the wind
 	public int WindRisk() {
 		
 		int DWind = Integer.parseInt(dWind);
@@ -1834,6 +1835,7 @@ public class Main extends Application {
 		return windRisk;
 	}
 	
+	//Method for assigning risk to the visibility
 	public int VisRisk() {
 		int DVis = Integer.parseInt(dVis);
 		int AVis = Integer.parseInt(aVis);
@@ -1870,6 +1872,7 @@ public class Main extends Application {
 		return visRisk;
 	}
 	
+	//Method for assigning risk to the temperature
 	public int TempRisk() {
 		
 		int DTemp = Integer.parseInt(dTemp);
@@ -1886,6 +1889,7 @@ public class Main extends Application {
 		return tempRisk;
 	}
 	
+	//Method for assigning risk to the type of flight
 	public int TypeRisk() {
 		int typeTime = Integer.parseInt(hrsType);
 		
@@ -1898,6 +1902,8 @@ public class Main extends Application {
 		return typeRisk;
 	}
 	
+	
+	//Method for assigning risk to the Time of day
 	public int FlightTimeDaysRisk() {
 		int flightTimeDays = Integer.parseInt(hrsDays);
 		
@@ -1910,6 +1916,7 @@ public class Main extends Application {
 		return hrsDaysRisk;
 	}
 	
+	//Method for assigning risk to the number of crew
 	public int CrewRisk() {
 		switch (crewNumber) {
 			case "Dual":
@@ -1924,6 +1931,8 @@ public class Main extends Application {
 		return crewNumRisk;
 	}
 	
+	
+	//Method for assigning risk to the Flight Time
 	public int FlightTimeRisk() {
 		int flightTime = Integer.parseInt(time);
 		
@@ -1936,6 +1945,7 @@ public class Main extends Application {
 		return flightRisk;
 	}
 	
+	//Method for assigning risk to the rest time
 	public int RestTimeRisk() {
 		
 		int restTime = Integer.parseInt(rest);
@@ -1949,6 +1959,7 @@ public class Main extends Application {
 		return restRisk;
 	}
 	
+	//Method for assigning risk to the tower
 	public int TowerRisk() {
 		
 		switch (dAirportTower) {
@@ -1978,6 +1989,7 @@ public class Main extends Application {
 		return airportTowerRisk;
 	}
 	
+	//Method for assigning risk to the eleveation
 	public int ElevationRisk() {
 		
 		int dElev = Integer.parseInt(dAirportElevation);
@@ -1997,6 +2009,8 @@ public class Main extends Application {
 		
 	}
 	
+	
+	//Method of assigning risk to the international vlaue
 	public int InternationalRisk() {
 		
 		switch (dAirportInternational) {
@@ -2020,6 +2034,7 @@ public class Main extends Application {
 		return internationalRisk;
  	}
 	
+	//Method of assigning risk to the ceiling on departurea nd arrival
 	public int CeilingRisk() {
 		
 		int DCeil = Integer.parseInt(dCeil);
@@ -2060,6 +2075,7 @@ public class Main extends Application {
 		return ceilingRisk;
 	}
 	
+	//Method of Assigning risk to the dew point value
 	public int DewRisk() {
 		
 		int DDew = Integer.parseInt(dDew);

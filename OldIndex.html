@@ -21,55 +21,28 @@
     <script type="text/javascript"></script>
 </head>
 
-<style>
-    .navbar-default {
-        background-color: #2F5597;
-    }
-
-    .navbar-default .navbar-nav>li>a {
-        color: white;
-    }
-
-    .navbar-brand {
-        color: white;
-    }
-</style>
-
-
-
-
-<body>
-    <nav class="nav navbar-default">
-        <div class="container-fluid-custom">
-            <div class="navbar-header">
-                <button class="navbar-toggle collapsed" aria-expanded="false" type="button" data-toggle="collapse" data-target="#custom-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-                <a class="navbar-brand">Navbar Brand</a>
-            </div>
-            <div class="collapse navbar-collapse" id="custom-collapse" aria-expanded="false" style="height: 1px;">
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="">Nav 1</a></li>
-                    <li class=""><a href="">Nav 2</a></li>
-                    <li class=""><a href="">Nav 3</a></li>
-                    <li class=""><a href="">Nav 4</a></li>
-                </ul>
-            </div>
+<body ng-app="Portfolio">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="jumbotron">
+            <h2 class="h2-responsive">Cameron Michael Stark</h2>
+            <hr class="my-2">
+            <p>
+                B.S. Software Engineering
+                </br>
+                Embry-Riddle Aeronautical University 2019
+            </p>
+            <a href="/#/Home" class="btn btn-header">Home</a>
+            <a href="/#/Experience" class="btn btn-header">Experience</a>
+            <a href="/#/Projects" class="btn btn-header">Projects</a>
+            <a href="/#/Blog" class="btn btn-header">Blog</a>
+            <a href="/#/Resume" class="btn btn-header" >Resume</a>
         </div>
     </nav>
 
-
-
-
-
+    <div class="container-fluid">
+        <div ng-view></div>
+    </div>
 </body>
-
-
-
-
 
 
 

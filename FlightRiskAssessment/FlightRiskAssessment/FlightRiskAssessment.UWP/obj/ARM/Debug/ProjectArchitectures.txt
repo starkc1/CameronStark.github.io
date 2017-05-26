@@ -1,0 +1,2 @@
+E:\Stark_Dev\VisualStudio\FlightRiskAssessment\FlightRiskAssessment\FlightRiskAssessment.UWP\FlightRiskAssessment.UWP.csproj;arm
+E:\Stark_Dev\VisualStudio\FlightRiskAssessment\FlightRiskAssessment\FlightRiskAssessment\FlightRiskAssessment.csproj;neutral

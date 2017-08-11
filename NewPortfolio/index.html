@@ -20,6 +20,12 @@
         src: url("fonts/roboto/Roboto-Thin.woff") format('woff');
     }
 
+    @media (max-width: 1026px) {
+        #Info {
+            display: none;
+        }
+    }
+
     .nav-wrapper {
         background-color: #2F5597;
     }
@@ -30,6 +36,10 @@
         padding: 0px;
         margin: 10px;
         font-size: 35px;
+    }
+
+    #sidenav-overlay {
+        background-color: transparent;
     }
 
     .card {
@@ -53,6 +63,17 @@
         font-family: RobotoThin;
     }
 
+    #sideContent {
+        color: white;
+        text-align: center;
+        background-color: #2F5597;
+    }
+
+    #sideContent ul li a {
+        color: white;
+        font-size: 20px;
+    }
+
     #Info {
         background-color: #2F5597;
         text-align: center;
@@ -60,13 +81,19 @@
         padding: 15px;
     }
 
-    #education, #websites, #software {
+    #education,
+    #websites,
+    #software {
         margin-bottom: 50px;
     }
 
     #link {
         color: white;
         cursor: pointer;
+    }
+    
+    h6 {
+        margin: 0px;
     }
 </style>
 
@@ -76,19 +103,29 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center"><img src="images/CMS_Logo1.png" style="Height: 65px;"></a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" data-activates="sideContent" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="">Home</a></li>
                     <li><a href="">Experience</a></li>
                     <li><a href="">Projects</a></li>
                     <li><a href="">Resume</a></li>
                 </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Experience</a></li>
-                    <li><a href="">Projects</a></li>
-                    <li><a href="">Resume</a></li>
-                </ul>
+                <div class="side-nav" id="sideContent">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Experience</a></li>
+                        <li><a href="">Projects</a></li>
+                        <li><a href="">Resume</a></li>
+                    </ul>
+                    <hr>
+                    <h4>Cameron Stark</h4>
+                    <h5>Education</h5>
+                    <i><h6>
+                        Bachelors of Science in Software Engineering
+                        Embry-Riddle Aeronautical University
+                    </h6></i>
+                    
+                </div>
             </div>
         </nav>
     </div>
@@ -98,13 +135,13 @@
             <h3>Cameron Stark</h3>
             <hr>
             <section id="education">
-                <h4>Education</h4>
+                <h5>Education</h5>
                 <p><i>Bachelors of Science in Software Engineering 2019</i></p>
                 <p>Embry-Riddle Aeronautical University</p>
             </section>
 
             <section id="websites">
-                <h4>Websites</h4>
+                <h5>Websites</h5>
                 <p><i>Linkedin</i></p>
                 <a id="link">goo.gl/riuiTK</a>
                 <p><i>Github</i></p>
@@ -112,7 +149,7 @@
             </section>
 
             <section id="software">
-                <h4>Software</h4>
+                <h5>Software</h5>
                 <p>Microsoft Visual Studio</p>
                 <p>Microsoft Visual Studio Code</p>
                 <p>Microsoft Xamarin Studio</p>
@@ -124,12 +161,25 @@
             </section>
 
             <section id="languages">
-
+                <h5>Languages/Frameworks</h5>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>AngularJS</p>
+                <p>C#</p>
+                <p>XAML</p>
+                <p>SQL</p>
+                <p>LINQ</p>
+                <p>Bootstrap</p>
+                <p>Materialize</p>
+                <p>Xamarin</p>
+                <p>WPF</p>
+                <p>Java</p>
             </section>
         </div>
 
 
-        <div class="col l9" style="background-color: blue;">
+        <div class="col s12 m12 l9" style="background-color: blue;">
             hsfhsifs
         </div>
     </div>
@@ -164,7 +214,7 @@
             $(function () {
 
                 $('.button-collapse').sideNav();
-                
+
 
             }); // end of document ready
         })(jQuery);

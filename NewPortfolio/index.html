@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import Materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 
     <title>Cameron Stark</title>
     <!--Let browser know website is optimized for mobile-->
@@ -14,6 +15,11 @@
 
 
 <style>
+    @font-face {
+        font-family: "RobotoThin";
+        src: url("fonts/roboto/Roboto-Thin.woff") format('woff');
+    }
+
     .nav-wrapper {
         background-color: #2F5597;
     }
@@ -30,7 +36,7 @@
         padding: 0px;
         margin: 10px;
     }
-    
+
     #content {
         color: #2F5597;
         text-align: center;
@@ -44,7 +50,23 @@
     }
 
     body {
-        font-family: 'Times New Roman', Times, serif;
+        font-family: RobotoThin;
+    }
+
+    #Info {
+        background-color: #2F5597;
+        text-align: center;
+        color: white;
+        padding: 15px;
+    }
+
+    #education, #websites, #software {
+        margin-bottom: 50px;
+    }
+
+    #link {
+        color: white;
+        cursor: pointer;
     }
 </style>
 
@@ -70,6 +92,49 @@
             </div>
         </nav>
     </div>
+
+    <div class="row">
+        <div class="col s0 m0 l3 z-depth-4" id="Info">
+            <h3>Cameron Stark</h3>
+            <hr>
+            <section id="education">
+                <h4>Education</h4>
+                <p><i>Bachelors of Science in Software Engineering 2019</i></p>
+                <p>Embry-Riddle Aeronautical University</p>
+            </section>
+
+            <section id="websites">
+                <h4>Websites</h4>
+                <p><i>Linkedin</i></p>
+                <a id="link">goo.gl/riuiTK</a>
+                <p><i>Github</i></p>
+                <a id="link">goo.gl/wNQbu4</a>
+            </section>
+
+            <section id="software">
+                <h4>Software</h4>
+                <p>Microsoft Visual Studio</p>
+                <p>Microsoft Visual Studio Code</p>
+                <p>Microsoft Xamarin Studio</p>
+                <p>MatLab</p>
+                <p>Adobe Photoshop</p>
+                <p>Catia</p>
+                <p>Eclipse</p>
+                <p>Microsoft SQL Server Management Studio</p>
+            </section>
+
+            <section id="languages">
+
+            </section>
+        </div>
+
+
+        <div class="col l9" style="background-color: blue;">
+            hsfhsifs
+        </div>
+    </div>
+
+
 
 
     <section class="Home">
@@ -99,6 +164,7 @@
             $(function () {
 
                 $('.button-collapse').sideNav();
+                
 
             }); // end of document ready
         })(jQuery);

@@ -3,6 +3,9 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/Home', {
             templateUrl: 'views/Home.html'
         })
+        .when('/Experience', {
+            templateUrl: 'views/Experience.html'
+        })
         .otherwise({
             redirectTo: '/Home'
         })

@@ -1,0 +1,16 @@
+<style>
+
+</style>
+
+<div class="Projects" ng-controller="MainController">
+    <div class="card z-depth-4" ng-repeat="proj in projects">
+        <div class="card-content">
+            <img src=" {{ proj.img }} " />
+            <h3> {{ proj.name }} </h3>
+            <h4> {{ proj.created }} </h4>
+            <hr>
+            <h5> {{ proj.comment1 }} </h5>
+            <h5> {{ proj.comment2 }} </h5>
+        </div>
+    </div>
+</div>

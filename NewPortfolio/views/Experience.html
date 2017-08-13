@@ -1,17 +1,18 @@
 <style>
     .Experience {
         text-align: center;
-        margin: 10px;
     }
 </style>
 
 <div class="Experience" ng-controller="MainController">
     <div clas="card z-depth-4" ng-repeat="exp in experience">
-        <img src="{{ exp.img }}" height="100"/>
-        <h3><b> {{ exp.company }} </b></h3>
-        <h3> {{ exp.position }} </h3>
-        <hr>
-        <h5> {{ exp.info1 }} </h5>
-        <h5> {{ exp.info2 }} </h5>
+        <div class="card-content">
+            <img src="{{ exp.img }}" height="100" />
+            <h3><b> {{ exp.company }} </b></h3>
+            <h3> {{ exp.position }} </h3>
+            <hr>
+            <h5> {{ exp.info1 }} </h5>
+            <h5> {{ exp.info2 }} </h5>
+        </div>
     </div>
 </div>

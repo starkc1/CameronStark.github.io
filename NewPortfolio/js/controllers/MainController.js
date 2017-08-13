@@ -32,34 +32,6 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.projects = [
         {
-            img: 'images/Project_1.png',
-            name: 'Basic Math Solver (Windows 10)',
-            created: 'Created By: Cameron Stark',
-            comment1: 'Developed using C# and XAML',
-            comment2: 'Visual Studio 2015'
-        },
-        {
-            img: 'images/Project_2.png',
-            name: 'Basic Math Solver (iOS)',
-            created: 'Created By: Cameron Stark',
-            comment1: 'Devloped using Xamarin.Forms, C#, and XAML',
-            comment2: 'Visual Studio 2015 and Xamarin Studio'
-        },
-        {
-            img: 'images/Project_2-5.png',
-            name: 'Basic Math Solver (Android)', 
-            created: 'Created By: Cameron Stark',
-            comment1: 'Developed using Xamarin.Forms, C# and XAML',
-            comment2: 'Visual Studio 2015 and Xamarin Studio'
-        },
-        {
-            img: 'images/Project_3.png',
-            name: 'The Frugal You (iOS and Android)',
-            created: 'Created By: Cameron Stark',
-            comment1: 'Developed using Xamarin.Forms, C#, C#.NET, and XAML',
-            comment2: 'Visual Studio 2015 and Xamarin Studio'
-        },
-        {
             img: 'images/Project_4.jpg',
             name: 'EvenToConnect',
             created: 'Created By: Cameron Stark, Brian Nunes De Souza, Nicholas Van Bommel and Pablo Garces',

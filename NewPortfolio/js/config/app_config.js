@@ -9,6 +9,9 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/Projects', {
             templateUrl: 'views/Projects.html'
         })
+        .when('/Resume', {
+            templateUrl: 'views/Resume.html'
+        })
         .otherwise({
             redirectTo: '/Home'
         })

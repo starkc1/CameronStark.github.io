@@ -2,7 +2,7 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.experience = [
         {
             company: 'Belcan Engineering',
-            img: '',
+            img: 'images/BelcanLogo.png',
             position: 'Software Engineering Intern',
             info1: 'Developed tools to monitor Pratt & Whitney Jet Engines',
             info2: 'WPF, C#, XAML, SQL'

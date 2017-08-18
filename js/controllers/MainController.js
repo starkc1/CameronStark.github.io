@@ -40,8 +40,22 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.projects = [
         {
             img: '',
-            name: 'PEQs',
-            created: 'Created By: Andrew Cooper, Cameron Stark, Santiago Facundo',
+            name: 'PAQT Tool',
+            created: 'Created By: Various Belcan Employees',
+            comment1: 'Tool to allow belcan engineers to track, watch, and sign off on the development of jet engine fan blades',
+            comment2: 'C#, WPF, SQL, SAP, Oracle, XAML'
+        },
+        {
+            img: '',
+            name: 'NGPF Tools',
+            created: 'Created By: Various Beclan Employees',
+            comment1: 'Various tools to track, maintain and plot jet engine data from commerical Pratt & Whitney Jet Engines',
+            comment2: 'C#, WPF, WinForms, MatLab, SQL, XAML'
+        },
+        {
+            img: '',
+            name: 'PEQs Tool',
+            created: 'Created By: Various Belcan Employees',
             comment1: 'Normalization program for incoming live jet engine data, to be passed onto tracking and plotting tools',
             comment2: 'C#, WPF, Unigraph, SQL, XAML'
         },

@@ -1,6 +1,13 @@
 app.controller('MainController', ['$scope', function($scope) {
     $scope.experience = [
         {
+            company: 'Belcan Engineering',
+            img: '',
+            position: 'Software Engineering Intern',
+            info1: 'Developed tools to monitor Pratt & Whitney Jet Engines',
+            info2: 'WPF, C#, XAML, SQL'
+        },
+        {
             company: 'Software Logistics, LLC',
             img: '', 
             position: 'Web Developer Intern',

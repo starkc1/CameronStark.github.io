@@ -4,7 +4,7 @@
     }
 </style>
 
-<div class="Experience" ng-controller="MainController">
+<!-- <div class="Experience" ng-controller="MainController">
     <div class="card z-depth-4" ng-repeat="exp in experience">
         <div class="card-content" >
             <img src="{{ exp.img }}" height="100" />
@@ -13,6 +13,18 @@
             <hr>
             <h5> {{ exp.info1 }} </h5>
             <h5> {{ exp.info2 }} </h5>
+        </div>
+    </div>
+</div> -->
+
+<div ng-controller="MainController">
+    <div class="card z-depth-4" ng-repeat="exp in experience">
+        <div class="card-content">
+            <h3 class="company"><b> {{ exp.company }} </b></h3>
+            <h3 class="position"> {{ exp.position }} </h3>
+            <hr>
+            <h5 class="info"> {{ exp.info1 }} </h5>
+            <h5 class="info"> {{ exp.info2 }} </h5>
         </div>
     </div>
 </div>

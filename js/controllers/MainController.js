@@ -17,7 +17,7 @@ app.controller('MainController', ['$scope', function($scope) {
         {
             company: 'Fusion Advertising Inc.',
             img: 'images/Fusion_Logo.png',
-            position: 'Lead Mobile Application Developer Intern',
+            position: 'Lead Mobile Developer Intern',
             info1: 'Developed The Frugal You coupon application',
             info2: 'C#, XAML, Xamarin.Forms, .NET'
         },
@@ -39,18 +39,25 @@ app.controller('MainController', ['$scope', function($scope) {
 
     $scope.projects = [
         {
+            img: '',
+            name: 'PEQs',
+            created: 'Created By: Andrew Cooper, Cameron Stark, Santiago Facundo',
+            comment1: 'Normalization program for incoming live jet engine data, to be passed onto tracking and plotting tools',
+            comment2: 'C#, WPF, Unigraph, SQL, XAML'
+        },
+        {
             img: 'images/Project_4.jpg',
             name: 'EvenToConnect',
             created: 'Created By: Cameron Stark, Brian Nunes De Souza, Nicholas Van Bommel and Pablo Garces',
-            comment1: 'Developed using C#.NET, HTML, Bootstrap, and CSS',
-            comment2: 'Visual Studio 2015 and Clarifai API'
+            comment1: 'Social Media concept where images are uploaded and scanned based on content to dynamically modify the trending categories',
+            comment2: 'C#, HTML, Bootstrap, Clarifai API'
         },
         {
             img: 'images/Project_5.jpg',
             name: 'HackRiddle App',
             created: 'Created By: Embry-Riddle Mobile Application Development Club',
-            comment1: 'Developed using HTML, CSS and Materialize',
-            comment2: 'Twitter API and GitHub'
+            comment1: 'Mobile Web App to allow the participants of HackRiddle to keep up to date on events',
+            comment2: 'Twitter API, GitHub, Materialize, Javascript, HTML, CSS'
         }
     ];
 

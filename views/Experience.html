@@ -2,6 +2,10 @@
     .Experience {
         text-align: center;
     }
+
+    .company, .position {
+        display: inline;
+    }
 </style>
 
 <!-- <div class="Experience" ng-controller="MainController">
@@ -21,7 +25,7 @@
     <div class="card z-depth-4" ng-repeat="exp in experience">
         <div class="card-content">
             <h3 class="company"><b> {{ exp.company }} </b></h3>
-            <h3 class="position"> {{ exp.position }} </h3>
+            <h4 class="position"> {{ exp.position }} </h4>
             <hr>
             <h5 class="info"> {{ exp.info1 }} </h5>
             <h5 class="info"> {{ exp.info2 }} </h5>

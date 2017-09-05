@@ -1,0 +1,81 @@
+Computation (General Purpose)
+    Values
+    Identifiers (Declaration)
+    Assignment (=)
+    Repitition (loop,recursion)
+    Selection (if-them-else)
+    I/O
+
+Lambda-Calculus
+    exp => (lambda)id.exp or name or exp exp
+    beta-reduction
+    alpha-reduction
+
+    (lambda)x.x == (lambda)y.y : yes
+    (lambda)s.(lambda).z.s(z) == (lambda)sz.s(z) : yes
+    
+    --
+    (lambda)x.(x+1) 5
+    5 + 1 beta-reduction
+    6
+
+    --
+    ADD1 == (lambda)x.(x+1)
+    ADD1 5
+    (lambda)x.(x+1) 5
+    5 + 1 beta-reduction
+    6
+
+    --
+    (lambda)y.(lambda)x.(x+y) 3 5
+    (lambda)x.(x+3) 5 beta-reduction
+    5 + 3 beta-reduction
+    8
+
+    --
+    (lambda)x. x x 7
+    7 7 beta-reduction
+
+    0 = (lambda)sz.z 
+    1 = (lambda)sz.s(z)
+    2 = (lambda)sz.s(s(z))
+    3 = (lambda)sz.s(s(s(z)))
+
+    S == (lambda)wyx.y(wyx)
+
+    --
+    S 0
+    (lambda)wyx.y(wyx) (lambda)sz.z
+    (lambda)yx.y(((lambda)sz.z) y x)
+    (lambda)yx.y((lambda)z.z x)
+    (lambda)yx.y(x) = 1
+
+    --
+    S 1
+    (lambda)wyx.y(wyx) (lambda)sz.s(z)
+    (lambda)yx.y((lambda)sz.s(z) y x)
+    (lambda)yx.y((lambda)z.y(z) x)
+    (lambda)yx.y(y(x)) = 2
+
+    --
+    2 S 3
+    (lambda)sz.s(s(z)) (lambda)wyx.y(wyx) (lambda)sz.s(s(s(z)))
+    (lambda)z.(lambda)wyx.y(wyx)((lambda)wyx.y(wyx)(z)) (lambda)sz.s(s(s(z)))
+    (lambda)wyx.y(wyx) (lambda)wyx.y(wyx) (lambda)sz.s(s(s(z)))
+
+    --
+    x == (lambda)xyz.x(yz)
+    x 2 2
+
+    (lambda)xyz.x(yz) 2 2
+    (lambda)yz.2(yz) 2
+    (lambda)z.2(2 z)
+
+    --
+    x 0 0 
+    (lambda)xyz.x(yz) 0 0 
+    (lambda)yz.0(yz) 0
+    (lambda)z.0(0 z)
+    (lambda)z.(lambda)sz.z ((lambda)sz.z z)
+    (lambda)z.((lambda)z.z z)
+    (lambda)z.z

@@ -1,0 +1,65 @@
+Boolean Operators
+
+T == (lambda)xy.x
+F == (lambda)xy.y
+
+and == (lambda)xy.xy( (lambda)uv.v )
+or == (lambda)xy.x( (lambda)uv.u )y
+not == (lambda)x.x( (lambda)uv.v ) ( (lambda)ab.a )
+
+
+
+not T -> F
+(lambda)x.x( (lambda)uv.v ) ( (lambda)ab.a ) (lambda)cd.c 
+(lambda)cd.c ( (lambda)uv.v ) ( (lambda)ab.a ) --- B-reduction
+(lambda)uv.v --- B-reduction
+F 
+
+and T F
+(lambda)xy.xy((lambda)uv.v) T F
+T F (lambda)uv.v --- B-reduction
+(lambda)xy.x F F --- B-reduction
+F
+
+and T T
+(lambda)xy.xy(lambda)uv.v T T
+T T (lambda)uv.v --- B-reduction
+T T F --- B-reduction
+(lambda)xy.x T F --- B-reduction
+T --- B-reduction
+
+or T F
+(lambda)xy.x((lambda)uv.u)y T F
+T((lambda)uv.u) F --- B-reduction
+T T F --- B-reduction
+(lambda)xy.x T F --- B-reduction
+T
+
+or F T
+(lambda)xy.x((lambda)uv.u)y F T
+F (lambda)uv.u T --- B-reduction
+F T T --- B-reduction
+(lambda)xy.y T T --- B-reduction
+T
+
+
+-Recursion-
+
+Y == (lambda)y.( (lambda)x.y(xx) )( (lambda)x.y(xx) )
+
+
+Y R == (lambda)y.( (lambda)x.y(xx) )( (lambda)x.y(xx) ) R 
+Y R == (lambda)x.R(xx) (lambda)x.R(xx) 
+Y R == R( (lambda)x.R(xx) (lambda)x.R(xx) ) = R Y R
+Y R == R R ( lambda)x.R(xx) (lambda)x.R(xx) ) = R R Y R 
+Y R == R R R ( lambda)x.R(xx) (lambda)x.R(xx) ) = R R R Y R
+
+i = 0 SUM n of i == R == ( (lambda)rn.ZnO(nS(r(Pn))))
+
+Y R 3 =
+R(Y R) 3  Z 3 O ( 3 S (Y R)(P 3))
+          Z 3 0 ( 3 S (Y R)(P 3))
+          3 S(Y R) 2
+          3 S 2 S (Y R) 1
+          3 S 2 S 1 S (Y R) 0
+          3 S 2 S 1 S 0

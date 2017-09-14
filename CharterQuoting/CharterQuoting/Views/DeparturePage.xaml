@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CharterQuoting.Views.DeparturePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#0D47A1" HasShadow="true" CornerRadius="0" >
+                <StackLayout Spacing="10">
+                    <StackLayout>
+                        <Label Text="Departure Country" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
+                        <Picker x:Name="countryPicker" Title="Select A Country"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout IsVisible="false">
+                            <Label Text="Departure State" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
+                            <Picker />
+                        </StackLayout>
+                        <StackLayout IsVisible="false">
+                            <Label Text="Departure City" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
+                            <Picker />
+                        </StackLayout>
+                        <StackLayout IsVisible="false"> 
+                            <Label Text="Departure Airport" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
+                            <Picker />
+                        </StackLayout>
+                    </StackLayout>
+                    <DatePicker HorizontalOptions="FillAndExpand" IsVisible="false"/>
+                    <StackLayout IsVisible="false">
+                        <Label Text="Number Of Passengers" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20"/>
+                        <Entry Keyboard="Numeric" TextColor="#0D47A1"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

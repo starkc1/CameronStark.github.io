@@ -1,0 +1,35 @@
+The -Procedural- paradigm views computation as -Observable Transformation between some initial memory state to some final memory state- and achieves this through -Incremental modifications to memory-.
+
+The -Object Oriented- paradigm views computation as -Observable Transformation of some collection of objects from initial to final state- and achieves this through -Interaction among objects-.
+
+The -Functional- paradigm views computation as -Observable Transformation between some input value to some output value- and achieves this through -Function Composition f(g(h(x)))-.
+
+
+
+Procedural
+    AddList
+        input: L[n]
+        output: sum
+
+        sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sum = sum + L[i];
+        }
+        print sum;
+
+Functional
+    AddList
+        input: L[n]
+        output: sum
+
+        sum(L[n]){
+            if (n = 0)
+            {
+                return 0;
+            }
+            else 
+            {
+                return L[0] + Sum(L[n+1]);
+            }
+        }

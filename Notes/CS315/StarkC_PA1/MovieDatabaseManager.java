@@ -47,7 +47,7 @@ public class MovieDatabaseManager {
 				//Try to parse the movie using the appropriate movie constructor.  If it fails, an exception is caught
 				try {
 					m = new Movie(instr);
-					
+					mList.add(m);
 					////////////////////////////////////////////////////
 					//Add code to insert m here into your list
 					////////////////////////////////////////////////////
@@ -94,7 +94,7 @@ public class MovieDatabaseManager {
 				//////////////////////////////////////////////////////
 				//  Call list function that prints in ascending order
 				//////////////////////////////////////////////////////
-
+				mList.printAll();
 			}
 			else if (choice.equals("2")) {
 				//////////////////////////////////////////////////////

@@ -1,5 +1,0 @@
-Computation
-    Receiving input data, processing that data, outputting the result
-    Transformation from some start state to some end state
-    Modification of some set of symbols (operands) by some set of rules (operators)
-Language
